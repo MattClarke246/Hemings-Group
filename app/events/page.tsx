@@ -2,8 +2,8 @@ import Container from "../_components/Container";
 import Section from "../_components/Section";
 import Eyebrow from "../_components/Eyebrow";
 import GlassCard from "../_components/GlassCard";
-import GoldBrushstroke from "../_components/GoldBrushstroke";
 import GoldSplash from "../_components/GoldSplash";
+import NavyAgate from "../_components/NavyAgate";
 import Reveal from "../_components/Reveal";
 
 export const metadata = {
@@ -86,27 +86,32 @@ function NightCard({ n }: { n: Night }) {
 export default function EventsPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden pt-40 pb-24 md:pt-52 md:pb-32">
-        <GoldBrushstroke opacity={0.32} className="rotate-[5deg]" />
-        <Container className="relative">
-          <Reveal>
-            <Eyebrow className="mb-8">The Week at Hemings</Eyebrow>
-          </Reveal>
-          <Reveal delay={120}>
-            <h1
-              className="display max-w-[1000px] text-text-primary"
-              style={{ fontSize: "var(--t-h1)" }}
-            >
-              Seven nights, <span className="display-it gold-text">seven moods.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="mt-10 max-w-xl text-text-secondary text-lg leading-[1.9]">
-              No two evenings at Hemings sound alike. The week unfolds as a
-              composition — each night curated, none repeated.
-            </p>
-          </Reveal>
+      {/* HERO — navy marble panel */}
+      <section className="px-4 pt-28 pb-12 md:px-8 md:pt-32 md:pb-20">
+        <Container className="!px-0">
+          <div className="agate-panel relative">
+            <NavyAgate intensity={0.95} />
+            <div className="relative px-8 py-24 md:px-16 md:py-32 lg:px-24">
+              <Reveal>
+                <Eyebrow dark className="mb-8">The Week at Hemings</Eyebrow>
+              </Reveal>
+              <Reveal delay={120}>
+                <h1
+                  className="display max-w-[1000px] text-[var(--text-primary-dark)]"
+                  style={{ fontSize: "var(--t-h1)" }}
+                >
+                  Seven nights,{" "}
+                  <span className="display-it gold-text">seven moods.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={240}>
+                <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
+                  No two evenings at Hemings sound alike. The week unfolds as a
+                  composition — each night curated, none repeated.
+                </p>
+              </Reveal>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -126,7 +131,6 @@ export default function EventsPage() {
         </Container>
       </Section>
 
-      {/* SPLASH PUNCTUATION */}
       <div className="flex items-center justify-center py-8">
         <GoldSplash size={140} className="opacity-80" />
       </div>

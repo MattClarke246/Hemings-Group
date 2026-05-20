@@ -2,7 +2,7 @@ import Container from "../_components/Container";
 import Section from "../_components/Section";
 import Eyebrow from "../_components/Eyebrow";
 import GlassCard from "../_components/GlassCard";
-import GoldBrushstroke from "../_components/GoldBrushstroke";
+import NavyAgate from "../_components/NavyAgate";
 import Reveal from "../_components/Reveal";
 import ContactForm from "../_components/ContactForm";
 
@@ -21,27 +21,31 @@ const HOURS = [
 export default function ContactPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden pt-40 pb-16 md:pt-52 md:pb-24">
-        <GoldBrushstroke opacity={0.32} className="rotate-[-2deg]" />
-        <Container className="relative">
-          <Reveal>
-            <Eyebrow className="mb-8">Find Us</Eyebrow>
-          </Reveal>
-          <Reveal delay={120}>
-            <h1
-              className="display max-w-[1000px] text-text-primary"
-              style={{ fontSize: "var(--t-h1)" }}
-            >
-              Where to <span className="display-it gold-text">find us.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="mt-10 max-w-xl text-text-secondary text-lg leading-[1.9]">
-              The address is Birmingham. The door is on 2nd Avenue. Beyond that, the
-              evening is yours to shape.
-            </p>
-          </Reveal>
+      {/* HERO — navy marble panel */}
+      <section className="px-4 pt-28 pb-12 md:px-8 md:pt-32 md:pb-20">
+        <Container className="!px-0">
+          <div className="agate-panel relative">
+            <NavyAgate intensity={0.9} />
+            <div className="relative px-8 py-20 md:px-16 md:py-28 lg:px-24">
+              <Reveal>
+                <Eyebrow dark className="mb-8">Find Us</Eyebrow>
+              </Reveal>
+              <Reveal delay={120}>
+                <h1
+                  className="display max-w-[1000px] text-[var(--text-primary-dark)]"
+                  style={{ fontSize: "var(--t-h1)" }}
+                >
+                  Where to <span className="display-it gold-text">find us.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={240}>
+                <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
+                  The address is Birmingham. The door is on 2nd Avenue. Beyond that,
+                  the evening is yours to shape.
+                </p>
+              </Reveal>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -100,7 +104,7 @@ export default function ContactPage() {
                       {HOURS.map((h) => (
                         <li
                           key={h.day}
-                          className="flex justify-between gap-6 border-b border-ivory-300/60 pb-1.5 text-text-secondary"
+                          className="flex justify-between gap-6 border-b border-beige-300/60 pb-1.5 text-text-secondary"
                         >
                           <span>{h.day}</span>
                           <span className="text-text-primary">{h.time}</span>

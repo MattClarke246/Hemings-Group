@@ -15,7 +15,7 @@ export default function Section({
     <section
       id={id}
       className={`relative py-24 md:py-32 lg:py-40 ${
-        dark ? "bg-obsidian-950 text-[var(--text-primary-dark)]" : ""
+        dark ? "bg-navy-950 text-[var(--text-primary-dark)]" : ""
       } ${className}`}
     >
       {children}

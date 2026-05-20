@@ -3,58 +3,58 @@ import Section from "./_components/Section";
 import Button from "./_components/Button";
 import Eyebrow from "./_components/Eyebrow";
 import NumeralCard from "./_components/NumeralCard";
-import GoldBrushstroke from "./_components/GoldBrushstroke";
 import GoldSplash from "./_components/GoldSplash";
 import MetallicDivider from "./_components/MetallicDivider";
+import NavyAgate from "./_components/NavyAgate";
 import Reveal from "./_components/Reveal";
 import EventsScroller from "./_components/EventsScroller";
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden pt-40 pb-32 md:pt-52 md:pb-44">
-        <GoldBrushstroke className="rotate-[-4deg]" opacity={0.5} />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ivory-50 via-ivory-50/40 to-ivory-100/60"
-        />
-        <Container className="relative">
-          <Reveal>
-            <Eyebrow className="mb-8">
-              Members&nbsp;&middot;&nbsp;Birmingham&nbsp;&middot;&nbsp;Est.
-            </Eyebrow>
-          </Reveal>
-          <Reveal delay={120}>
-            <h1
-              className="display max-w-[1000px] text-text-primary"
-              style={{ fontSize: "var(--t-display)" }}
-            >
-              Your Experience is{" "}
-              <span className="display-it gold-text">Everything.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="mt-10 max-w-xl text-text-secondary text-lg leading-[1.85]">
-              A members-preferred lounge poured from the same cloth as the city it
-              keeps. Quiet rooms, gold light, the kind of evening that becomes a story.
-            </p>
-          </Reveal>
-          <Reveal delay={360}>
-            <div className="mt-12 flex flex-wrap items-center gap-6">
-              <Button href="/contact#inquiry" variant="obsidian">
-                Request Access
-              </Button>
-              <Button href="#manifesto" variant="ghost">
-                The Experience
-              </Button>
+      {/* HERO — navy marble panel */}
+      <section className="px-4 pt-28 pb-16 md:px-8 md:pt-32 md:pb-24">
+        <Container className="!px-0">
+          <div className="agate-panel relative">
+            <NavyAgate intensity={1} />
+            <div className="relative px-8 py-28 md:px-16 md:py-40 lg:px-24 lg:py-48">
+              <Reveal>
+                <Eyebrow dark className="mb-8">
+                  Members&nbsp;&middot;&nbsp;Birmingham&nbsp;&middot;&nbsp;Est.
+                </Eyebrow>
+              </Reveal>
+              <Reveal delay={120}>
+                <h1
+                  className="display max-w-[1000px] text-[var(--text-primary-dark)]"
+                  style={{ fontSize: "var(--t-display)" }}
+                >
+                  Your Experience is{" "}
+                  <span className="display-it gold-text">Everything.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={240}>
+                <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.85]">
+                  A members-preferred lounge poured from the same cloth as the city it
+                  keeps. Quiet rooms, gold light, the kind of evening that becomes a story.
+                </p>
+              </Reveal>
+              <Reveal delay={360}>
+                <div className="mt-12 flex flex-wrap items-center gap-6">
+                  <Button href="/contact#inquiry" variant="gold">
+                    Request Access
+                  </Button>
+                  <Button href="#manifesto" variant="ghost">
+                    The Experience
+                  </Button>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+          </div>
         </Container>
       </section>
 
       {/* MANIFESTO STRIP */}
-      <section id="manifesto" className="bg-ivory-100/60 py-24 md:py-32">
+      <section id="manifesto" className="bg-beige-100/70 py-24 md:py-32">
         <Container>
           <Reveal className="flex flex-col items-center text-center">
             <MetallicDivider width={120} className="mb-10" />
@@ -139,40 +139,51 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* OBSIDIAN SPLASH */}
-      <section className="relative overflow-hidden bg-obsidian-950 py-32 md:py-44">
-        <GoldSplash
-          className="absolute -right-20 top-1/2 -translate-y-1/2 opacity-90"
-          size={520}
-        />
-        <Container className="relative">
-          <Reveal>
-            <Eyebrow dark className="mb-8">
-              The Philosophy
-            </Eyebrow>
-          </Reveal>
-          <Reveal delay={120}>
-            <h2
-              className="display max-w-[760px] text-[var(--text-primary-dark)]"
-              style={{ fontSize: "var(--t-h1)" }}
-            >
-              True luxury lies in the{" "}
-              <span className="display-it gold-text">details.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
-              We don&rsquo;t build evenings. We curate them — pour by pour, glance by
-              glance, until the moment becomes its own small architecture.
-            </p>
-          </Reveal>
-          <Reveal delay={360}>
-            <div className="mt-12">
-              <Button href="/membership" variant="gold">
-                Discover Membership
-              </Button>
+      {/* MARBLE SPLASH SECTION */}
+      <section className="px-4 py-16 md:px-8 md:py-24">
+        <Container className="!px-0">
+          <div className="agate-panel relative">
+            <NavyAgate intensity={1.1} />
+            <div className="relative px-8 py-24 md:px-16 md:py-36 lg:px-24">
+              <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1.4fr_1fr]">
+                <div>
+                  <Reveal>
+                    <Eyebrow dark className="mb-8">
+                      The Philosophy
+                    </Eyebrow>
+                  </Reveal>
+                  <Reveal delay={120}>
+                    <h2
+                      className="display text-[var(--text-primary-dark)]"
+                      style={{ fontSize: "var(--t-h1)" }}
+                    >
+                      True luxury lies in the{" "}
+                      <span className="display-it gold-text">details.</span>
+                    </h2>
+                  </Reveal>
+                  <Reveal delay={240}>
+                    <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
+                      We don&rsquo;t build evenings. We curate them — pour by pour,
+                      glance by glance, until the moment becomes its own small
+                      architecture.
+                    </p>
+                  </Reveal>
+                  <Reveal delay={360}>
+                    <div className="mt-12">
+                      <Button href="/membership" variant="gold">
+                        Discover Membership
+                      </Button>
+                    </div>
+                  </Reveal>
+                </div>
+                <Reveal delay={300} className="hidden md:block">
+                  <div className="flex justify-center">
+                    <GoldSplash size={360} className="opacity-95" />
+                  </div>
+                </Reveal>
+              </div>
             </div>
-          </Reveal>
+          </div>
         </Container>
       </section>
 
@@ -202,7 +213,6 @@ export default function HomePage() {
 
       {/* VISIT TEASER */}
       <section className="relative overflow-hidden py-24 md:py-32">
-        <GoldBrushstroke className="rotate-[6deg]" opacity={0.35} />
         <Container className="relative">
           <Reveal className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
             <div>

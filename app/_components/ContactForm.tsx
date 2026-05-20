@@ -7,7 +7,7 @@ import Button from "./Button";
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 const fieldClass =
-  "w-full bg-transparent border-b border-ivory-300/70 px-1 py-3 text-text-primary placeholder:text-text-muted/70 focus:border-gold-500 focus:outline-none transition-colors duration-300";
+  "w-full bg-transparent border-b border-beige-300/70 px-1 py-3 text-text-primary placeholder:text-text-muted/70 focus:border-gold-500 focus:outline-none transition-colors duration-300";
 
 const labelClass = "smallcaps text-text-gold mb-2 block";
 

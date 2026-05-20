@@ -1,105 +1,113 @@
 @import "tailwindcss";
 
 /* =========================================================================
-   AURUM — DESIGN TOKENS
+   PALETTE — Navy · Warm Beige · Soft Gold
    ========================================================================= */
 :root {
-  /* Ivory surfaces */
-  --ivory-50: #fdfaf3;
-  --ivory-100: #f7f0e1;
-  --ivory-200: #ede2cc;
-  --ivory-300: #dac8a8;
-  --silk-400: #a89572;
+  /* Warm beige surfaces (the cream that holds the marble) */
+  --beige-50:  #faf3e3;
+  --beige-100: #f2e6cf;
+  --beige-200: #E8DCC8;   /* primary warm beige */
+  --beige-300: #d6c4a5;
+  --silk-400:  #b39e7a;
 
-  /* Obsidian */
-  --obsidian-950: #050402;
-  --obsidian-900: #0e0a05;
-  --obsidian-800: #1a140b;
-  --char-700: #2a2014;
+  /* Navy spine (theatrical depth, marble base) */
+  --navy-950: #0d1525;
+  --navy-900: #1F2A44;    /* primary navy */
+  --navy-800: #2a3656;
+  --navy-700: #3d4a6e;
+  --char-700: #2a3656;    /* legacy alias */
 
-  /* Gold spine */
-  --gold-100: #f5e3b5;
-  --gold-300: #e8c878;
-  --gold-500: #c89a3a;
-  --gold-600: #a87420;
-  --gold-800: #6b4410;
+  /* Gold spine — softer, warmer than Aurum */
+  --gold-100: #f1e1ba;
+  --gold-300: #dcc28a;
+  --gold-500: #C6A75E;    /* primary soft gold */
+  --gold-600: #a8884a;
+  --gold-800: #6e5828;
 
-  /* Text on ivory */
-  --text-primary: #1a140b;
-  --text-secondary: #4a3a22;
-  --text-muted: #7a6440;
-  --text-gold: #8a5e1c;
+  /* Text on beige */
+  --text-primary:   #1F2A44;
+  --text-secondary: #3a4566;
+  --text-muted:     #6c7794;
+  --text-gold:      #8c6f30;
 
-  /* Text on obsidian */
-  --text-primary-dark: #fdfaf3;
+  /* Text on navy */
+  --text-primary-dark:   #f5ebd6;
   --text-secondary-dark: #c9b896;
-  --text-gold-dark: #e8c878;
+  --text-gold-dark:      #dcc28a;
 
   /* Spacing */
-  --s-1: 4px;
-  --s-2: 8px;
-  --s-3: 12px;
-  --s-4: 16px;
-  --s-5: 24px;
-  --s-6: 32px;
-  --s-7: 48px;
-  --s-8: 64px;
-  --s-9: 96px;
-  --s-10: 160px;
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 160px;
 
   /* Type */
   --t-display: clamp(64px, 10vw, 168px);
-  --t-h1: clamp(44px, 5.5vw, 84px);
-  --t-h2: clamp(32px, 3.4vw, 52px);
-  --t-h3: clamp(22px, 1.8vw, 30px);
-  --t-body: clamp(15px, 1.05vw, 17px);
-  --t-label: 12px;
+  --t-h1:      clamp(44px, 5.5vw, 84px);
+  --t-h2:      clamp(32px, 3.4vw, 52px);
+  --t-h3:      clamp(22px, 1.8vw, 30px);
+  --t-body:    clamp(15px, 1.05vw, 17px);
+  --t-label:   12px;
   --t-numeral: clamp(60px, 7vw, 120px);
 
-  /* Shadows */
-  --shadow-soft: 0 1px 2px rgba(106, 68, 16, 0.04), 0 8px 24px rgba(106, 68, 16, 0.08);
-  --shadow-card: 0 2px 4px rgba(106, 68, 16, 0.06), 0 24px 60px rgba(106, 68, 16, 0.12);
-  --shadow-hero: 0 40px 120px rgba(5, 4, 2, 0.35), 0 8px 24px rgba(106, 68, 16, 0.15);
-  --shadow-gold: 0 10px 40px rgba(200, 154, 58, 0.35), 0 20px 80px rgba(200, 154, 58, 0.18);
+  /* Shadows — tuned for navy/beige */
+  --shadow-soft:  0 1px 2px rgba(31, 42, 68, 0.06), 0 8px 24px rgba(31, 42, 68, 0.10);
+  --shadow-card:  0 2px 4px rgba(31, 42, 68, 0.10), 0 28px 60px rgba(31, 42, 68, 0.18);
+  --shadow-hero:  0 40px 120px rgba(13, 21, 37, 0.45), 0 8px 24px rgba(31, 42, 68, 0.22);
+  --shadow-gold:  0 10px 40px rgba(198, 167, 94, 0.40), 0 20px 80px rgba(198, 167, 94, 0.20);
+  --shadow-panel: 0 30px 80px rgba(13, 21, 37, 0.35), 0 8px 24px rgba(13, 21, 37, 0.22);
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Signature metallic gradients */
+  /* Gold metallic gradients */
   --grad-gold: linear-gradient(
     135deg,
-    #f5e3b5 0%,
-    #e8c878 22%,
-    #c89a3a 50%,
-    #a87420 78%,
-    #6b4410 100%
+    #f1e1ba 0%,
+    #dcc28a 22%,
+    #C6A75E 50%,
+    #a8884a 78%,
+    #6e5828 100%
   );
-  --grad-gold-soft: linear-gradient(135deg, #fdf2c8 0%, #f0d896 50%, #c89a3a 100%);
+  --grad-gold-soft: linear-gradient(135deg, #f6e6c0 0%, #dcc28a 50%, #C6A75E 100%);
   --grad-gold-anim: linear-gradient(
     135deg,
-    #f5e3b5 0%,
-    #e8c878 18%,
-    #c89a3a 35%,
-    #a87420 50%,
-    #c89a3a 65%,
-    #e8c878 82%,
-    #f5e3b5 100%
+    #f1e1ba 0%,
+    #dcc28a 18%,
+    #C6A75E 35%,
+    #a8884a 50%,
+    #C6A75E 65%,
+    #dcc28a 82%,
+    #f1e1ba 100%
+  );
+
+  /* Navy marble gradients */
+  --grad-navy-deep: radial-gradient(
+    ellipse at 30% 20%,
+    #2a3656 0%,
+    #1F2A44 40%,
+    #0d1525 100%
+  );
+  --grad-navy-soft: linear-gradient(
+    180deg,
+    #1F2A44 0%,
+    #14203a 100%
   );
 }
 
 /* =========================================================================
-   TAILWIND v4 THEME — token aliases
+   TAILWIND v4 THEME
    ========================================================================= */
 @theme inline {
-  --color-ivory-50: var(--ivory-50);
-  --color-ivory-100: var(--ivory-100);
-  --color-ivory-200: var(--ivory-200);
-  --color-ivory-300: var(--ivory-300);
-  --color-silk-400: var(--silk-400);
+  --color-beige-50:  var(--beige-50);
+  --color-beige-100: var(--beige-100);
+  --color-beige-200: var(--beige-200);
+  --color-beige-300: var(--beige-300);
+  --color-silk-400:  var(--silk-400);
 
-  --color-obsidian-950: var(--obsidian-950);
-  --color-obsidian-900: var(--obsidian-900);
-  --color-obsidian-800: var(--obsidian-800);
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
   --color-char-700: var(--char-700);
 
   --color-gold-100: var(--gold-100);
@@ -108,19 +116,20 @@
   --color-gold-600: var(--gold-600);
   --color-gold-800: var(--gold-800);
 
-  --color-text-primary: var(--text-primary);
+  --color-text-primary:   var(--text-primary);
   --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-text-gold: var(--text-gold);
+  --color-text-muted:     var(--text-muted);
+  --color-text-gold:      var(--text-gold);
 
-  --font-display: "Fraunces", serif;
-  --font-body: "Manrope", sans-serif;
+  --font-display:   "Fraunces", serif;
+  --font-body:      "Manrope", sans-serif;
   --font-signature: "Italiana", serif;
 
-  --shadow-soft: var(--shadow-soft);
-  --shadow-card: var(--shadow-card);
-  --shadow-hero: var(--shadow-hero);
-  --shadow-gold: var(--shadow-gold);
+  --shadow-soft:  var(--shadow-soft);
+  --shadow-card:  var(--shadow-card);
+  --shadow-hero:  var(--shadow-hero);
+  --shadow-gold:  var(--shadow-gold);
+  --shadow-panel: var(--shadow-panel);
 
   --ease-aurum: var(--ease);
 }
@@ -128,27 +137,20 @@
 /* =========================================================================
    RESET & BASE
    ========================================================================= */
-* {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   font-family: "Manrope", sans-serif;
   font-weight: 300;
   font-size: var(--t-body);
   line-height: 1.7;
   color: var(--text-primary);
-  background: var(--ivory-50);
+  background: var(--beige-50);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
-::selection {
-  background: var(--gold-300);
-  color: var(--obsidian-950);
-}
+::selection { background: var(--gold-300); color: var(--navy-950); }
 
 /* =========================================================================
    TYPOGRAPHY UTILITIES
@@ -181,7 +183,6 @@ body {
   font-size: var(--t-label);
 }
 
-/* Metallic gold text fill */
 .gold-text {
   background: var(--grad-gold);
   -webkit-background-clip: text;
@@ -196,35 +197,35 @@ body {
 .glass-card {
   background: linear-gradient(
     180deg,
-    rgba(253, 250, 243, 0.85) 0%,
-    rgba(247, 240, 225, 0.75) 100%
+    rgba(250, 243, 227, 0.92) 0%,
+    rgba(232, 220, 200, 0.85) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(232, 200, 120, 0.3);
+  border: 1px solid rgba(198, 167, 94, 0.35);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 1px 2px rgba(106, 68, 16, 0.04),
-    0 24px 60px rgba(106, 68, 16, 0.1);
+    0 1px 2px rgba(31, 42, 68, 0.06),
+    0 24px 60px rgba(31, 42, 68, 0.16);
   border-radius: 20px;
 }
 
 .glass-card-dark {
   background: linear-gradient(
     180deg,
-    rgba(26, 20, 11, 0.7) 0%,
-    rgba(14, 10, 5, 0.85) 100%
+    rgba(42, 54, 86, 0.65) 0%,
+    rgba(13, 21, 37, 0.85) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(200, 154, 58, 0.3);
+  border: 1px solid rgba(198, 167, 94, 0.35);
   box-shadow:
-    inset 0 1px 0 rgba(232, 200, 120, 0.15),
-    0 40px 120px rgba(5, 4, 2, 0.6);
+    inset 0 1px 0 rgba(220, 194, 138, 0.18),
+    0 40px 120px rgba(13, 21, 37, 0.6);
   border-radius: 20px;
 }
 
-/* Gold corner brackets — top-left + bottom-right */
+/* Gold corner brackets */
 .corners-gold::before,
 .corners-gold::after {
   content: "";
@@ -241,17 +242,13 @@ body {
   pointer-events: none;
 }
 .corners-gold::before {
-  top: 14px;
-  left: 14px;
-  border-right: none;
-  border-bottom: none;
+  top: 14px; left: 14px;
+  border-right: none; border-bottom: none;
   border-top-left-radius: 8px;
 }
 .corners-gold::after {
-  bottom: 14px;
-  right: 14px;
-  border-left: none;
-  border-top: none;
+  bottom: 14px; right: 14px;
+  border-left: none; border-top: none;
   border-bottom-right-radius: 8px;
 }
 
@@ -278,7 +275,7 @@ body {
   border: 1px solid transparent;
 }
 .btn-obsidian {
-  background: var(--obsidian-900);
+  background: var(--navy-900);
   color: var(--gold-300);
   border-color: var(--gold-500);
   box-shadow: var(--shadow-soft);
@@ -288,14 +285,14 @@ body {
   border-color: var(--gold-100);
   box-shadow:
     var(--shadow-soft),
-    inset 0 0 24px rgba(232, 200, 120, 0.18);
+    inset 0 0 24px rgba(220, 194, 138, 0.20);
   color: var(--gold-100);
 }
 .btn-gold {
   background: var(--grad-gold-anim);
   background-size: 200% 200%;
   background-position: 0% 50%;
-  color: var(--obsidian-950);
+  color: var(--navy-950);
   font-weight: 600;
   border-color: var(--gold-600);
   animation: gold-shimmer 8s linear infinite;
@@ -314,27 +311,17 @@ body {
 .btn-ghost::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 12px;
-  width: 0;
-  height: 1px;
+  left: 0; bottom: 12px;
+  width: 0; height: 1px;
   background: var(--grad-gold);
   transition: width 350ms var(--ease);
 }
-.btn-ghost:hover::after {
-  width: 100%;
-}
+.btn-ghost:hover::after { width: 100%; }
 
 @keyframes gold-shimmer {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* =========================================================================
@@ -352,6 +339,25 @@ body {
     var(--gold-100) 85%,
     transparent 100%
   );
+}
+
+/* =========================================================================
+   AGATE PANEL — navy marble hero treatment
+   ========================================================================= */
+.agate-panel {
+  position: relative;
+  isolation: isolate;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: var(--shadow-panel);
+  border: 1px solid rgba(198, 167, 94, 0.35);
+}
+.agate-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--grad-navy-deep);
+  z-index: -2;
 }
 
 /* =========================================================================
@@ -376,9 +382,6 @@ body {
   transform: translateY(0);
 }
 
-/* =========================================================================
-   REDUCED MOTION
-   ========================================================================= */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

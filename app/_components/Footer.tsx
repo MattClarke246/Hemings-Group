@@ -10,7 +10,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-obsidian-900 text-[var(--text-secondary-dark)]">
+    <footer className="bg-navy-900 text-[var(--text-secondary-dark)]">
       <div className="flex justify-center pt-20">
         <MetallicDivider width={140} />
       </div>

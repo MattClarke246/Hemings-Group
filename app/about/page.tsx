@@ -2,9 +2,9 @@ import Container from "../_components/Container";
 import Section from "../_components/Section";
 import Eyebrow from "../_components/Eyebrow";
 import GlassCard from "../_components/GlassCard";
-import GoldBrushstroke from "../_components/GoldBrushstroke";
 import GoldSplash from "../_components/GoldSplash";
 import MetallicDivider from "../_components/MetallicDivider";
+import NavyAgate from "../_components/NavyAgate";
 import Reveal from "../_components/Reveal";
 
 export const metadata = {
@@ -31,29 +31,33 @@ const PILLARS = [
 export default function AboutPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden pt-40 pb-24 md:pt-52 md:pb-32">
-        <GoldBrushstroke opacity={0.35} className="rotate-[2deg]" />
-        <Container className="relative">
-          <Reveal>
-            <Eyebrow className="mb-8">01 &middot; The House</Eyebrow>
-          </Reveal>
-          <Reveal delay={120}>
-            <h1
-              className="display max-w-[1000px] text-text-primary"
-              style={{ fontSize: "var(--t-h1)" }}
-            >
-              A room that was made with{" "}
-              <span className="display-it gold-text">intention.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="mt-10 max-w-xl text-text-secondary text-lg leading-[1.9]">
-              Hemings Group, LLC opened with a single belief — that hospitality, when
-              practiced as a craft, is indistinguishable from art. The address is
-              Birmingham. The standard is its own.
-            </p>
-          </Reveal>
+      {/* HERO — navy marble panel */}
+      <section className="px-4 pt-28 pb-12 md:px-8 md:pt-32 md:pb-20">
+        <Container className="!px-0">
+          <div className="agate-panel relative">
+            <NavyAgate intensity={0.95} />
+            <div className="relative px-8 py-24 md:px-16 md:py-32 lg:px-24">
+              <Reveal>
+                <Eyebrow dark className="mb-8">01 &middot; The House</Eyebrow>
+              </Reveal>
+              <Reveal delay={120}>
+                <h1
+                  className="display max-w-[1000px] text-[var(--text-primary-dark)]"
+                  style={{ fontSize: "var(--t-h1)" }}
+                >
+                  A room that was made with{" "}
+                  <span className="display-it gold-text">intention.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={240}>
+                <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
+                  Hemings Group, LLC opened with a single belief — that hospitality,
+                  when practiced as a craft, is indistinguishable from art. The address
+                  is Birmingham. The standard is its own.
+                </p>
+              </Reveal>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -84,12 +88,13 @@ export default function AboutPage() {
                 </p>
               </GlassCard>
 
-              <div className="relative overflow-hidden rounded-[24px] bg-obsidian-950 p-10 md:p-14">
-                <GoldSplash
-                  size={420}
-                  className="absolute -right-12 -top-12 opacity-90"
-                />
+              <div className="agate-panel relative overflow-hidden p-10 md:p-14">
+                <NavyAgate intensity={0.95} />
                 <div className="relative flex h-full flex-col justify-end">
+                  <GoldSplash
+                    size={300}
+                    className="absolute -right-4 -top-4 opacity-90"
+                  />
                   <Eyebrow dark className="mb-6">
                     Our Cloth
                   </Eyebrow>
@@ -97,7 +102,7 @@ export default function AboutPage() {
                     className="display gold-text"
                     style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}
                   >
-                    Ivory, obsidian, gold.
+                    Navy, beige, gold.
                   </p>
                   <p className="mt-6 text-[var(--text-secondary-dark)] leading-[1.9]">
                     A house that pours its colors the way it pours its drinks — with
@@ -112,7 +117,7 @@ export default function AboutPage() {
       </Section>
 
       {/* PILLARS */}
-      <Section className="bg-ivory-100/40">
+      <Section className="bg-beige-100/50">
         <Container>
           <Reveal className="mb-12 max-w-2xl">
             <Eyebrow className="mb-6">Our Pillars</Eyebrow>
@@ -134,7 +139,7 @@ export default function AboutPage() {
                   <p className="text-text-secondary text-lg leading-[1.9]">{p.body}</p>
                 </div>
                 {i < PILLARS.length - 1 ? (
-                  <div className="h-px w-full bg-gradient-to-r from-transparent via-ivory-300 to-transparent" />
+                  <div className="h-px w-full bg-gradient-to-r from-transparent via-beige-300 to-transparent" />
                 ) : null}
               </Reveal>
             ))}
@@ -142,7 +147,6 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* CLOSING SPLASH */}
       <section className="flex items-center justify-center py-24">
         <GoldSplash size={180} className="opacity-80" />
       </section>

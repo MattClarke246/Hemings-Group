@@ -26,7 +26,7 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color,box-shadow] duration-[350ms] ease-[var(--ease-aurum)] ${
         scrolled
-          ? "border-b border-ivory-300/40 bg-ivory-50/80 backdrop-blur-xl shadow-[0_1px_24px_rgba(106,68,16,0.08)]"
+          ? "border-b border-beige-300/40 bg-beige-50/80 backdrop-blur-xl shadow-[0_1px_24px_rgba(106,68,16,0.08)]"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -68,7 +68,7 @@ export default function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-ivory-300/50 bg-ivory-50/95 backdrop-blur-xl md:hidden">
+        <div className="border-t border-beige-300/50 bg-beige-50/95 backdrop-blur-xl md:hidden">
           <nav className="flex flex-col gap-2 px-6 py-6" aria-label="Mobile">
             {NAV.map((item) => (
               <Link

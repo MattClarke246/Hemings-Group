@@ -2,14 +2,18 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
+type RevealDirection = "up" | "left" | "right" | "scale" | "clip";
+
 export default function Reveal({
   children,
   delay = 0,
   className = "",
+  direction = "up",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
+  direction?: RevealDirection;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -28,7 +32,7 @@ export default function Reveal({
           }
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(node);
@@ -36,7 +40,12 @@ export default function Reveal({
   }, [delay]);
 
   return (
-    <div ref={ref} data-reveal="hidden" className={className}>
+    <div
+      ref={ref}
+      data-reveal="hidden"
+      data-reveal-dir={direction}
+      className={className}
+    >
       {children}
     </div>
   );

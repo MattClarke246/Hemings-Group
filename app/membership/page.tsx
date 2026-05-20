@@ -1,10 +1,8 @@
 import Container from "../_components/Container";
-import Section from "../_components/Section";
-import Eyebrow from "../_components/Eyebrow";
 import GlassCard from "../_components/GlassCard";
 import Button from "../_components/Button";
 import GoldSplash from "../_components/GoldSplash";
-import NavyAgate from "../_components/NavyAgate";
+import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 
 export const metadata = {
@@ -39,110 +37,154 @@ const PRIVILEGES = [
 export default function MembershipPage() {
   return (
     <>
-      {/* HERO — navy marble panel */}
-      <section className="px-4 pt-28 pb-12 md:px-8 md:pt-32 md:pb-20">
-        <Container className="!px-0">
-          <div className="agate-panel relative">
-            <NavyAgate intensity={1} />
-            <div className="relative px-8 py-24 md:px-16 md:py-32 lg:px-24">
-              <Reveal>
-                <Eyebrow dark className="mb-8">02 &middot; The Circle</Eyebrow>
-              </Reveal>
-              <Reveal delay={120}>
-                <h1
-                  className="display max-w-[1000px] text-[var(--text-primary-dark)]"
-                  style={{ fontSize: "var(--t-h1)" }}
-                >
-                  By invitation.{" "}
-                  <span className="display-it gold-text">By intention.</span>
-                </h1>
-              </Reveal>
-              <Reveal delay={240}>
-                <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
-                  Hemings membership is small on purpose. We don&rsquo;t sell access —
-                  we extend it, to the people who know what an evening is worth and to
-                  those who keep ours quiet.
-                </p>
-              </Reveal>
-            </div>
-          </div>
+      {/* ── HERO ── */}
+      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36">
+        <Container className="relative z-10">
+          <Reveal direction="clip">
+            <MetallicDivider width={80} />
+          </Reveal>
+          <Reveal delay={100}>
+            <p
+              className="smallcaps mt-8 mb-10 tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              02 &middot; The Circle
+            </p>
+          </Reveal>
+          <Reveal delay={200} direction="up">
+            <h1
+              className="display-airy max-w-[1000px]"
+              style={{
+                fontSize: "var(--t-h1)",
+                color: "var(--text-primary-dark)",
+              }}
+            >
+              By invitation.{" "}
+              <span className="display-it gold-text-shimmer">By intention.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={360} direction="up">
+            <p
+              className="mt-10 max-w-xl text-lg leading-[1.95]"
+              style={{ color: "var(--text-secondary-dark)" }}
+            >
+              Hemings membership is small on purpose. We don&rsquo;t sell access — we
+              extend it, to the people who know what an evening is worth and to those
+              who keep ours quiet.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
-      {/* PRIVILEGES */}
-      <Section>
+      {/* ── PRIVILEGES — glass panel ── */}
+      <section className="glass-panel py-28 md:py-44">
         <Container>
-          <Reveal className="mb-16 max-w-2xl">
-            <Eyebrow className="mb-6">Privileges</Eyebrow>
-            <h2
-              className="display text-text-primary"
-              style={{ fontSize: "var(--t-h2)" }}
-            >
-              What the door <span className="display-it gold-text">quietly holds.</span>
-            </h2>
-          </Reveal>
+          <div className="mb-20 flex flex-col md:flex-row md:items-end gap-10 justify-between">
+            <Reveal direction="left">
+              <p
+                className="smallcaps mb-6 tracking-wide-caps"
+                style={{ color: "var(--text-gold-dark)" }}
+              >
+                Privileges
+              </p>
+              <h2
+                className="display-airy max-w-[600px]"
+                style={{
+                  fontSize: "var(--t-h2)",
+                  color: "var(--text-primary-dark)",
+                }}
+              >
+                What the door{" "}
+                <span className="display-it gold-text-shimmer">quietly holds.</span>
+              </h2>
+            </Reveal>
+            <Reveal direction="right" delay={200}>
+              <MetallicDivider width={120} />
+            </Reveal>
+          </div>
 
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {PRIVILEGES.map((p, i) => (
-              <Reveal key={p.title} delay={i * 100}>
-                <GlassCard padding="p-10 md:p-12" className="h-full">
-                  <div className="flex items-baseline gap-5 mb-6">
+              <Reveal
+                key={p.title}
+                delay={i * 130}
+                direction={i % 2 === 0 ? "left" : "right"}
+              >
+                <GlassCard padding="p-12 md:p-14" className="h-full">
+                  <div className="flex items-baseline gap-5 mb-7">
                     <span
                       className="display gold-text"
-                      style={{ fontSize: "44px", lineHeight: 1 }}
+                      style={{ fontSize: "52px", lineHeight: 1 }}
                       aria-hidden="true"
                     >
                       {p.eyebrow}
                     </span>
-                    <span className="metallic-divider" style={{ width: 64 }} />
+                    <span className="metallic-divider" style={{ width: 72 }} />
                   </div>
                   <h3
-                    className="display mb-4 text-text-primary"
-                    style={{ fontSize: "var(--t-h3)" }}
+                    className="display-airy mb-5"
+                    style={{
+                      fontSize: "var(--t-h3)",
+                      color: "var(--text-primary-dark)",
+                    }}
                   >
                     {p.title}
                   </h3>
-                  <p className="text-text-secondary leading-[1.85]">{p.body}</p>
+                  <p
+                    className="leading-[1.95]"
+                    style={{ color: "var(--text-secondary-dark)" }}
+                  >
+                    {p.body}
+                  </p>
                 </GlassCard>
               </Reveal>
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* MARBLE CTA */}
-      <section className="px-4 py-12 md:px-8 md:py-20">
-        <Container className="!px-0">
-          <div className="agate-panel relative">
-            <NavyAgate intensity={1.05} />
-            <div className="relative px-8 py-24 md:px-16 md:py-32 lg:px-24">
-              <GoldSplash
-                size={420}
-                className="absolute -left-12 top-1/2 -translate-y-1/2 opacity-85"
-              />
-              <Reveal className="md:max-w-[640px] md:ml-auto md:text-right">
-                <Eyebrow dark className="mb-8">
-                  The Inquiry
-                </Eyebrow>
-                <h2
-                  className="display text-[var(--text-primary-dark)]"
-                  style={{ fontSize: "var(--t-h2)" }}
-                >
-                  Tell us about{" "}
-                  <span className="display-it gold-text">your evening.</span>
-                </h2>
-                <p className="mt-8 text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
-                  Membership is extended through a brief inquiry. A short note is
-                  enough — the rest happens at the door.
-                </p>
-                <div className="mt-12 md:flex md:justify-end">
-                  <Button href="/contact#inquiry" variant="gold">
-                    Request Membership
-                  </Button>
-                </div>
-              </Reveal>
-            </div>
-          </div>
+      {/* ── CTA — open over marble ── */}
+      <section className="py-36 md:py-52">
+        <Container>
+          <Reveal className="mx-auto max-w-3xl text-center" direction="scale">
+            <p
+              className="smallcaps mb-10 tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              The Inquiry
+            </p>
+            <h2
+              className="display-airy"
+              style={{
+                fontSize: "var(--t-h1)",
+                color: "var(--text-primary-dark)",
+              }}
+            >
+              Tell us about{" "}
+              <span className="display-it gold-text-shimmer">your evening.</span>
+            </h2>
+            <Reveal delay={200} direction="up">
+              <p
+                className="mt-10 mx-auto max-w-xl text-lg leading-[1.95]"
+                style={{ color: "var(--text-secondary-dark)" }}
+              >
+                Membership is extended through a brief inquiry. A short note is
+                enough — the rest happens at the door.
+              </p>
+            </Reveal>
+            <Reveal delay={360} direction="up">
+              <div className="mt-14 flex justify-center">
+                <Button href="/contact#inquiry" variant="gold">
+                  Request Membership
+                </Button>
+              </div>
+            </Reveal>
+            <Reveal delay={500} direction="scale">
+              <div className="mt-16 flex justify-center">
+                <GoldSplash size={200} className="opacity-88" />
+              </div>
+            </Reveal>
+          </Reveal>
         </Container>
       </section>
     </>

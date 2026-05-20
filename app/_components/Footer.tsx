@@ -10,36 +10,59 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 text-[var(--text-secondary-dark)]">
-      <div className="flex justify-center pt-20">
+    <footer
+      className="relative z-10"
+      style={{
+        background: "rgba(13, 21, 37, 0.72)",
+        backdropFilter: "blur(28px)",
+        borderTop: "1px solid rgba(198, 167, 94, 0.18)",
+      }}
+    >
+      <div className="flex justify-center pt-16">
         <MetallicDivider width={140} />
       </div>
-      <Container className="grid grid-cols-1 gap-12 py-20 md:grid-cols-[1.2fr_1fr_1fr]">
+      <Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <p className="signature text-[var(--text-primary-dark)] text-xl md:text-2xl">
+          <p
+            className="signature text-xl md:text-2xl"
+            style={{ color: "var(--text-primary-dark)", letterSpacing: "0.4em" }}
+          >
             Hemings
           </p>
-          <p className="mt-6 max-w-sm text-[var(--text-secondary-dark)] leading-[1.85]">
+          <p
+            className="mt-6 max-w-sm leading-[1.85]"
+            style={{ color: "var(--text-secondary-dark)" }}
+          >
             Where elegance and exclusivity equal an unforgettable experience.
             Birmingham&rsquo;s members-preferred lounge.
           </p>
         </div>
 
         <div>
-          <p className="smallcaps text-[var(--text-gold-dark)] mb-5">Visit</p>
-          <p className="text-[var(--text-secondary-dark)] leading-[1.9]">
+          <p
+            className="smallcaps mb-5"
+            style={{ color: "var(--text-gold-dark)" }}
+          >
+            Visit
+          </p>
+          <p className="leading-[1.9]" style={{ color: "var(--text-secondary-dark)" }}>
             1623 2nd Ave N, Suite 106
             <br />
             Birmingham, AL 35203
           </p>
-          <p className="mt-4 text-[var(--text-secondary-dark)]">
-            <a href="tel:+12052159905" className="hover:text-[var(--text-gold-dark)]">
+          <p className="mt-4" style={{ color: "var(--text-secondary-dark)" }}>
+            <a
+              href="tel:+12052159905"
+              className="transition-colors duration-300 hover:opacity-100"
+              style={{ color: "var(--text-secondary-dark)", opacity: 0.8 }}
+            >
               205&middot;215&middot;9905
             </a>
             <br />
             <a
               href="mailto:hemingsgroupllc@gmail.com"
-              className="hover:text-[var(--text-gold-dark)]"
+              className="transition-colors duration-300 hover:opacity-100"
+              style={{ color: "var(--text-secondary-dark)", opacity: 0.8 }}
             >
               hemingsgroupllc@gmail.com
             </a>
@@ -47,7 +70,12 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="smallcaps text-[var(--text-gold-dark)] mb-5">Explore</p>
+          <p
+            className="smallcaps mb-5"
+            style={{ color: "var(--text-gold-dark)" }}
+          >
+            Explore
+          </p>
           <ul className="space-y-2.5">
             {[
               { href: "/about", label: "About" },
@@ -58,7 +86,8 @@ export default function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-[var(--text-secondary-dark)] hover:text-[var(--text-gold-dark)]"
+                  className="transition-colors duration-300"
+                  style={{ color: "var(--text-secondary-dark)" }}
                 >
                   {item.label}
                 </Link>
@@ -66,7 +95,12 @@ export default function Footer() {
             ))}
           </ul>
 
-          <p className="smallcaps text-[var(--text-gold-dark)] mt-8 mb-5">Follow</p>
+          <p
+            className="smallcaps mt-8 mb-5"
+            style={{ color: "var(--text-gold-dark)" }}
+          >
+            Follow
+          </p>
           <ul className="flex gap-5">
             {SOCIALS.map((s) => (
               <li key={s.label}>
@@ -74,7 +108,8 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-[var(--text-secondary-dark)] hover:text-[var(--text-gold-dark)] smallcaps text-[10px]"
+                  className="smallcaps text-[10px] transition-colors duration-300"
+                  style={{ color: "var(--text-secondary-dark)" }}
                 >
                   {s.label}
                 </a>
@@ -83,12 +118,18 @@ export default function Footer() {
           </ul>
         </div>
       </Container>
-      <div className="border-t border-char-700/60">
-        <Container className="flex flex-col items-center justify-between gap-4 py-6 text-[11px] text-[var(--text-secondary-dark)] md:flex-row">
-          <p className="smallcaps">
-            &copy; {new Date().getFullYear()} Hemings Group, LLC
-          </p>
-          <p className="smallcaps opacity-70">Birmingham &middot; Est.</p>
+
+      <div style={{ borderTop: "1px solid rgba(198, 167, 94, 0.12)" }}>
+        <Container className="py-6">
+          <div
+            className="flex flex-col items-center justify-between gap-4 md:flex-row"
+            style={{ fontSize: "11px", color: "var(--text-secondary-dark)" }}
+          >
+            <p className="smallcaps opacity-70">
+              &copy; {new Date().getFullYear()} Hemings Group, LLC
+            </p>
+            <p className="smallcaps opacity-50">Birmingham &middot; Est.</p>
+          </div>
         </Container>
       </div>
     </footer>

@@ -1,93 +1,120 @@
 import Container from "./_components/Container";
-import Section from "./_components/Section";
 import Button from "./_components/Button";
-import Eyebrow from "./_components/Eyebrow";
 import NumeralCard from "./_components/NumeralCard";
 import GoldSplash from "./_components/GoldSplash";
 import MetallicDivider from "./_components/MetallicDivider";
-import NavyAgate from "./_components/NavyAgate";
 import Reveal from "./_components/Reveal";
 import EventsScroller from "./_components/EventsScroller";
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO — navy marble panel */}
-      <section className="px-4 pt-28 pb-16 md:px-8 md:pt-32 md:pb-24">
-        <Container className="!px-0">
-          <div className="agate-panel relative">
-            <NavyAgate intensity={1} />
-            <div className="relative px-8 py-28 md:px-16 md:py-40 lg:px-24 lg:py-48">
-              <Reveal>
-                <Eyebrow dark className="mb-8">
-                  Members&nbsp;&middot;&nbsp;Birmingham&nbsp;&middot;&nbsp;Est.
-                </Eyebrow>
-              </Reveal>
-              <Reveal delay={120}>
-                <h1
-                  className="display max-w-[1000px] text-[var(--text-primary-dark)]"
-                  style={{ fontSize: "var(--t-display)" }}
-                >
-                  Your Experience is{" "}
-                  <span className="display-it gold-text">Everything.</span>
-                </h1>
-              </Reveal>
-              <Reveal delay={240}>
-                <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.85]">
-                  A members-preferred lounge poured from the same cloth as the city it
-                  keeps. Quiet rooms, gold light, the kind of evening that becomes a story.
-                </p>
-              </Reveal>
-              <Reveal delay={360}>
-                <div className="mt-12 flex flex-wrap items-center gap-6">
-                  <Button href="/contact#inquiry" variant="gold">
-                    Request Access
-                  </Button>
-                  <Button href="#manifesto" variant="ghost">
-                    The Experience
-                  </Button>
-                </div>
-              </Reveal>
+      {/* ── HERO — full bleed, floats directly on marble ── */}
+      <section className="relative min-h-[100svh] flex items-center pt-36 pb-32 md:pt-44 md:pb-40">
+        <Container className="relative z-10">
+          <Reveal direction="clip">
+            <MetallicDivider width={80} />
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="smallcaps mt-8 mb-10 tracking-wide-caps" style={{ color: "var(--text-gold-dark)" }}>
+              Hemings Group &nbsp;&middot;&nbsp; Birmingham, Alabama
+            </p>
+          </Reveal>
+          <Reveal delay={160} direction="up">
+            <h1
+              className="display-airy max-w-[1100px]"
+              style={{ fontSize: "var(--t-display)", color: "var(--text-primary-dark)" }}
+            >
+              Your Experience{" "}
+              <span className="display-it gold-text-shimmer">is&nbsp;Everything.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={320} direction="up">
+            <p
+              className="mt-12 max-w-xl text-lg leading-[1.95]"
+              style={{ color: "var(--text-secondary-dark)" }}
+            >
+              A members-preferred lounge poured from the same cloth as the city it
+              keeps. Quiet rooms, gold light, the kind of evening that becomes a story.
+            </p>
+          </Reveal>
+          <Reveal delay={480} direction="up">
+            <div className="mt-14 flex flex-wrap items-center gap-8">
+              <Button href="/contact#inquiry" variant="gold">
+                Request Access
+              </Button>
+              <Button href="#manifesto" variant="ghost">
+                The Experience
+              </Button>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
-      {/* MANIFESTO STRIP */}
-      <section id="manifesto" className="bg-beige-100/70 py-24 md:py-32">
+      {/* ── MANIFESTO STRIP — glass panel over marble ── */}
+      <section id="manifesto" className="glass-panel py-28 md:py-40">
         <Container>
-          <Reveal className="flex flex-col items-center text-center">
-            <MetallicDivider width={120} className="mb-10" />
+          <Reveal className="flex flex-col items-center text-center" direction="scale">
+            <MetallicDivider width={140} className="mb-12" />
             <p
-              className="signature text-text-primary"
-              style={{ fontSize: "clamp(20px, 2.2vw, 30px)" }}
+              className="smallcaps mb-8 tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              The Manifesto
+            </p>
+            <p
+              className="signature"
+              style={{
+                fontSize: "clamp(22px, 2.4vw, 34px)",
+                color: "var(--text-primary-dark)",
+              }}
             >
               Elegance &amp; Exclusivity
             </p>
-            <p className="mt-8 max-w-2xl text-text-secondary text-lg leading-[1.9]">
-              Where elegance and exclusivity equal an unforgettable experience. The
-              door is intentional. The detail is everything. The night is yours.
-            </p>
-            <MetallicDivider width={120} className="mt-10" />
+            <Reveal delay={200} direction="up">
+              <p
+                className="mt-10 max-w-2xl text-lg leading-[1.95]"
+                style={{ color: "var(--text-secondary-dark)" }}
+              >
+                Where elegance and exclusivity equal an unforgettable experience. The
+                door is intentional. The detail is everything. The night is yours.
+              </p>
+            </Reveal>
+            <MetallicDivider width={140} className="mt-12" />
           </Reveal>
         </Container>
       </section>
 
-      {/* THREE PILLARS */}
-      <Section>
+      {/* ── THREE PILLARS — open over marble ── */}
+      <section className="py-28 md:py-44 relative">
         <Container>
-          <Reveal className="mb-16 max-w-2xl">
-            <Eyebrow className="mb-6">The House</Eyebrow>
-            <h2
-              className="display text-text-primary"
-              style={{ fontSize: "var(--t-h1)" }}
-            >
-              Three things, <span className="display-it gold-text">poured slowly.</span>
-            </h2>
-          </Reveal>
+          <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+            <Reveal direction="left">
+              <p
+                className="smallcaps mb-6 tracking-wide-caps"
+                style={{ color: "var(--text-gold-dark)" }}
+              >
+                The House
+              </p>
+              <h2
+                className="display-airy"
+                style={{
+                  fontSize: "var(--t-h1)",
+                  color: "var(--text-primary-dark)",
+                  maxWidth: "700px",
+                }}
+              >
+                Three things,{" "}
+                <span className="display-it gold-text-shimmer">poured slowly.</span>
+              </h2>
+            </Reveal>
+            <Reveal direction="right" delay={200}>
+              <MetallicDivider width={120} />
+            </Reveal>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <Reveal delay={0}>
+            <Reveal delay={0} direction="scale">
               <NumeralCard
                 numeral="01"
                 eyebrow="Service"
@@ -99,11 +126,11 @@ export default function HomePage() {
                   </>
                 }
               >
-                Staff who remember how you like your second drink. A house that reads the
-                room before you do.
+                Staff who remember how you like your second drink. A house that reads
+                the room before you do.
               </NumeralCard>
             </Reveal>
-            <Reveal delay={120}>
+            <Reveal delay={160} direction="scale">
               <NumeralCard
                 numeral="02"
                 eyebrow="Atmosphere"
@@ -119,7 +146,7 @@ export default function HomePage() {
                 designed to be remembered, not noticed.
               </NumeralCard>
             </Reveal>
-            <Reveal delay={240}>
+            <Reveal delay={320} direction="scale">
               <NumeralCard
                 numeral="03"
                 eyebrow="Membership"
@@ -137,107 +164,141 @@ export default function HomePage() {
             </Reveal>
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* MARBLE SPLASH SECTION */}
-      <section className="px-4 py-16 md:px-8 md:py-24">
-        <Container className="!px-0">
-          <div className="agate-panel relative">
-            <NavyAgate intensity={1.1} />
-            <div className="relative px-8 py-24 md:px-16 md:py-36 lg:px-24">
-              <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1.4fr_1fr]">
-                <div>
-                  <Reveal>
-                    <Eyebrow dark className="mb-8">
-                      The Philosophy
-                    </Eyebrow>
-                  </Reveal>
-                  <Reveal delay={120}>
-                    <h2
-                      className="display text-[var(--text-primary-dark)]"
-                      style={{ fontSize: "var(--t-h1)" }}
-                    >
-                      True luxury lies in the{" "}
-                      <span className="display-it gold-text">details.</span>
-                    </h2>
-                  </Reveal>
-                  <Reveal delay={240}>
-                    <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
-                      We don&rsquo;t build evenings. We curate them — pour by pour,
-                      glance by glance, until the moment becomes its own small
-                      architecture.
-                    </p>
-                  </Reveal>
-                  <Reveal delay={360}>
-                    <div className="mt-12">
-                      <Button href="/membership" variant="gold">
-                        Discover Membership
-                      </Button>
-                    </div>
-                  </Reveal>
+      {/* ── PHILOSOPHY — glass panel ── */}
+      <section className="glass-panel py-32 md:py-48">
+        <Container>
+          <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-[1.3fr_1fr]">
+            <div>
+              <Reveal direction="left">
+                <p
+                  className="smallcaps mb-10 tracking-wide-caps"
+                  style={{ color: "var(--text-gold-dark)" }}
+                >
+                  The Philosophy
+                </p>
+              </Reveal>
+              <Reveal delay={140} direction="left">
+                <h2
+                  className="display-airy"
+                  style={{
+                    fontSize: "var(--t-h1)",
+                    color: "var(--text-primary-dark)",
+                  }}
+                >
+                  True luxury lies in the{" "}
+                  <span className="display-it gold-text-shimmer">details.</span>
+                </h2>
+              </Reveal>
+              <Reveal delay={280} direction="up">
+                <p
+                  className="mt-12 max-w-xl text-lg leading-[1.95]"
+                  style={{ color: "var(--text-secondary-dark)" }}
+                >
+                  We don&rsquo;t build evenings. We curate them — pour by pour, glance
+                  by glance, until the moment becomes its own small architecture.
+                </p>
+              </Reveal>
+              <Reveal delay={420} direction="up">
+                <div className="mt-14">
+                  <Button href="/membership" variant="gold">
+                    Discover Membership
+                  </Button>
                 </div>
-                <Reveal delay={300} className="hidden md:block">
-                  <div className="flex justify-center">
-                    <GoldSplash size={360} className="opacity-95" />
-                  </div>
-                </Reveal>
-              </div>
+              </Reveal>
             </div>
+            <Reveal delay={300} direction="right" className="hidden md:flex justify-center">
+              <GoldSplash size={420} className="opacity-95" />
+            </Reveal>
           </div>
         </Container>
       </section>
 
-      {/* EVENTS TEASER */}
-      <Section>
+      {/* ── EVENTS TEASER — open over marble ── */}
+      <section className="py-28 md:py-44">
         <Container>
-          <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6">
-            <div className="max-w-xl">
-              <Eyebrow className="mb-6">The Week at Hemings</Eyebrow>
-              <h2
-                className="display text-text-primary"
-                style={{ fontSize: "var(--t-h1)" }}
+          <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+            <Reveal direction="left">
+              <p
+                className="smallcaps mb-6 tracking-wide-caps"
+                style={{ color: "var(--text-gold-dark)" }}
               >
-                Seven nights, <span className="display-it gold-text">seven moods.</span>
+                The Week at Hemings
+              </p>
+              <h2
+                className="display-airy"
+                style={{
+                  fontSize: "var(--t-h1)",
+                  color: "var(--text-primary-dark)",
+                }}
+              >
+                Seven nights,{" "}
+                <span className="display-it gold-text-shimmer">seven moods.</span>
               </h2>
-            </div>
-            <Button href="/events" variant="ghost">
-              See the week
-            </Button>
-          </Reveal>
+            </Reveal>
+            <Reveal delay={160} direction="right">
+              <Button href="/events" variant="ghost">
+                See the week
+              </Button>
+            </Reveal>
+          </div>
 
-          <Reveal delay={120}>
+          <Reveal delay={240} direction="up">
             <EventsScroller />
           </Reveal>
         </Container>
-      </Section>
+      </section>
 
-      {/* VISIT TEASER */}
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <Container className="relative">
-          <Reveal className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+      {/* ── VISIT CTA — glass panel ── */}
+      <section className="glass-panel py-28 md:py-40">
+        <Container>
+          <Reveal className="grid grid-cols-1 items-center gap-12 md:grid-cols-2" direction="up">
             <div>
-              <Eyebrow className="mb-6">Visit</Eyebrow>
-              <h2
-                className="display text-text-primary"
-                style={{ fontSize: "var(--t-h2)" }}
-              >
-                Reserve your evening.
-              </h2>
-              <p className="mt-6 max-w-md text-text-secondary leading-[1.85]">
-                1623 2nd Ave N, Suite 106
-                <br />
-                Birmingham, AL 35203
-                <br />
-                <a className="text-text-gold" href="tel:+12052159905">
-                  205&middot;215&middot;9905
-                </a>
-              </p>
+              <Reveal direction="left">
+                <p
+                  className="smallcaps mb-8 tracking-wide-caps"
+                  style={{ color: "var(--text-gold-dark)" }}
+                >
+                  Visit
+                </p>
+              </Reveal>
+              <Reveal delay={140} direction="left">
+                <h2
+                  className="display-airy"
+                  style={{
+                    fontSize: "var(--t-h2)",
+                    color: "var(--text-primary-dark)",
+                  }}
+                >
+                  Reserve your{" "}
+                  <span className="display-it gold-text-shimmer">evening.</span>
+                </h2>
+              </Reveal>
+              <Reveal delay={280} direction="up">
+                <p
+                  className="mt-8 max-w-md leading-[1.95]"
+                  style={{ color: "var(--text-secondary-dark)" }}
+                >
+                  1623 2nd Ave N, Suite 106
+                  <br />
+                  Birmingham, AL 35203
+                  <br />
+                  <a
+                    className="transition-colors duration-300 hover:opacity-100"
+                    style={{ color: "var(--text-gold-dark)", opacity: 0.85 }}
+                    href="tel:+12052159905"
+                  >
+                    205&middot;215&middot;9905
+                  </a>
+                </p>
+              </Reveal>
             </div>
-            <div className="md:justify-self-end">
+            <Reveal delay={200} direction="right" className="md:justify-self-end">
               <Button href="/contact#inquiry" variant="gold">
                 Reserve Your Evening
               </Button>
-            </div>
+            </Reveal>
           </Reveal>
         </Container>
       </section>

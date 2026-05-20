@@ -1,40 +1,44 @@
 @import "tailwindcss";
 
 /* =========================================================================
-   PALETTE — Navy · Warm Beige · Soft Gold
+   PALETTE — Navy · Warm Beige · Metallic Gold
    ========================================================================= */
 :root {
-  /* Warm beige surfaces (the cream that holds the marble) */
+  /* Navy spine */
+  --navy-950: #0d1525;
+  --navy-900: #1F2A44;
+  --navy-800: #2a3656;
+  --navy-700: #3d4a6e;
+
+  /* Gold spine — rich, metallic, luminous */
+  --gold-100: #fff5d4;
+  --gold-200: #f5e3a8;
+  --gold-300: #e8c878;
+  --gold-400: #d4ae5a;
+  --gold-500: #C6A75E;
+  --gold-600: #b09148;
+  --gold-700: #8c6f30;
+  --gold-800: #6e5828;
+  --gold-900: #5a4419;
+
+  /* Warm beige — only used for light glass surfaces */
   --beige-50:  #faf3e3;
   --beige-100: #f2e6cf;
-  --beige-200: #E8DCC8;   /* primary warm beige */
+  --beige-200: #E8DCC8;
   --beige-300: #d6c4a5;
   --silk-400:  #b39e7a;
 
-  /* Navy spine (theatrical depth, marble base) */
-  --navy-950: #0d1525;
-  --navy-900: #1F2A44;    /* primary navy */
-  --navy-800: #2a3656;
-  --navy-700: #3d4a6e;
-  --char-700: #2a3656;    /* legacy alias */
-
-  /* Gold spine — softer, warmer than Aurum */
-  --gold-100: #f1e1ba;
-  --gold-300: #dcc28a;
-  --gold-500: #C6A75E;    /* primary soft gold */
-  --gold-600: #a8884a;
-  --gold-800: #6e5828;
-
-  /* Text on beige */
-  --text-primary:   #1F2A44;
-  --text-secondary: #3a4566;
-  --text-muted:     #6c7794;
-  --text-gold:      #8c6f30;
-
-  /* Text on navy */
+  /* Text on marble / dark surfaces */
   --text-primary-dark:   #f5ebd6;
   --text-secondary-dark: #c9b896;
+  --text-muted-dark:     #8a7a62;
   --text-gold-dark:      #dcc28a;
+
+  /* Text on glass-light surfaces */
+  --text-primary:   #f0e6ce;
+  --text-secondary: #c0a87c;
+  --text-muted:     #8a7a62;
+  --text-gold:      #dcc28a;
 
   /* Spacing */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
@@ -46,52 +50,63 @@
   --t-h2:      clamp(32px, 3.4vw, 52px);
   --t-h3:      clamp(22px, 1.8vw, 30px);
   --t-body:    clamp(15px, 1.05vw, 17px);
-  --t-label:   12px;
+  --t-label:   11px;
   --t-numeral: clamp(60px, 7vw, 120px);
 
-  /* Shadows — tuned for navy/beige */
-  --shadow-soft:  0 1px 2px rgba(31, 42, 68, 0.06), 0 8px 24px rgba(31, 42, 68, 0.10);
-  --shadow-card:  0 2px 4px rgba(31, 42, 68, 0.10), 0 28px 60px rgba(31, 42, 68, 0.18);
-  --shadow-hero:  0 40px 120px rgba(13, 21, 37, 0.45), 0 8px 24px rgba(31, 42, 68, 0.22);
-  --shadow-gold:  0 10px 40px rgba(198, 167, 94, 0.40), 0 20px 80px rgba(198, 167, 94, 0.20);
-  --shadow-panel: 0 30px 80px rgba(13, 21, 37, 0.35), 0 8px 24px rgba(13, 21, 37, 0.22);
+  /* Shadows */
+  --shadow-soft:  0 1px 2px rgba(13, 21, 37, 0.12), 0 8px 24px rgba(13, 21, 37, 0.18);
+  --shadow-card:  0 2px 4px rgba(13, 21, 37, 0.18), 0 28px 60px rgba(13, 21, 37, 0.30);
+  --shadow-hero:  0 40px 120px rgba(13, 21, 37, 0.55), 0 8px 24px rgba(13, 21, 37, 0.28);
+  --shadow-gold:  0 8px 32px rgba(198, 167, 94, 0.55), 0 20px 80px rgba(198, 167, 94, 0.28);
+  --shadow-panel: 0 30px 80px rgba(13, 21, 37, 0.45), 0 8px 24px rgba(13, 21, 37, 0.28);
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Gold metallic gradients */
   --grad-gold: linear-gradient(
     135deg,
-    #f1e1ba 0%,
-    #dcc28a 22%,
-    #C6A75E 50%,
-    #a8884a 78%,
-    #6e5828 100%
+    #fff5d4 0%,
+    #f5e3a8 14%,
+    #e8c878 28%,
+    #d4ae5a 42%,
+    #C6A75E 52%,
+    #b09148 64%,
+    #8c6f30 78%,
+    #5a4419 92%,
+    #2d2008 100%
   );
-  --grad-gold-soft: linear-gradient(135deg, #f6e6c0 0%, #dcc28a 50%, #C6A75E 100%);
+  --grad-gold-soft: linear-gradient(135deg, #fff5d4 0%, #f0d896 50%, #C6A75E 100%);
   --grad-gold-anim: linear-gradient(
-    135deg,
-    #f1e1ba 0%,
-    #dcc28a 18%,
-    #C6A75E 35%,
-    #a8884a 50%,
-    #C6A75E 65%,
-    #dcc28a 82%,
-    #f1e1ba 100%
+    110deg,
+    #fff5d4 0%,
+    #f5e3a8 10%,
+    #e8c878 22%,
+    #d4ae5a 32%,
+    #C6A75E 42%,
+    #b09148 52%,
+    #C6A75E 62%,
+    #d4ae5a 72%,
+    #e8c878 82%,
+    #f5e3a8 92%,
+    #fff5d4 100%
+  );
+  --grad-gold-leaf: linear-gradient(
+    115deg,
+    #fff5d4 0%,
+    #f0d896 20%,
+    #d4ae5a 38%,
+    #8c6f30 52%,
+    #d4ae5a 64%,
+    #e8c878 78%,
+    #fff5d4 100%
   );
 
-  /* Navy marble gradients */
-  --grad-navy-deep: radial-gradient(
-    ellipse at 30% 20%,
-    #2a3656 0%,
-    #1F2A44 40%,
-    #0d1525 100%
-  );
-  --grad-navy-soft: linear-gradient(
-    180deg,
-    #1F2A44 0%,
-    #14203a 100%
-  );
+  /* Section glass tint — sits over marble bg */
+  --glass-surface: rgba(13, 21, 37, 0.38);
+  --glass-border: rgba(198, 167, 94, 0.22);
+  --glass-blur: 24px;
 }
 
 /* =========================================================================
@@ -108,10 +123,9 @@
   --color-navy-900: var(--navy-900);
   --color-navy-800: var(--navy-800);
   --color-navy-700: var(--navy-700);
-  --color-char-700: var(--char-700);
 
   --color-gold-100: var(--gold-100);
-  --color-gold-300: var(--gold-300);
+  --color-gold-300: var(--gold-400);
   --color-gold-500: var(--gold-500);
   --color-gold-600: var(--gold-600);
   --color-gold-800: var(--gold-800);
@@ -144,84 +158,96 @@ body {
   font-weight: 300;
   font-size: var(--t-body);
   line-height: 1.7;
-  color: var(--text-primary);
-  background: var(--beige-50);
+  color: var(--text-primary-dark);
+  background: var(--navy-950);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  /* The marble background is fixed and fills the entire page */
+  position: relative;
 }
-::selection { background: var(--gold-300); color: var(--navy-950); }
+::selection { background: var(--gold-400); color: var(--navy-950); }
 
 /* =========================================================================
-   TYPOGRAPHY UTILITIES
+   FULL-PAGE FIXED MARBLE BACKGROUND
    ========================================================================= */
-.display {
-  font-family: "Fraunces", serif;
-  font-optical-sizing: auto;
-  font-variation-settings: "opsz" 144;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
-}
-.display-it {
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-weight: 300;
-  letter-spacing: -0.01em;
-  font-variation-settings: "opsz" 144;
-}
-.signature {
-  font-family: "Italiana", serif;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-}
-.smallcaps {
-  font-family: "Manrope", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.32em;
-  font-weight: 500;
-  font-size: var(--t-label);
+.marble-bg-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  /* Subtle slow drift to make the background feel alive */
+  animation: marble-breathe 20s ease-in-out infinite alternate;
 }
 
-.gold-text {
-  background: var(--grad-gold);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+@keyframes marble-breathe {
+  0%   { transform: scale(1) translate(0, 0); }
+  33%  { transform: scale(1.015) translate(-6px, 4px); }
+  66%  { transform: scale(1.008) translate(4px, -6px); }
+  100% { transform: scale(1.012) translate(-3px, 2px); }
+}
+
+.marble-bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    transparent 30%,
+    rgba(13, 21, 37, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+/* Page content must sit above fixed bg */
+main {
+  position: relative;
+  z-index: 1;
 }
 
 /* =========================================================================
-   SURFACES
+   GLASS PANEL — content sections over the marble
+   ========================================================================= */
+.glass-panel {
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid rgba(198, 167, 94, 0.10);
+}
+
+/* =========================================================================
+   GLASS CARDS
    ========================================================================= */
 .glass-card {
   background: linear-gradient(
-    180deg,
-    rgba(250, 243, 227, 0.92) 0%,
-    rgba(232, 220, 200, 0.85) 100%
+    160deg,
+    rgba(250, 243, 227, 0.07) 0%,
+    rgba(198, 167, 94, 0.04) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(198, 167, 94, 0.35);
+  border: 1px solid rgba(198, 167, 94, 0.28);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 1px 2px rgba(31, 42, 68, 0.06),
-    0 24px 60px rgba(31, 42, 68, 0.16);
+    inset 0 1px 0 rgba(255, 245, 212, 0.12),
+    0 1px 2px rgba(13, 21, 37, 0.12),
+    0 24px 60px rgba(13, 21, 37, 0.28);
   border-radius: 20px;
 }
 
 .glass-card-dark {
   background: linear-gradient(
-    180deg,
-    rgba(42, 54, 86, 0.65) 0%,
-    rgba(13, 21, 37, 0.85) 100%
+    160deg,
+    rgba(42, 54, 86, 0.50) 0%,
+    rgba(13, 21, 37, 0.70) 100%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(198, 167, 94, 0.35);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(198, 167, 94, 0.30);
   box-shadow:
-    inset 0 1px 0 rgba(220, 194, 138, 0.18),
-    0 40px 120px rgba(13, 21, 37, 0.6);
+    inset 0 1px 0 rgba(220, 194, 138, 0.16),
+    0 40px 120px rgba(13, 21, 37, 0.55),
+    0 2px 8px rgba(13, 21, 37, 0.30);
   border-radius: 20px;
 }
 
@@ -253,6 +279,109 @@ body {
 }
 
 /* =========================================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================================= */
+.display {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+.display-it {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 144;
+}
+.display-airy {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 300;
+  letter-spacing: -0.022em;
+  line-height: 1.04;
+}
+.display-tight {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 400;
+  letter-spacing: -0.038em;
+  line-height: 0.92;
+}
+.signature {
+  font-family: "Italiana", serif;
+  letter-spacing: 0.46em;
+  text-transform: uppercase;
+}
+.smallcaps {
+  font-family: "Manrope", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.36em;
+  font-weight: 500;
+  font-size: var(--t-label);
+}
+.tracking-wide-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+}
+
+/* =========================================================================
+   GOLD TEXT EFFECTS
+   ========================================================================= */
+.gold-text {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Luminous shimmer on entry */
+.gold-text-shimmer {
+  background: linear-gradient(
+    110deg,
+    #8c6f30 0%,
+    #C6A75E 18%,
+    #fff5d4 32%,
+    #f5e3a8 42%,
+    #e8c878 52%,
+    #C6A75E 64%,
+    #8c6f30 82%,
+    #5a4419 100%
+  );
+  background-size: 280% 100%;
+  background-position: 100% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: background-position 2000ms var(--ease);
+}
+[data-reveal="visible"] .gold-text-shimmer {
+  background-position: 0% 50%;
+}
+
+/* Metallic pulse — adds a slow highlight sweep to gold text */
+.gold-text-pulse {
+  background: var(--grad-gold-anim);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gold-pulse 6s ease-in-out infinite;
+}
+@keyframes gold-pulse {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =========================================================================
    BUTTONS
    ========================================================================= */
 .btn {
@@ -264,46 +393,56 @@ body {
   border-radius: 10px;
   font-family: "Manrope", sans-serif;
   font-weight: 500;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.30em;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
-  transition: transform 350ms var(--ease), box-shadow 350ms var(--ease),
-    border-color 350ms var(--ease), background-position 350ms var(--ease);
+  transition:
+    transform 400ms var(--ease),
+    box-shadow 400ms var(--ease),
+    border-color 400ms var(--ease),
+    background-position 400ms var(--ease);
   white-space: nowrap;
   text-decoration: none;
   border: 1px solid transparent;
 }
 .btn-obsidian {
-  background: var(--navy-900);
-  color: var(--gold-300);
-  border-color: var(--gold-500);
+  background: rgba(13, 21, 37, 0.65);
+  backdrop-filter: blur(12px);
+  color: var(--gold-400);
+  border-color: rgba(198, 167, 94, 0.45);
   box-shadow: var(--shadow-soft);
 }
 .btn-obsidian:hover {
   transform: translateY(-2px);
-  border-color: var(--gold-100);
+  border-color: var(--gold-200);
   box-shadow:
     var(--shadow-soft),
-    inset 0 0 24px rgba(220, 194, 138, 0.20);
+    inset 0 0 28px rgba(220, 194, 138, 0.18),
+    0 0 32px rgba(198, 167, 94, 0.22);
   color: var(--gold-100);
 }
 .btn-gold {
   background: var(--grad-gold-anim);
-  background-size: 200% 200%;
+  background-size: 220% 220%;
   background-position: 0% 50%;
   color: var(--navy-950);
-  font-weight: 600;
-  border-color: var(--gold-600);
-  animation: gold-shimmer 8s linear infinite;
-  box-shadow: var(--shadow-gold);
+  font-weight: 700;
+  border-color: var(--gold-700);
+  animation: gold-shimmer 7s linear infinite;
+  box-shadow:
+    var(--shadow-gold),
+    inset 0 1px 0 rgba(255, 245, 212, 0.5);
 }
 .btn-gold:hover {
-  transform: translateY(-2px);
-  background-position: 100% 50%;
+  transform: translateY(-3px) scale(1.01);
+  box-shadow:
+    0 12px 48px rgba(198, 167, 94, 0.70),
+    0 4px 12px rgba(198, 167, 94, 0.40),
+    inset 0 1px 0 rgba(255, 245, 212, 0.5);
 }
 .btn-ghost {
-  color: var(--text-gold);
+  color: var(--gold-400);
   background: transparent;
   padding: 18px 0;
   position: relative;
@@ -314,9 +453,11 @@ body {
   left: 0; bottom: 12px;
   width: 0; height: 1px;
   background: var(--grad-gold);
-  transition: width 350ms var(--ease);
+  transition: width 400ms var(--ease);
+  box-shadow: 0 0 8px rgba(198, 167, 94, 0.6);
 }
 .btn-ghost:hover::after { width: 100%; }
+.btn-ghost:hover { color: var(--gold-200); }
 
 @keyframes gold-shimmer {
   0%   { background-position: 0% 50%; }
@@ -334,30 +475,23 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--gold-100) 15%,
+    rgba(255, 245, 212, 0.35) 15%,
     var(--gold-500) 50%,
-    var(--gold-100) 85%,
+    rgba(255, 245, 212, 0.35) 85%,
     transparent 100%
   );
+  box-shadow: 0 0 8px rgba(198, 167, 94, 0.4);
 }
 
 /* =========================================================================
-   AGATE PANEL — navy marble hero treatment
+   HEADER
    ========================================================================= */
-.agate-panel {
-  position: relative;
-  isolation: isolate;
-  border-radius: 32px;
-  overflow: hidden;
-  box-shadow: var(--shadow-panel);
-  border: 1px solid rgba(198, 167, 94, 0.35);
-}
-.agate-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--grad-navy-deep);
-  z-index: -2;
+.header-scrolled {
+  background: rgba(13, 21, 37, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(198, 167, 94, 0.18);
+  box-shadow: 0 1px 40px rgba(13, 21, 37, 0.5);
 }
 
 /* =========================================================================
@@ -370,18 +504,80 @@ body {
 }
 
 /* =========================================================================
-   REVEAL ANIMATION
+   GOLD LEAF — for direct gold-leaf <span> usage on the marble
    ========================================================================= */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+.gold-leaf-fill {
+  fill: url(#gradGoldLeaf);
+  filter: drop-shadow(0 6px 18px rgba(198, 167, 94, 0.55))
+          drop-shadow(0 1px 1px rgba(13, 21, 37, 0.6));
 }
-[data-reveal="visible"] {
+
+/* =========================================================================
+   REVEAL ANIMATIONS — dramatic directional
+   ========================================================================= */
+
+/* Up (default) */
+[data-reveal][data-reveal-dir="up"] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 800ms var(--ease),
+    transform 800ms var(--ease);
+}
+[data-reveal="visible"][data-reveal-dir="up"] {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* From left */
+[data-reveal][data-reveal-dir="left"] {
+  opacity: 0;
+  transform: translateX(-64px);
+  transition:
+    opacity 900ms var(--ease),
+    transform 900ms var(--ease);
+}
+[data-reveal="visible"][data-reveal-dir="left"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* From right */
+[data-reveal][data-reveal-dir="right"] {
+  opacity: 0;
+  transform: translateX(64px);
+  transition:
+    opacity 900ms var(--ease),
+    transform 900ms var(--ease);
+}
+[data-reveal="visible"][data-reveal-dir="right"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale up — dramatic entrance */
+[data-reveal][data-reveal-dir="scale"] {
+  opacity: 0;
+  transform: scale(0.88) translateY(20px);
+  transition:
+    opacity 1000ms var(--ease),
+    transform 1000ms var(--ease-spring);
+}
+[data-reveal="visible"][data-reveal-dir="scale"] {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Clip wipe — text/divider reveal from left edge */
+[data-reveal][data-reveal-dir="clip"] {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1000ms var(--ease);
+}
+[data-reveal="visible"][data-reveal-dir="clip"] {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -392,7 +588,11 @@ body {
     scroll-behavior: auto !important;
   }
   [data-reveal] {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .marble-bg-fixed {
+    animation: none !important;
   }
 }

@@ -1,9 +1,7 @@
 import Container from "../_components/Container";
-import Section from "../_components/Section";
-import Eyebrow from "../_components/Eyebrow";
 import GlassCard from "../_components/GlassCard";
 import GoldSplash from "../_components/GoldSplash";
-import NavyAgate from "../_components/NavyAgate";
+import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 
 export const metadata = {
@@ -61,95 +59,154 @@ const WEEKEND: Night[] = [
   },
 ];
 
-function NightCard({ n }: { n: Night }) {
+function NightCard({ n, delay = 0, dir }: { n: Night; delay?: number; dir?: "left" | "right" | "up" | "scale" }) {
   return (
-    <GlassCard
-      corners={Boolean(n.flagship)}
-      padding="p-10 md:p-12"
-      className="h-full"
-    >
-      <div className="flex items-center gap-5 mb-6">
-        <span className="metallic-divider" style={{ width: 48 }} />
-        <p className="smallcaps text-text-gold">{n.day}</p>
-      </div>
-      <h3
-        className="display mb-4 text-text-primary"
-        style={{ fontSize: "clamp(28px, 2.6vw, 38px)" }}
+    <Reveal delay={delay} direction={dir ?? "scale"} className="h-full">
+      <GlassCard
+        corners={Boolean(n.flagship)}
+        padding="p-10 md:p-12"
+        className="h-full"
       >
-        {n.name}
-      </h3>
-      <p className="text-text-secondary leading-[1.9]">{n.desc}</p>
-    </GlassCard>
+        <div className="flex items-center gap-5 mb-6">
+          <span className="metallic-divider" style={{ width: 56 }} />
+          <p
+            className="smallcaps tracking-wide-caps"
+            style={{ color: "var(--text-gold-dark)" }}
+          >
+            {n.day}
+          </p>
+        </div>
+        <h3
+          className="display-airy mb-5"
+          style={{
+            fontSize: "clamp(28px, 2.6vw, 38px)",
+            color: "var(--text-primary-dark)",
+          }}
+        >
+          {n.name}
+        </h3>
+        <p className="leading-[1.95]" style={{ color: "var(--text-secondary-dark)" }}>
+          {n.desc}
+        </p>
+        {n.flagship && (
+          <div className="mt-8">
+            <span
+              className="smallcaps tracking-wide-caps"
+              style={{
+                color: "var(--gold-400)",
+                fontSize: "10px",
+                letterSpacing: "0.4em",
+              }}
+            >
+              ✦ Flagship Night
+            </span>
+          </div>
+        )}
+      </GlassCard>
+    </Reveal>
   );
 }
 
 export default function EventsPage() {
   return (
     <>
-      {/* HERO — navy marble panel */}
-      <section className="px-4 pt-28 pb-12 md:px-8 md:pt-32 md:pb-20">
-        <Container className="!px-0">
-          <div className="agate-panel relative">
-            <NavyAgate intensity={0.95} />
-            <div className="relative px-8 py-24 md:px-16 md:py-32 lg:px-24">
-              <Reveal>
-                <Eyebrow dark className="mb-8">The Week at Hemings</Eyebrow>
-              </Reveal>
-              <Reveal delay={120}>
-                <h1
-                  className="display max-w-[1000px] text-[var(--text-primary-dark)]"
-                  style={{ fontSize: "var(--t-h1)" }}
-                >
-                  Seven nights,{" "}
-                  <span className="display-it gold-text">seven moods.</span>
-                </h1>
-              </Reveal>
-              <Reveal delay={240}>
-                <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
-                  No two evenings at Hemings sound alike. The week unfolds as a
-                  composition — each night curated, none repeated.
-                </p>
-              </Reveal>
-            </div>
+      {/* ── HERO ── */}
+      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36">
+        <Container className="relative z-10">
+          <Reveal direction="clip">
+            <MetallicDivider width={80} />
+          </Reveal>
+          <Reveal delay={100}>
+            <p
+              className="smallcaps mt-8 mb-10 tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              The Week at Hemings
+            </p>
+          </Reveal>
+          <Reveal delay={200} direction="up">
+            <h1
+              className="display-airy max-w-[1000px]"
+              style={{
+                fontSize: "var(--t-h1)",
+                color: "var(--text-primary-dark)",
+              }}
+            >
+              Seven nights,{" "}
+              <span className="display-it gold-text-shimmer">seven moods.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={360} direction="up">
+            <p
+              className="mt-10 max-w-xl text-lg leading-[1.95]"
+              style={{ color: "var(--text-secondary-dark)" }}
+            >
+              No two evenings at Hemings sound alike. The week unfolds as a
+              composition — each night curated, none repeated.
+            </p>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* ── WEEKNIGHTS — glass panel ── */}
+      <section className="glass-panel py-28 md:py-40">
+        <Container>
+          <Reveal className="mb-14" direction="left">
+            <p
+              className="smallcaps tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              The Weeknights
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {WEEKNIGHTS.map((n, i) => (
+              <NightCard
+                key={n.day}
+                n={n}
+                delay={i * 120}
+                dir={i % 2 === 0 ? "left" : "right"}
+              />
+            ))}
           </div>
         </Container>
       </section>
 
-      {/* WEEKNIGHTS */}
-      <Section>
-        <Container>
-          <Reveal className="mb-12">
-            <Eyebrow>The Weeknights</Eyebrow>
+      {/* ── WEEKEND DIVIDER — open over marble ── */}
+      <section className="py-28 md:py-36">
+        <div className="flex flex-col items-center text-center gap-6">
+          <Reveal direction="scale">
+            <GoldSplash size={180} className="opacity-90" />
           </Reveal>
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
-            {WEEKNIGHTS.map((n, i) => (
-              <Reveal key={n.day} delay={i * 100}>
-                <NightCard n={n} />
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <div className="flex items-center justify-center py-8">
-        <GoldSplash size={140} className="opacity-80" />
-      </div>
-
-      {/* WEEKEND */}
-      <Section className="pt-0">
-        <Container>
-          <Reveal className="mb-12">
-            <Eyebrow>The Weekend</Eyebrow>
+          <Reveal delay={180} direction="up">
+            <p
+              className="signature text-sm md:text-base"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              The Weekend
+            </p>
           </Reveal>
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-3">
+          <Reveal delay={280} direction="clip" className="w-full max-w-xs mx-auto">
+            <MetallicDivider width={200} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── WEEKEND — glass panel ── */}
+      <section className="glass-panel py-28 md:py-40">
+        <Container>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {WEEKEND.map((n, i) => (
-              <Reveal key={n.day} delay={i * 100}>
-                <NightCard n={n} />
-              </Reveal>
+              <NightCard
+                key={n.day}
+                n={n}
+                delay={i * 140}
+                dir={i === 1 ? "up" : i === 0 ? "left" : "right"}
+              />
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
     </>
   );
 }

@@ -1,8 +1,6 @@
 import Container from "../_components/Container";
-import Section from "../_components/Section";
-import Eyebrow from "../_components/Eyebrow";
 import GlassCard from "../_components/GlassCard";
-import NavyAgate from "../_components/NavyAgate";
+import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import ContactForm from "../_components/ContactForm";
 
@@ -21,100 +19,153 @@ const HOURS = [
 export default function ContactPage() {
   return (
     <>
-      {/* HERO — navy marble panel */}
-      <section className="px-4 pt-28 pb-12 md:px-8 md:pt-32 md:pb-20">
-        <Container className="!px-0">
-          <div className="agate-panel relative">
-            <NavyAgate intensity={0.9} />
-            <div className="relative px-8 py-20 md:px-16 md:py-28 lg:px-24">
-              <Reveal>
-                <Eyebrow dark className="mb-8">Find Us</Eyebrow>
-              </Reveal>
-              <Reveal delay={120}>
-                <h1
-                  className="display max-w-[1000px] text-[var(--text-primary-dark)]"
-                  style={{ fontSize: "var(--t-h1)" }}
-                >
-                  Where to <span className="display-it gold-text">find us.</span>
-                </h1>
-              </Reveal>
-              <Reveal delay={240}>
-                <p className="mt-10 max-w-xl text-[var(--text-secondary-dark)] text-lg leading-[1.9]">
-                  The address is Birmingham. The door is on 2nd Avenue. Beyond that,
-                  the evening is yours to shape.
-                </p>
-              </Reveal>
-            </div>
-          </div>
+      {/* ── HERO ── */}
+      <section className="relative min-h-[72svh] flex items-center pt-36 pb-24 md:pt-44 md:pb-32">
+        <Container className="relative z-10">
+          <Reveal direction="clip">
+            <MetallicDivider width={80} />
+          </Reveal>
+          <Reveal delay={100}>
+            <p
+              className="smallcaps mt-8 mb-10 tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              Find Us
+            </p>
+          </Reveal>
+          <Reveal delay={200} direction="up">
+            <h1
+              className="display-airy max-w-[1000px]"
+              style={{
+                fontSize: "var(--t-h1)",
+                color: "var(--text-primary-dark)",
+              }}
+            >
+              Where to{" "}
+              <span className="display-it gold-text-shimmer">find us.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={360} direction="up">
+            <p
+              className="mt-10 max-w-xl text-lg leading-[1.95]"
+              style={{ color: "var(--text-secondary-dark)" }}
+            >
+              The address is Birmingham. The door is on 2nd Avenue. Beyond that, the
+              evening is yours to shape.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
-      {/* CONTACT GRID */}
-      <Section className="pt-12">
+      {/* ── CONTACT GRID — glass panel ── */}
+      <section className="glass-panel py-20 md:py-32">
         <Container>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {/* LEFT — DETAILS */}
-            <Reveal>
-              <GlassCard padding="p-10 md:p-12" className="h-full">
-                <Eyebrow className="mb-6">The House</Eyebrow>
+            <Reveal direction="left">
+              <GlassCard padding="p-12 md:p-14" className="h-full">
+                <p
+                  className="smallcaps mb-6 tracking-wide-caps"
+                  style={{ color: "var(--text-gold-dark)" }}
+                >
+                  The House
+                </p>
                 <h2
-                  className="display mb-8 text-text-primary"
-                  style={{ fontSize: "var(--t-h3)" }}
+                  className="display-airy mb-10"
+                  style={{
+                    fontSize: "var(--t-h3)",
+                    color: "var(--text-primary-dark)",
+                  }}
                 >
                   Hemings Group, LLC
                 </h2>
 
-                <div className="space-y-8">
-                  <div>
-                    <p className="smallcaps text-text-gold mb-3">Address</p>
+                <div className="space-y-10">
+                  <Reveal delay={120} direction="up">
+                    <p
+                      className="smallcaps mb-3 tracking-wide-caps"
+                      style={{ color: "var(--text-gold-dark)" }}
+                    >
+                      Address
+                    </p>
                     <a
                       href="https://maps.google.com/?q=1623+2nd+Ave+N+Suite+106+Birmingham+AL+35203"
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="text-text-primary text-lg leading-[1.85] hover:text-text-gold"
+                      className="text-lg leading-[1.85] transition-colors duration-300"
+                      style={{ color: "var(--text-primary-dark)" }}
+                      onMouseEnter={(e) =>
+                        ((e.target as HTMLElement).style.color = "var(--text-gold-dark)")
+                      }
+                      onMouseLeave={(e) =>
+                        ((e.target as HTMLElement).style.color = "var(--text-primary-dark)")
+                      }
                     >
                       1623 2nd Ave N, Suite 106
                       <br />
                       Birmingham, AL 35203
                     </a>
-                  </div>
+                  </Reveal>
 
-                  <div>
-                    <p className="smallcaps text-text-gold mb-3">Direct</p>
+                  <Reveal delay={220} direction="up">
+                    <p
+                      className="smallcaps mb-3 tracking-wide-caps"
+                      style={{ color: "var(--text-gold-dark)" }}
+                    >
+                      Direct
+                    </p>
                     <p className="text-lg leading-[1.85]">
                       <a
                         href="tel:+12052159905"
-                        className="text-text-primary hover:text-text-gold"
+                        className="transition-colors duration-300"
+                        style={{ color: "var(--text-primary-dark)" }}
                       >
                         205&middot;215&middot;9905
                       </a>
                       <br />
                       <a
                         href="mailto:hemingsgroupllc@gmail.com"
-                        className="text-text-primary hover:text-text-gold"
+                        className="transition-colors duration-300"
+                        style={{ color: "var(--text-primary-dark)" }}
                       >
                         hemingsgroupllc@gmail.com
                       </a>
                     </p>
-                  </div>
+                  </Reveal>
 
-                  <div>
-                    <p className="smallcaps text-text-gold mb-3">Hours</p>
+                  <Reveal delay={320} direction="up">
+                    <p
+                      className="smallcaps mb-3 tracking-wide-caps"
+                      style={{ color: "var(--text-gold-dark)" }}
+                    >
+                      Hours
+                    </p>
                     <ul className="space-y-1.5">
                       {HOURS.map((h) => (
                         <li
                           key={h.day}
-                          className="flex justify-between gap-6 border-b border-beige-300/60 pb-1.5 text-text-secondary"
+                          className="flex justify-between gap-6 pb-1.5"
+                          style={{
+                            borderBottom: "1px solid rgba(198, 167, 94, 0.18)",
+                            color: "var(--text-secondary-dark)",
+                          }}
                         >
                           <span>{h.day}</span>
-                          <span className="text-text-primary">{h.time}</span>
+                          <span style={{ color: "var(--text-primary-dark)" }}>
+                            {h.time}
+                          </span>
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </Reveal>
 
-                  <div>
-                    <p className="smallcaps text-text-gold mb-3">Follow</p>
+                  <Reveal delay={420} direction="up">
+                    <p
+                      className="smallcaps mb-3 tracking-wide-caps"
+                      style={{ color: "var(--text-gold-dark)" }}
+                    >
+                      Follow
+                    </p>
                     <ul className="flex gap-6">
                       {[
                         { label: "Instagram", href: "https://instagram.com/hemingsgroup" },
@@ -126,27 +177,36 @@ export default function ContactPage() {
                             href={s.href}
                             target="_blank"
                             rel="noreferrer noopener"
-                            className="smallcaps text-text-secondary hover:text-text-gold"
+                            className="smallcaps tracking-wide-caps transition-colors duration-300"
+                            style={{ color: "var(--text-secondary-dark)" }}
+                            onMouseEnter={(e) =>
+                              ((e.target as HTMLElement).style.color =
+                                "var(--text-gold-dark)")
+                            }
+                            onMouseLeave={(e) =>
+                              ((e.target as HTMLElement).style.color =
+                                "var(--text-secondary-dark)")
+                            }
                           >
                             {s.label}
                           </a>
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </Reveal>
                 </div>
               </GlassCard>
             </Reveal>
 
             {/* RIGHT — INQUIRY */}
-            <Reveal delay={120}>
+            <Reveal delay={180} direction="right">
               <div id="inquiry">
                 <ContactForm />
               </div>
             </Reveal>
           </div>
         </Container>
-      </Section>
+      </section>
     </>
   );
 }

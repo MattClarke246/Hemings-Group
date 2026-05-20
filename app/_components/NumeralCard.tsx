@@ -21,14 +21,24 @@ export default function NumeralCard({
       >
         {numeral}
       </span>
-      <span className="smallcaps text-text-gold mb-3 block">{eyebrow}</span>
+      <span
+        className="smallcaps mb-3 block"
+        style={{ color: "var(--text-gold-dark)" }}
+      >
+        {eyebrow}
+      </span>
       <h3
-        className="display mb-5 text-text-primary"
-        style={{ fontSize: "var(--t-h3)" }}
+        className="display mb-5"
+        style={{
+          fontSize: "var(--t-h3)",
+          color: "var(--text-primary-dark)",
+        }}
       >
         {title}
       </h3>
-      <p className="text-text-secondary leading-[1.75]">{children}</p>
+      <p className="leading-[1.75]" style={{ color: "var(--text-secondary-dark)" }}>
+        {children}
+      </p>
     </GlassCard>
   );
 }

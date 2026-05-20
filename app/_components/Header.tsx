@@ -16,7 +16,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -24,16 +24,15 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color,box-shadow] duration-[350ms] ease-[var(--ease-aurum)] ${
-        scrolled
-          ? "border-b border-beige-300/40 bg-beige-50/80 backdrop-blur-xl shadow-[0_1px_24px_rgba(106,68,16,0.08)]"
-          : "border-b border-transparent bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[var(--ease-aurum)] ${
+        scrolled ? "header-scrolled" : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-5 md:px-10">
         <Link
           href="/"
-          className="signature text-text-primary text-[15px] md:text-[17px]"
+          className="signature text-[15px] md:text-[17px]"
+          style={{ color: "var(--text-gold-dark)", letterSpacing: "0.42em" }}
           aria-label="Hemings Group home"
         >
           Hemings
@@ -44,7 +43,14 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="smallcaps text-text-secondary transition-colors hover:text-text-gold"
+              className="smallcaps transition-colors duration-300"
+              style={{ color: "var(--text-secondary-dark)" }}
+              onMouseEnter={(e) =>
+                ((e.target as HTMLElement).style.color = "var(--text-gold-dark)")
+              }
+              onMouseLeave={(e) =>
+                ((e.target as HTMLElement).style.color = "var(--text-secondary-dark)")
+              }
             >
               {item.label}
             </Link>
@@ -52,13 +58,14 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="/contact#inquiry" variant="gold" className="!px-7 !py-3 !text-[11px]">
+          <Button href="/contact#inquiry" variant="gold" className="!px-7 !py-3 !text-[10px]">
             Request Access
           </Button>
         </div>
 
         <button
-          className="md:hidden smallcaps text-text-secondary"
+          className="md:hidden smallcaps"
+          style={{ color: "var(--text-secondary-dark)" }}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -68,13 +75,21 @@ export default function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-beige-300/50 bg-beige-50/95 backdrop-blur-xl md:hidden">
+        <div
+          className="border-t md:hidden"
+          style={{
+            background: "rgba(13, 21, 37, 0.92)",
+            backdropFilter: "blur(24px)",
+            borderColor: "rgba(198, 167, 94, 0.18)",
+          }}
+        >
           <nav className="flex flex-col gap-2 px-6 py-6" aria-label="Mobile">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="smallcaps py-3 text-text-primary"
+                className="smallcaps py-3"
+                style={{ color: "var(--text-primary-dark)" }}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -84,7 +99,7 @@ export default function Header() {
               <Button
                 href="/contact#inquiry"
                 variant="gold"
-                className="!px-7 !py-3 !text-[11px]"
+                className="!px-7 !py-3 !text-[10px]"
               >
                 Request Access
               </Button>

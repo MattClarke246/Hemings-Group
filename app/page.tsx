@@ -5,12 +5,14 @@ import GoldSplash from "./_components/GoldSplash";
 import MetallicDivider from "./_components/MetallicDivider";
 import Reveal from "./_components/Reveal";
 import EventsScroller from "./_components/EventsScroller";
+import GoldDust from "./_components/GoldDust";
 
 export default function HomePage() {
   return (
     <>
       {/* ── HERO — full bleed, floats directly on marble ── */}
       <section className="relative min-h-[100svh] flex items-center pt-36 pb-32 md:pt-44 md:pb-40">
+        <GoldDust />
         <Container className="relative z-10">
           <Reveal direction="clip">
             <MetallicDivider width={80} />
@@ -40,7 +42,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={480} direction="up">
             <div className="mt-14 flex flex-wrap items-center gap-8">
-              <Button href="/contact#inquiry" variant="gold">
+              <Button href="/membership" variant="gold">
                 Request Access
               </Button>
               <Button href="#manifesto" variant="ghost">
@@ -295,7 +297,7 @@ export default function HomePage() {
               </Reveal>
             </div>
             <Reveal delay={200} direction="right" className="md:justify-self-end">
-              <Button href="/contact#inquiry" variant="gold">
+              <Button href="/rsvp" variant="gold">
                 Reserve Your Evening
               </Button>
             </Reveal>

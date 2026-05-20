@@ -6,8 +6,10 @@ import Button from "./Button";
 
 const NAV = [
   { href: "/about", label: "About" },
+  { href: "/menu", label: "Menu" },
   { href: "/membership", label: "Membership" },
   { href: "/events", label: "Events" },
+  { href: "/rsvp", label: "RSVP" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -58,8 +60,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="/contact#inquiry" variant="gold" className="!px-7 !py-3 !text-[10px]">
-            Request Access
+          <Button href="/rsvp" variant="gold" className="!px-7 !py-3 !text-[10px]">
+            Book RSVP
           </Button>
         </div>
 
@@ -97,11 +99,12 @@ export default function Header() {
             ))}
             <div className="pt-4">
               <Button
-                href="/contact#inquiry"
+                href="/rsvp"
                 variant="gold"
                 className="!px-7 !py-3 !text-[10px]"
+                onClick={() => setOpen(false)}
               >
-                Request Access
+                Book RSVP
               </Button>
             </div>
           </nav>

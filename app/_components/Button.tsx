@@ -12,7 +12,7 @@ type CommonProps = {
 type LinkButtonProps = CommonProps & {
   href: string;
   type?: never;
-  onClick?: never;
+  onClick?: () => void;
 };
 
 type ActionButtonProps = CommonProps & {
@@ -31,13 +31,13 @@ export default function Button(props: ButtonProps) {
     const isExternal = /^https?:|^mailto:|^tel:/.test(props.href);
     if (isExternal) {
       return (
-        <a className={classes} href={props.href}>
+        <a className={classes} href={props.href} onClick={props.onClick}>
           {children}
         </a>
       );
     }
     return (
-      <Link className={classes} href={props.href}>
+      <Link className={classes} href={props.href} onClick={props.onClick}>
         {children}
       </Link>
     );

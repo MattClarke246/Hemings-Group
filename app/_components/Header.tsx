@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Button from "./Button";
+import Logo from "./Logo";
 
 const NAV = [
   { href: "/about", label: "About" },
@@ -34,11 +35,12 @@ export default function Header() {
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-5 md:px-10">
         <Link
           href="/"
-          className="signature text-[15px] md:text-[17px]"
+          className="flex items-center gap-3 signature text-[15px] md:text-[17px] transition-opacity duration-300 hover:opacity-85"
           style={{ color: "var(--text-gold-dark)", letterSpacing: "0.42em" }}
           aria-label="Hemings Group home"
         >
-          Hemings
+          <Logo size={34} variant="gold" />
+          <span>Hemings</span>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex" aria-label="Primary">

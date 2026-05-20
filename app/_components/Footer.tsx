@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "./Container";
 import MetallicDivider from "./MetallicDivider";
+import Logo from "./Logo";
 
 const SOCIALS = [
   { label: "Instagram", href: "https://instagram.com/hemingsgroup" },
@@ -23,12 +24,15 @@ export default function Footer() {
       </div>
       <Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <p
-            className="signature text-xl md:text-2xl"
-            style={{ color: "var(--text-primary-dark)", letterSpacing: "0.4em" }}
-          >
-            Hemings
-          </p>
+          <div className="flex items-center gap-3 mb-6">
+            <Logo size={40} variant="gold" />
+            <p
+              className="signature text-xl md:text-2xl"
+              style={{ color: "var(--text-primary-dark)", letterSpacing: "0.4em" }}
+            >
+              Hemings
+            </p>
+          </div>
           <p
             className="mt-6 max-w-sm leading-[1.85]"
             style={{ color: "var(--text-secondary-dark)" }}

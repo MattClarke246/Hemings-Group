@@ -6,6 +6,7 @@ import MetallicDivider from "./_components/MetallicDivider";
 import Reveal from "./_components/Reveal";
 import EventsScroller from "./_components/EventsScroller";
 import GoldDust from "./_components/GoldDust";
+import Logo from "./_components/Logo";
 
 export default function HomePage() {
   return (
@@ -13,9 +14,12 @@ export default function HomePage() {
       {/* ── HERO — full bleed, floats directly on marble ── */}
       <section className="relative min-h-[100svh] flex items-center pt-36 pb-32 md:pt-44 md:pb-40">
         <GoldDust />
-        <Container className="relative z-10">
+        <Container className="relative z-10 flex flex-col items-center text-center">
+          <Reveal direction="scale" className="mb-6">
+            <Logo size={140} variant="white" />
+          </Reveal>
           <Reveal direction="clip">
-            <MetallicDivider width={80} />
+            <MetallicDivider width={80} className="mx-auto" />
           </Reveal>
           <Reveal delay={80}>
             <p className="smallcaps mt-8 mb-10 tracking-wide-caps" style={{ color: "var(--text-gold-dark)" }}>
@@ -33,7 +37,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={320} direction="up">
             <p
-              className="mt-12 max-w-xl text-lg leading-[1.95]"
+              className="mt-12 max-w-xl text-lg leading-[1.95] mx-auto"
               style={{ color: "var(--text-secondary-dark)" }}
             >
               A members-preferred lounge poured from the same cloth as the city it
@@ -41,7 +45,7 @@ export default function HomePage() {
             </p>
           </Reveal>
           <Reveal delay={480} direction="up">
-            <div className="mt-14 flex flex-wrap items-center gap-8">
+            <div className="mt-14 flex flex-wrap items-center justify-center gap-8">
               <Button href="/membership" variant="gold">
                 Request Access
               </Button>

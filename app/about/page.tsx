@@ -4,6 +4,7 @@ import GoldSplash from "../_components/GoldSplash";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
+import Logo from "../_components/Logo";
 
 export const metadata = {
   title: "About — Hemings Group",
@@ -114,45 +115,33 @@ export default function AboutPage() {
               </GlassCard>
             </Reveal>
 
-            {/* REAL VENUE BACKGROUND PHOTO WITH HOVER ZOOM AND DARK GOLD GRADIENT */}
+            {/* GOLD OUTLINED LOGO CARD */}
             <Reveal delay={200} direction="right">
-              <div className="relative h-full overflow-hidden rounded-[20px] border group" style={{ borderColor: "rgba(198, 167, 94, 0.30)", minHeight: "420px" }}>
-                <div
-                  className="absolute inset-0 -z-10 transition-transform duration-[2000ms] ease-out group-hover:scale-105"
-                  style={{
-                    backgroundImage: "url('/venue_2.jpg')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
+              <div
+                className="relative h-full overflow-hidden rounded-[20px] border flex flex-col items-center justify-center p-12 md:p-16 text-center group"
+                style={{
+                  borderColor: "rgba(198, 167, 94, 0.30)",
+                  minHeight: "420px",
+                  background: "rgba(13, 21, 37, 0.4)",
+                }}
+              >
+                <Logo
+                  size={160}
+                  variant="gold"
+                  className="mb-8 transition-transform duration-700 group-hover:scale-105"
                 />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: "linear-gradient(to top, rgba(13, 21, 37, 0.95) 0%, rgba(13, 21, 37, 0.6) 50%, rgba(13, 21, 37, 0.25) 100%)",
-                  }}
-                />
-                <div className="relative z-10 flex h-full flex-col justify-end p-12 md:p-16">
-                  <p
-                    className="smallcaps mb-6 tracking-wide-caps"
-                    style={{ color: "var(--text-gold-dark)" }}
-                  >
-                    The Space
-                  </p>
-                  <p
-                    className="display-airy gold-text-shimmer"
-                    style={{ fontSize: "clamp(32px, 3.8vw, 52px)" }}
-                  >
-                    Navy, velvet,
-                    <br />
-                    gold.
-                  </p>
-                  <p
-                    className="mt-8 leading-[1.95]"
-                    style={{ color: "var(--text-secondary-dark)" }}
-                  >
-                    A layout designed to foster intimate conversations and premium vibes. Low lighting, plush seating, and curated soundscapes.
-                  </p>
-                </div>
+                <p
+                  className="smallcaps mb-4 tracking-wide-caps"
+                  style={{ color: "var(--text-gold-dark)" }}
+                >
+                  The Mark
+                </p>
+                <p
+                  className="mt-2 leading-[1.95] max-w-sm text-sm"
+                  style={{ color: "var(--text-secondary-dark)" }}
+                >
+                  The signature of elegance and distinction. Outlined in gold, representing our absolute commitment to luxury and detail.
+                </p>
               </div>
             </Reveal>
           </div>

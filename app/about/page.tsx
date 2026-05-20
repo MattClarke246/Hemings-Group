@@ -2,8 +2,6 @@ import Container from "../_components/Container";
 import GlassCard from "../_components/GlassCard";
 import GoldSplash from "../_components/GoldSplash";
 import MetallicDivider from "../_components/MetallicDivider";
-import NavyAgate from "../_components/NavyAgate";
-import GoldLeaf from "../_components/GoldLeaf";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 
@@ -116,28 +114,35 @@ export default function AboutPage() {
               </GlassCard>
             </Reveal>
 
+            {/* REAL VENUE BACKGROUND PHOTO WITH HOVER ZOOM AND DARK GOLD GRADIENT */}
             <Reveal delay={200} direction="right">
-              <div className="relative h-full overflow-hidden rounded-[20px] border" style={{ borderColor: "rgba(198, 167, 94, 0.30)", minHeight: "420px" }}>
-                <div className="absolute inset-0 -z-0">
-                  <NavyAgate intensity={1.15} />
-                  <GoldLeaf density={1.2} />
-                </div>
+              <div className="relative h-full overflow-hidden rounded-[20px] border group" style={{ borderColor: "rgba(198, 167, 94, 0.30)", minHeight: "420px" }}>
+                <div
+                  className="absolute inset-0 -z-10 transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                  style={{
+                    backgroundImage: "url('/venue_2.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
                 <div
                   className="absolute inset-0"
-                  style={{ background: "rgba(13, 21, 37, 0.35)", backdropFilter: "blur(2px)" }}
+                  style={{
+                    background: "linear-gradient(to top, rgba(13, 21, 37, 0.95) 0%, rgba(13, 21, 37, 0.6) 50%, rgba(13, 21, 37, 0.25) 100%)",
+                  }}
                 />
                 <div className="relative z-10 flex h-full flex-col justify-end p-12 md:p-16">
                   <p
                     className="smallcaps mb-6 tracking-wide-caps"
                     style={{ color: "var(--text-gold-dark)" }}
                   >
-                    Our Cloth
+                    The Space
                   </p>
                   <p
                     className="display-airy gold-text-shimmer"
                     style={{ fontSize: "clamp(32px, 3.8vw, 52px)" }}
                   >
-                    Navy, beige,
+                    Navy, velvet,
                     <br />
                     gold.
                   </p>
@@ -145,9 +150,7 @@ export default function AboutPage() {
                     className="mt-8 leading-[1.95]"
                     style={{ color: "var(--text-secondary-dark)" }}
                   >
-                    A house that pours its colors the way it pours its drinks — with
-                    restraint, with weight, with the understanding that less is the
-                    luxury.
+                    A layout designed to foster intimate conversations and premium vibes. Low lighting, plush seating, and curated soundscapes.
                   </p>
                 </div>
               </div>
@@ -214,8 +217,62 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── CLOSING — glass panel ── */}
-      <section className="glass-panel py-24 md:py-32">
+      {/* ── REAL VENUE VISUAL GALLERY SECTION ── */}
+      <section className="glass-panel py-28 md:py-40">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-5">
+              <Reveal direction="left">
+                <p
+                  className="smallcaps mb-6 tracking-wide-caps"
+                  style={{ color: "var(--text-gold-dark)" }}
+                >
+                  Inner Sanctum
+                </p>
+                <h2
+                  className="display-airy mb-8"
+                  style={{
+                    fontSize: "var(--t-h2)",
+                    color: "var(--text-primary-dark)",
+                  }}
+                >
+                  A Gathering of{" "}
+                  <span className="display-it gold-text-shimmer">Distinction.</span>
+                </h2>
+                <p
+                  className="text-lg leading-[1.9] mb-10"
+                  style={{ color: "var(--text-secondary-dark)" }}
+                >
+                  Step into our private booths. Framed by plush red velvet and detailed gold boundaries, it provides an exquisite sanctuary for members to connect, celebrate, and unwind.
+                </p>
+                <div className="flex gap-6">
+                  <Button href="/rsvp" variant="gold">
+                    Experience it
+                  </Button>
+                </div>
+              </Reveal>
+            </div>
+            <div className="md:col-span-7">
+              <Reveal direction="right" className="relative group">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,167,94,0.25)_0%,transparent_75%)] pointer-events-none -z-10" />
+                <div
+                  className="overflow-hidden rounded-[24px] border transition-all duration-700 group-hover:shadow-[0_0_50px_rgba(198,167,94,0.2)]"
+                  style={{ borderColor: "rgba(198, 167, 94, 0.35)" }}
+                >
+                  <img
+                    src="/venue_1.jpg"
+                    alt="Guests in plush velvet gold-trimmed seating at Hemings Lounge"
+                    className="w-full h-auto object-cover transition-transform duration-[1800ms] group-hover:scale-105"
+                  />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── CLOSING ── */}
+      <section className="py-24 md:py-32">
         <div className="flex flex-col items-center text-center gap-8">
           <Reveal direction="scale">
             <GoldSplash size={200} className="opacity-92" />

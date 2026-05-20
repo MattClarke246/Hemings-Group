@@ -3,6 +3,7 @@ import GlassCard from "../_components/GlassCard";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import ContactForm from "../_components/ContactForm";
+import HoverLink from "../_components/HoverLink";
 
 export const metadata = {
   title: "Contact — Hemings Group",
@@ -14,6 +15,12 @@ const HOURS = [
   { day: "Monday – Thursday", time: "6pm – 12am" },
   { day: "Friday – Saturday", time: "6pm – 2am" },
   { day: "Sunday", time: "5pm – 11pm" },
+];
+
+const SOCIALS = [
+  { label: "Instagram", href: "https://instagram.com/hemingsgroup" },
+  { label: "Facebook", href: "https://facebook.com/hemingsgroup" },
+  { label: "Twitter", href: "https://twitter.com/hemingsgroup" },
 ];
 
 export default function ContactPage() {
@@ -88,23 +95,16 @@ export default function ContactPage() {
                     >
                       Address
                     </p>
-                    <a
+                    <HoverLink
                       href="https://maps.google.com/?q=1623+2nd+Ave+N+Suite+106+Birmingham+AL+35203"
                       target="_blank"
                       rel="noreferrer noopener"
                       className="text-lg leading-[1.85] transition-colors duration-300"
-                      style={{ color: "var(--text-primary-dark)" }}
-                      onMouseEnter={(e) =>
-                        ((e.target as HTMLElement).style.color = "var(--text-gold-dark)")
-                      }
-                      onMouseLeave={(e) =>
-                        ((e.target as HTMLElement).style.color = "var(--text-primary-dark)")
-                      }
                     >
                       1623 2nd Ave N, Suite 106
                       <br />
                       Birmingham, AL 35203
-                    </a>
+                    </HoverLink>
                   </Reveal>
 
                   <Reveal delay={220} direction="up">
@@ -115,21 +115,16 @@ export default function ContactPage() {
                       Direct
                     </p>
                     <p className="text-lg leading-[1.85]">
-                      <a
-                        href="tel:+12052159905"
-                        className="transition-colors duration-300"
-                        style={{ color: "var(--text-primary-dark)" }}
-                      >
+                      <HoverLink href="tel:+12052159905" className="transition-colors duration-300">
                         205&middot;215&middot;9905
-                      </a>
+                      </HoverLink>
                       <br />
-                      <a
+                      <HoverLink
                         href="mailto:hemingsgroupllc@gmail.com"
                         className="transition-colors duration-300"
-                        style={{ color: "var(--text-primary-dark)" }}
                       >
                         hemingsgroupllc@gmail.com
-                      </a>
+                      </HoverLink>
                     </p>
                   </Reveal>
 
@@ -167,29 +162,17 @@ export default function ContactPage() {
                       Follow
                     </p>
                     <ul className="flex gap-6">
-                      {[
-                        { label: "Instagram", href: "https://instagram.com/hemingsgroup" },
-                        { label: "Facebook", href: "https://facebook.com/hemingsgroup" },
-                        { label: "Twitter", href: "https://twitter.com/hemingsgroup" },
-                      ].map((s) => (
+                      {SOCIALS.map((s) => (
                         <li key={s.label}>
-                          <a
+                          <HoverLink
                             href={s.href}
                             target="_blank"
                             rel="noreferrer noopener"
                             className="smallcaps tracking-wide-caps transition-colors duration-300"
-                            style={{ color: "var(--text-secondary-dark)" }}
-                            onMouseEnter={(e) =>
-                              ((e.target as HTMLElement).style.color =
-                                "var(--text-gold-dark)")
-                            }
-                            onMouseLeave={(e) =>
-                              ((e.target as HTMLElement).style.color =
-                                "var(--text-secondary-dark)")
-                            }
+                            baseColor="var(--text-secondary-dark)"
                           >
                             {s.label}
-                          </a>
+                          </HoverLink>
                         </li>
                       ))}
                     </ul>

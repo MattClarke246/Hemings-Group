@@ -32,6 +32,22 @@ export const metadata: Metadata = {
   description:
     "A members-preferred lounge in Birmingham, Alabama. Where elegance and exclusivity equal an unforgettable experience.",
   metadataBase: new URL("https://hemingsgroup.com"),
+  openGraph: {
+    title: "Hemings Group — Your Experience is Everything",
+    description: "A members-preferred lounge in Birmingham, Alabama. Where elegance and exclusivity equal an unforgettable experience.",
+    url: "https://hemingsgroup.com",
+    siteName: "Hemings Group",
+    images: [
+      {
+        url: "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_630,w_1200,f_auto,q_auto/6593842/328428_679671.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hemings Group Logo Background",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

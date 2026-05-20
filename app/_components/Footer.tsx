@@ -84,6 +84,7 @@ export default function Footer() {
               { href: "/events", label: "Events" },
               { href: "/rsvp", label: "RSVP" },
               { href: "/contact", label: "Contact" },
+              { href: "/portal", label: "Portal" },
             ].map((item) => (
               <li key={item.href}>
                 <Link

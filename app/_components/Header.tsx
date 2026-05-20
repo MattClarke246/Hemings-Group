@@ -11,6 +11,7 @@ const NAV = [
   { href: "/events", label: "Events" },
   { href: "/rsvp", label: "RSVP" },
   { href: "/contact", label: "Contact" },
+  { href: "/portal", label: "Portal" },
 ];
 
 export default function Header() {

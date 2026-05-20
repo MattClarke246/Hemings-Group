@@ -1,0 +1,395 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   AURUM — DESIGN TOKENS
+   ========================================================================= */
+:root {
+  /* Ivory surfaces */
+  --ivory-50: #fdfaf3;
+  --ivory-100: #f7f0e1;
+  --ivory-200: #ede2cc;
+  --ivory-300: #dac8a8;
+  --silk-400: #a89572;
+
+  /* Obsidian */
+  --obsidian-950: #050402;
+  --obsidian-900: #0e0a05;
+  --obsidian-800: #1a140b;
+  --char-700: #2a2014;
+
+  /* Gold spine */
+  --gold-100: #f5e3b5;
+  --gold-300: #e8c878;
+  --gold-500: #c89a3a;
+  --gold-600: #a87420;
+  --gold-800: #6b4410;
+
+  /* Text on ivory */
+  --text-primary: #1a140b;
+  --text-secondary: #4a3a22;
+  --text-muted: #7a6440;
+  --text-gold: #8a5e1c;
+
+  /* Text on obsidian */
+  --text-primary-dark: #fdfaf3;
+  --text-secondary-dark: #c9b896;
+  --text-gold-dark: #e8c878;
+
+  /* Spacing */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 160px;
+
+  /* Type */
+  --t-display: clamp(64px, 10vw, 168px);
+  --t-h1: clamp(44px, 5.5vw, 84px);
+  --t-h2: clamp(32px, 3.4vw, 52px);
+  --t-h3: clamp(22px, 1.8vw, 30px);
+  --t-body: clamp(15px, 1.05vw, 17px);
+  --t-label: 12px;
+  --t-numeral: clamp(60px, 7vw, 120px);
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(106, 68, 16, 0.04), 0 8px 24px rgba(106, 68, 16, 0.08);
+  --shadow-card: 0 2px 4px rgba(106, 68, 16, 0.06), 0 24px 60px rgba(106, 68, 16, 0.12);
+  --shadow-hero: 0 40px 120px rgba(5, 4, 2, 0.35), 0 8px 24px rgba(106, 68, 16, 0.15);
+  --shadow-gold: 0 10px 40px rgba(200, 154, 58, 0.35), 0 20px 80px rgba(200, 154, 58, 0.18);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Signature metallic gradients */
+  --grad-gold: linear-gradient(
+    135deg,
+    #f5e3b5 0%,
+    #e8c878 22%,
+    #c89a3a 50%,
+    #a87420 78%,
+    #6b4410 100%
+  );
+  --grad-gold-soft: linear-gradient(135deg, #fdf2c8 0%, #f0d896 50%, #c89a3a 100%);
+  --grad-gold-anim: linear-gradient(
+    135deg,
+    #f5e3b5 0%,
+    #e8c878 18%,
+    #c89a3a 35%,
+    #a87420 50%,
+    #c89a3a 65%,
+    #e8c878 82%,
+    #f5e3b5 100%
+  );
+}
+
+/* =========================================================================
+   TAILWIND v4 THEME — token aliases
+   ========================================================================= */
+@theme inline {
+  --color-ivory-50: var(--ivory-50);
+  --color-ivory-100: var(--ivory-100);
+  --color-ivory-200: var(--ivory-200);
+  --color-ivory-300: var(--ivory-300);
+  --color-silk-400: var(--silk-400);
+
+  --color-obsidian-950: var(--obsidian-950);
+  --color-obsidian-900: var(--obsidian-900);
+  --color-obsidian-800: var(--obsidian-800);
+  --color-char-700: var(--char-700);
+
+  --color-gold-100: var(--gold-100);
+  --color-gold-300: var(--gold-300);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-800: var(--gold-800);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-gold: var(--text-gold);
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-signature: "Italiana", serif;
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
+  --shadow-hero: var(--shadow-hero);
+  --shadow-gold: var(--shadow-gold);
+
+  --ease-aurum: var(--ease);
+}
+
+/* =========================================================================
+   RESET & BASE
+   ========================================================================= */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Manrope", sans-serif;
+  font-weight: 300;
+  font-size: var(--t-body);
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--ivory-50);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection {
+  background: var(--gold-300);
+  color: var(--obsidian-950);
+}
+
+/* =========================================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================================= */
+.display {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+.display-it {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 144;
+}
+.signature {
+  font-family: "Italiana", serif;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+.smallcaps {
+  font-family: "Manrope", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-weight: 500;
+  font-size: var(--t-label);
+}
+
+/* Metallic gold text fill */
+.gold-text {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* =========================================================================
+   SURFACES
+   ========================================================================= */
+.glass-card {
+  background: linear-gradient(
+    180deg,
+    rgba(253, 250, 243, 0.85) 0%,
+    rgba(247, 240, 225, 0.75) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(232, 200, 120, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 1px 2px rgba(106, 68, 16, 0.04),
+    0 24px 60px rgba(106, 68, 16, 0.1);
+  border-radius: 20px;
+}
+
+.glass-card-dark {
+  background: linear-gradient(
+    180deg,
+    rgba(26, 20, 11, 0.7) 0%,
+    rgba(14, 10, 5, 0.85) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 154, 58, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(232, 200, 120, 0.15),
+    0 40px 120px rgba(5, 4, 2, 0.6);
+  border-radius: 20px;
+}
+
+/* Gold corner brackets — top-left + bottom-right */
+.corners-gold::before,
+.corners-gold::after {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid transparent;
+  background: var(--grad-gold) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.corners-gold::before {
+  top: 14px;
+  left: 14px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 8px;
+}
+.corners-gold::after {
+  bottom: 14px;
+  right: 14px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 8px;
+}
+
+/* =========================================================================
+   BUTTONS
+   ========================================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 40px;
+  border-radius: 10px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 350ms var(--ease), box-shadow 350ms var(--ease),
+    border-color 350ms var(--ease), background-position 350ms var(--ease);
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.btn-obsidian {
+  background: var(--obsidian-900);
+  color: var(--gold-300);
+  border-color: var(--gold-500);
+  box-shadow: var(--shadow-soft);
+}
+.btn-obsidian:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-100);
+  box-shadow:
+    var(--shadow-soft),
+    inset 0 0 24px rgba(232, 200, 120, 0.18);
+  color: var(--gold-100);
+}
+.btn-gold {
+  background: var(--grad-gold-anim);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  color: var(--obsidian-950);
+  font-weight: 600;
+  border-color: var(--gold-600);
+  animation: gold-shimmer 8s linear infinite;
+  box-shadow: var(--shadow-gold);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  background-position: 100% 50%;
+}
+.btn-ghost {
+  color: var(--text-gold);
+  background: transparent;
+  padding: 18px 0;
+  position: relative;
+}
+.btn-ghost::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 12px;
+  width: 0;
+  height: 1px;
+  background: var(--grad-gold);
+  transition: width 350ms var(--ease);
+}
+.btn-ghost:hover::after {
+  width: 100%;
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================================================================
+   METALLIC DIVIDER
+   ========================================================================= */
+.metallic-divider {
+  display: inline-block;
+  height: 1px;
+  width: 96px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold-100) 15%,
+    var(--gold-500) 50%,
+    var(--gold-100) 85%,
+    transparent 100%
+  );
+}
+
+/* =========================================================================
+   FOCUS RING
+   ========================================================================= */
+:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* =========================================================================
+   REVEAL ANIMATION
+   ========================================================================= */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+}
+[data-reveal="visible"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================================
+   REDUCED MOTION
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

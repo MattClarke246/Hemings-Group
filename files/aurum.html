@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurum — Luxury Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Italiana&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =========================================================================
+   AURUM — DESIGN TOKENS
+   ========================================================================= */
+:root {
+  /* Ivory surfaces */
+  --ivory-50:  #fdfaf3;
+  --ivory-100: #f7f0e1;
+  --ivory-200: #ede2cc;
+  --ivory-300: #dac8a8;
+  --silk-400:  #a89572;
+
+  /* Obsidian */
+  --obsidian-950: #050402;
+  --obsidian-900: #0e0a05;
+  --obsidian-800: #1a140b;
+  --char-700:     #2a2014;
+
+  /* Gold spine */
+  --gold-100: #f5e3b5;
+  --gold-300: #e8c878;
+  --gold-500: #c89a3a;
+  --gold-600: #a87420;
+  --gold-800: #6b4410;
+
+  /* Text on ivory */
+  --text-primary:   #1a140b;
+  --text-secondary: #4a3a22;
+  --text-muted:     #7a6440;
+  --text-gold:      #8a5e1c;
+
+  /* Spacing */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 160px;
+
+  /* Type */
+  --t-display: clamp(64px, 10vw, 168px);
+  --t-h1:      clamp(44px, 5.5vw, 84px);
+  --t-h2:      clamp(32px, 3.4vw, 52px);
+  --t-h3:      clamp(22px, 1.8vw, 30px);
+  --t-body:    clamp(15px, 1.05vw, 17px);
+  --t-label:   12px;
+  --t-numeral: clamp(60px, 7vw, 120px);
+
+  /* Shadows */
+  --shadow-soft:  0 1px 2px rgba(106,68,16,0.04), 0 8px 24px rgba(106,68,16,0.08);
+  --shadow-card:  0 2px 4px rgba(106,68,16,0.06), 0 24px 60px rgba(106,68,16,0.12);
+  --shadow-hero:  0 40px 120px rgba(5,4,2,0.35), 0 8px 24px rgba(106,68,16,0.15);
+  --shadow-gold:  0 10px 40px rgba(200,154,58,0.35), 0 20px 80px rgba(200,154,58,0.18);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* The signature metallic gradient */
+  --grad-gold: linear-gradient(135deg, #f5e3b5 0%, #e8c878 22%, #c89a3a 50%, #a87420 78%, #6b4410 100%);
+  --grad-gold-soft: linear-gradient(135deg, #fdf2c8 0%, #f0d896 50%, #c89a3a 100%);
+  --grad-gold-anim: linear-gradient(135deg, #f5e3b5 0%, #e8c878 18%, #c89a3a 35%, #a87420 50%, #c89a3a 65%, #e8c878 82%, #f5e3b5 100%);
+}
+
+/* =========================================================================
+   RESET & BASE
+   ========================================================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  font-size: var(--t-body);
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--ivory-50);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection { background: var(--gold-300); color: var(--obsidian-950); }
+
+/* =========================================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================================= */
+.display    { font-family: 'Fraunces', serif; font-optical-sizing: auto; font-variation-settings: "opsz" 144; font-weight: 500; letter-spacing: -0.03em; line-height: 0.95; }
+.display-it { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; letter-spacing: -0.01em; }
+.signature  { font-family: 'Italiana', serif; letter-spacing: 0.4em; text-transform: uppercase; }
+.smallcaps  { font-family: 'Manrope', sans-serif; text-transform: uppercase; letter-spacing: 0.32em; font-weight: 500; font-size: var(--t-label); }
+
+/* Metallic gold text fill — used on every "wow" heading */
+.gold-text {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* =========================================================================
+   LAYOUT PRIMITIVES
+   ========================================================================= */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 var(--s-6); }
+.section { padding: var(--s-10) 0; position: relative; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: var(--s-4);
+  color: var(--text-gold);
+  letter-spacing: 0.34em;
+  font-size: var(--t-label);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.eyebrow::before, .eyebrow::after {
+  content: '';
+  width: 48px; height: 1px;
+  background: var(--grad-gold);
+  opacity: 0.7;
+}
+
+.section-header { text-align: center; margin-bottom: var(--s-9); }
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 500;
+  font-size: var(--t-h1);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin: var(--s-5) 0 var(--s-4);
+  color: var(--text-primary);
+}
+.section-title em {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-sub {
+  max-width: 580px; margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* =========================================================================
+   HERO — ivory silk + diagonal gold brushstrokes (Image 1 reference)
+   ========================================================================= */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(245,227,181,0.4), transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(232,200,120,0.25), transparent 50%),
+    linear-gradient(135deg, var(--ivory-50) 0%, var(--ivory-100) 100%);
+}
+
+/* Silk drape texture via repeating subtle gradient */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(115deg,
+      transparent 0px,
+      rgba(168,116,32,0.018) 80px,
+      transparent 160px,
+      rgba(168,116,32,0.025) 240px,
+      transparent 320px),
+    repeating-linear-gradient(65deg,
+      transparent 0px,
+      rgba(168,116,32,0.012) 120px,
+      transparent 280px);
+  pointer-events: none;
+}
+
+/* Top vignette */
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(253,250,243,0.6) 0%, transparent 25%, transparent 75%, rgba(253,250,243,0.4) 100%);
+  pointer-events: none;
+}
+
+.hero-brushstroke {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 20px 40px rgba(168,116,32,0.2));
+}
+.hero-brushstroke.bs-1 {
+  top: -5%; left: -8%;
+  width: 55%; height: 70%;
+  transform: rotate(-8deg);
+  opacity: 0.95;
+}
+.hero-brushstroke.bs-2 {
+  top: 10%; right: -10%;
+  width: 50%; height: 80%;
+  transform: rotate(12deg) scaleX(-1);
+  opacity: 0.85;
+}
+.hero-brushstroke.bs-3 {
+  bottom: -10%; left: 30%;
+  width: 40%; height: 50%;
+  transform: rotate(-15deg);
+  opacity: 0.6;
+}
+
+.hero-nav {
+  position: absolute;
+  top: var(--s-7); left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex; align-items: center; gap: var(--s-9);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.hero-nav a { color: inherit; text-decoration: none; transition: color 300ms var(--ease); }
+.hero-nav a:hover { color: var(--gold-600); }
+.hero-nav-brand {
+  font-family: 'Italiana', serif;
+  font-size: 22px;
+  letter-spacing: 0.4em;
+  color: var(--text-primary);
+  padding: 0 var(--s-6);
+}
+
+.hero-inner {
+  position: relative; z-index: 5;
+  text-align: center;
+  padding: var(--s-10) var(--s-6) var(--s-9);
+  max-width: 980px;
+  animation: hero-rise 1.6s var(--ease) both;
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  font-size: var(--t-label);
+  letter-spacing: 0.5em;
+  color: var(--text-gold);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: var(--s-6);
+}
+
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 500;
+  font-size: var(--t-display);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 8s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-sub {
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin: var(--s-7) auto var(--s-8);
+  line-height: 1.8;
+}
+
+.hero-ctas {
+  display: flex; gap: var(--s-4); justify-content: center; flex-wrap: wrap;
+}
+
+/* =========================================================================
+   BUTTONS
+   ========================================================================= */
+.btn {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  padding: 19px 42px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 400ms var(--ease);
+  display: inline-flex; align-items: center; gap: var(--s-3);
+  font-weight: 600;
+  text-decoration: none;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-obsidian {
+  background: var(--obsidian-900);
+  color: var(--gold-300);
+  border: 1px solid var(--gold-600);
+}
+.btn-obsidian::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--grad-gold);
+  opacity: 0;
+  transition: opacity 400ms var(--ease);
+  z-index: 0;
+}
+.btn-obsidian span { position: relative; z-index: 1; transition: color 400ms var(--ease); }
+.btn-obsidian:hover {
+  border-color: var(--gold-100);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+.btn-obsidian:hover::before { opacity: 1; }
+.btn-obsidian:hover span { color: var(--obsidian-950); }
+
+.btn-gold {
+  background: var(--grad-gold-anim);
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  color: var(--obsidian-950);
+  border: 1px solid transparent;
+  transition: all 400ms var(--ease), background-position 1200ms var(--ease);
+  box-shadow: 0 4px 16px rgba(200,154,58,0.25);
+}
+.btn-gold:hover {
+  background-position: 100% 50%;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-gold);
+  padding: 14px 0;
+  border-radius: 0;
+}
+.btn-ghost::after {
+  content: '';
+  position: absolute; bottom: 8px; left: 0;
+  width: 0; height: 1px;
+  background: var(--grad-gold);
+  transition: width 400ms var(--ease);
+}
+.btn-ghost:hover::after { width: 100%; }
+
+.btn-arrow { font-size: 16px; letter-spacing: 0; transition: transform 400ms var(--ease); }
+.btn:hover .btn-arrow { transform: translateX(4px); }
+
+/* =========================================================================
+   COLOR PALETTE SECTION
+   ========================================================================= */
+.palette-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-6);
+  margin-bottom: var(--s-6);
+}
+
+.palette-card {
+  background: linear-gradient(180deg, rgba(253,250,243,0.7), rgba(247,240,225,0.5));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(232,200,120,0.3);
+  border-radius: 20px;
+  padding: var(--s-8);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+.palette-card.obsidian {
+  background: linear-gradient(180deg, var(--obsidian-900), var(--obsidian-950));
+  border: 1px solid var(--char-700);
+  color: var(--ivory-50);
+}
+.palette-card.obsidian .palette-card-title { color: var(--ivory-50); }
+.palette-card.obsidian .palette-card-desc { color: rgba(232,200,120,0.65); }
+.palette-card.obsidian .swatch { background: rgba(255,255,255,0.03); border-color: rgba(232,200,120,0.12); }
+.palette-card.obsidian .swatch:hover { background: rgba(255,255,255,0.06); }
+.palette-card.obsidian .swatch-name { color: var(--ivory-100); }
+.palette-card.obsidian .swatch-hex { color: var(--gold-300); }
+
+.palette-card-title {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--s-2);
+  color: var(--text-primary);
+}
+.palette-card-title em {
+  font-style: italic; font-weight: 300;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.palette-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--s-6);
+}
+
+.swatch-row { display: flex; flex-direction: column; gap: var(--s-3); }
+.swatch {
+  display: flex; align-items: center; gap: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border-radius: 10px;
+  background: rgba(168,116,32,0.04);
+  border: 1px solid rgba(232,200,120,0.18);
+  transition: all 400ms var(--ease);
+}
+.swatch:hover {
+  border-color: rgba(232,200,120,0.5);
+  background: rgba(168,116,32,0.08);
+  transform: translateX(4px);
+}
+.swatch-chip {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15), 0 4px 12px rgba(0,0,0,0.12);
+}
+.swatch-info { flex: 1; display: flex; justify-content: space-between; align-items: center; }
+.swatch-name { font-size: 13px; letter-spacing: 0.06em; font-weight: 500; }
+.swatch-hex { font-family: 'Manrope', monospace; font-size: 12px; color: var(--text-gold); letter-spacing: 0.08em; }
+
+/* Gold spine — the metallic showcase */
+.gold-spine {
+  background: var(--obsidian-950);
+  border-radius: 24px;
+  padding: var(--s-9) var(--s-7);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-hero);
+}
+
+/* Obsidian splash background — Image 2 reference */
+.gold-spine::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 600px; height: 600px;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 50% 60%, rgba(200,154,58,0.18) 0%, transparent 40%),
+    radial-gradient(circle at 30% 40%, rgba(245,227,181,0.08) 0%, transparent 30%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.gold-spine-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 300;
+  font-size: 56px;
+  background: var(--grad-gold-anim);
+  background-size: 300% 300%;
+  animation: shimmer 6s ease-in-out infinite;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--s-3);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  position: relative; z-index: 2;
+}
+.gold-spine-sub {
+  font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+  color: rgba(232,200,120,0.6);
+  margin-bottom: var(--s-7);
+  position: relative; z-index: 2;
+}
+
+.gold-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--s-4);
+  position: relative; z-index: 2;
+}
+.gold-tile {
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  position: relative;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: var(--s-4);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.3);
+  transition: transform 500ms var(--ease);
+  cursor: default;
+}
+.gold-tile::before {
+  /* glossy highlight */
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25), transparent);
+  pointer-events: none;
+}
+.gold-tile:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(168,116,32,0.4), inset 0 1px 0 rgba(255,255,255,0.4); }
+.gold-tile-name {
+  font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(14,10,5,0.75); font-weight: 600;
+  position: relative; z-index: 1;
+}
+.gold-tile-hex {
+  font-family: 'Manrope', monospace; font-size: 11px;
+  color: rgba(14,10,5,0.6); letter-spacing: 0.06em;
+  margin-top: 2px;
+  position: relative; z-index: 1;
+}
+.gold-tile.deep .gold-tile-name { color: rgba(255,255,255,0.85); }
+.gold-tile.deep .gold-tile-hex { color: rgba(255,255,255,0.6); }
+
+/* =========================================================================
+   TYPOGRAPHY SECTION
+   ========================================================================= */
+.type-stack {
+  max-width: 1080px; margin: 0 auto;
+  background: linear-gradient(180deg, rgba(253,250,243,0.5), rgba(247,240,225,0.3));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(232,200,120,0.3);
+  border-radius: 24px;
+  padding: var(--s-7) var(--s-8);
+  box-shadow: var(--shadow-card);
+}
+
+.type-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--s-7);
+  padding: var(--s-7) 0;
+  border-bottom: 1px solid rgba(168,116,32,0.15);
+  align-items: center;
+}
+.type-row:last-child { border-bottom: none; }
+.type-row:first-child { padding-top: var(--s-3); }
+
+.type-meta {
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.type-meta strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: none;
+  margin-top: 4px;
+}
+
+.type-sample-display {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 500;
+  font-size: clamp(56px, 8vw, 112px);
+  line-height: 0.95; letter-spacing: -0.04em;
+}
+.type-sample-display em {
+  font-style: italic; font-weight: 400;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.type-sample-italic {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 72px);
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.type-sample-signature {
+  font-family: 'Italiana', serif;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+.type-sample-body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  font-size: 17px; line-height: 1.8;
+  max-width: 600px;
+  color: var(--text-secondary);
+}
+.type-sample-label {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-gold);
+}
+
+/* =========================================================================
+   COMPONENTS SECTION
+   ========================================================================= */
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s-6);
+  margin-bottom: var(--s-7);
+}
+
+.demo-card {
+  background: linear-gradient(180deg, rgba(253,250,243,0.7), rgba(247,240,225,0.5));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(232,200,120,0.3);
+  border-radius: 20px;
+  padding: var(--s-8);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    var(--shadow-card);
+}
+.demo-card.span-6 { grid-column: span 6; }
+.demo-card.span-4 { grid-column: span 4; }
+.demo-card.span-12 { grid-column: span 12; }
+.demo-card-label {
+  font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--text-gold);
+  margin-bottom: var(--s-6);
+  font-weight: 600;
+}
+
+.btn-stack { display: flex; flex-direction: column; gap: var(--s-4); align-items: flex-start; }
+
+/* =========================================================================
+   STEP CARDS — the centerpiece
+   ========================================================================= */
+.steps-grid { display: grid; gap: var(--s-7); margin-top: var(--s-7); }
+
+.step-card {
+  background: linear-gradient(180deg, rgba(253,250,243,0.85), rgba(247,240,225,0.7));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(232,200,120,0.4);
+  border-radius: 28px;
+  padding: var(--s-9) var(--s-8);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--s-8);
+  align-items: center;
+  min-height: 380px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    var(--shadow-card);
+}
+
+/* Subtle gold brushstroke at far edge of each step card */
+.step-card::after {
+  content: '';
+  position: absolute;
+  right: -10%; top: -20%;
+  width: 60%; height: 140%;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(232,200,120,0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(200,154,58,0.1) 0%, transparent 60%);
+  pointer-events: none;
+  transform: rotate(-12deg);
+}
+
+.step-numeral {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-style: italic;
+  font-weight: 300;
+  font-size: var(--t-numeral);
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: var(--s-4);
+  letter-spacing: -0.04em;
+  position: relative; z-index: 2;
+}
+.step-numeral::after {
+  content: '';
+  display: block;
+  width: 48px; height: 2px;
+  background: var(--grad-gold);
+  margin-top: var(--s-3);
+  border-radius: 1px;
+}
+
+.step-content { position: relative; z-index: 2; }
+.step-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: var(--s-2);
+}
+.step-tagline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 32px;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--s-5);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.step-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 380px;
+  margin-bottom: var(--s-7);
+}
+.step-features { display: flex; flex-direction: column; gap: var(--s-4); }
+.step-feature { display: flex; align-items: flex-start; gap: var(--s-4); }
+.step-feature-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--grad-gold);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--obsidian-950); flex-shrink: 0;
+  font-size: 13px; font-weight: 700;
+  box-shadow: 0 4px 12px rgba(200,154,58,0.3), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+.step-feature-text strong {
+  display: block; font-size: 11px; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--text-primary);
+  font-weight: 600; margin-bottom: 2px;
+}
+.step-feature-text span { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+/* Step visual — glass-and-gold ribbon (Image 3) */
+.step-visual {
+  position: relative; height: 100%; min-height: 360px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+}
+.glass-orb-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.glass-orb {
+  position: relative;
+  width: 80%; height: 80%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,0.9) 0%, rgba(247,240,225,0.3) 20%, rgba(232,200,120,0.15) 50%, transparent 70%),
+    radial-gradient(circle at 70% 70%, rgba(200,154,58,0.25), transparent 50%),
+    conic-gradient(from 45deg at 50% 50%,
+      rgba(245,227,181,0.4),
+      rgba(232,200,120,0.5),
+      rgba(200,154,58,0.6),
+      rgba(168,116,32,0.5),
+      rgba(245,227,181,0.4));
+  box-shadow:
+    inset 0 8px 20px rgba(255,255,255,0.6),
+    inset 0 -10px 30px rgba(168,116,32,0.3),
+    0 20px 60px rgba(200,154,58,0.25),
+    0 40px 100px rgba(168,116,32,0.15);
+  animation: orb-rotate 20s linear infinite;
+}
+@keyframes orb-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.glass-orb::before {
+  /* metallic gold ribbon */
+  content: '';
+  position: absolute; inset: 12%;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 0deg at 50% 50%,
+      transparent 0deg,
+      var(--gold-300) 30deg,
+      var(--gold-500) 60deg,
+      var(--gold-800) 90deg,
+      var(--gold-500) 120deg,
+      var(--gold-100) 150deg,
+      transparent 180deg,
+      transparent 360deg);
+  mask: radial-gradient(circle, transparent 40%, black 42%, black 65%, transparent 67%);
+  -webkit-mask: radial-gradient(circle, transparent 40%, black 42%, black 65%, transparent 67%);
+  filter: blur(0.5px);
+}
+.glass-orb::after {
+  /* inner glass highlight */
+  content: '';
+  position: absolute;
+  top: 15%; left: 25%;
+  width: 30%; height: 25%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.7), transparent 70%);
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: orb-rotate 20s linear infinite reverse;
+}
+/* particulate around orb */
+.glass-orb-wrap::before {
+  content: '';
+  position: absolute; inset: -10%;
+  background-image:
+    radial-gradient(circle 1.5px at 15% 30%, rgba(200,154,58,0.7), transparent 60%),
+    radial-gradient(circle 1px at 85% 20%, rgba(245,227,181,0.8), transparent 60%),
+    radial-gradient(circle 1.5px at 90% 75%, rgba(200,154,58,0.6), transparent 60%),
+    radial-gradient(circle 1px at 10% 80%, rgba(232,200,120,0.7), transparent 60%),
+    radial-gradient(circle 1px at 50% 5%, rgba(245,227,181,0.6), transparent 60%);
+  pointer-events: none;
+}
+
+/* =========================================================================
+   OBSIDIAN PUNCTUATION — full-width black moment (Image 2 reference)
+   ========================================================================= */
+.section-obsidian {
+  background: var(--obsidian-950);
+  padding: var(--s-10) 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-obsidian::before {
+  /* gold splash glow */
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 800px; height: 800px;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(200,154,58,0.15) 0%, transparent 35%),
+    radial-gradient(circle at 50% 60%, rgba(168,116,32,0.08) 0%, transparent 50%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.section-obsidian .section-header { position: relative; z-index: 2; }
+.section-obsidian .section-title { color: var(--ivory-50); }
+.section-obsidian .section-sub { color: rgba(232,200,120,0.7); }
+.section-obsidian .eyebrow { color: var(--gold-300); }
+.section-obsidian .eyebrow::before, .section-obsidian .eyebrow::after {
+  background: var(--gold-500); opacity: 0.7;
+}
+
+.ornament-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-6);
+  margin-top: var(--s-7);
+  position: relative; z-index: 2;
+}
+.ornament-card {
+  background: linear-gradient(180deg, rgba(26,20,11,0.7), rgba(14,10,5,0.5));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(232,200,120,0.2);
+  border-radius: 20px;
+  padding: var(--s-7);
+  text-align: center;
+  min-height: 280px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  gap: var(--s-6);
+  position: relative;
+  overflow: hidden;
+  transition: transform 500ms var(--ease), border-color 500ms var(--ease);
+}
+.ornament-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232,200,120,0.4);
+}
+
+.ornament-corners {
+  width: 180px; height: 120px;
+  position: relative;
+}
+.ornament-corners::before, .ornament-corners::after,
+.ornament-corners > span::before, .ornament-corners > span::after {
+  content: ''; position: absolute; width: 28px; height: 28px;
+  border-style: solid; border-width: 0;
+  border-image: var(--grad-gold) 1;
+  border-color: var(--gold-500);
+}
+.ornament-corners::before { top: 0; left: 0; border-top-width: 1.5px; border-left-width: 1.5px; }
+.ornament-corners::after  { top: 0; right: 0; border-top-width: 1.5px; border-right-width: 1.5px; }
+.ornament-corners > span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.ornament-corners > span::before { bottom: 0; left: 0; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+.ornament-corners > span::after  { bottom: 0; right: 0; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+.ornament-corners em {
+  font-family: 'Italiana', serif; font-size: 18px;
+  letter-spacing: 0.4em;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: normal; position: relative; z-index: 1;
+}
+
+.ornament-rule {
+  display: flex; align-items: center; gap: var(--s-3);
+}
+.ornament-rule span { width: 80px; height: 1.5px; background: var(--grad-gold); border-radius: 1px; }
+.ornament-rule .d {
+  width: 10px; height: 10px;
+  background: var(--grad-gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 16px rgba(200,154,58,0.5);
+}
+
+.ornament-numeral {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 96px;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.ornament-numeral::after {
+  content: ''; display: block;
+  width: 40px; height: 2px;
+  background: var(--grad-gold);
+  margin: var(--s-3) auto 0;
+  border-radius: 1px;
+}
+
+.ornament-label {
+  font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: rgba(232,200,120,0.65); font-weight: 500;
+}
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.foot {
+  background: var(--obsidian-950);
+  padding: var(--s-9) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.foot::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: 50%;
+  width: 600px; height: 300px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center bottom, rgba(200,154,58,0.18), transparent 60%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.foot-title {
+  font-family: 'Italiana', serif;
+  font-size: 36px;
+  letter-spacing: 0.4em;
+  background: var(--grad-gold-anim);
+  background-size: 300% 300%;
+  animation: shimmer 6s ease-in-out infinite;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--s-3);
+  position: relative; z-index: 2;
+}
+.foot-rule {
+  width: 100px; height: 1.5px;
+  background: var(--grad-gold);
+  margin: var(--s-4) auto;
+  border-radius: 1px;
+  position: relative; z-index: 2;
+}
+.foot-tag {
+  font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase;
+  color: rgba(232,200,120,0.5);
+  position: relative; z-index: 2;
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 980px) {
+  .palette-wrap { grid-template-columns: 1fr; }
+  .gold-strip { grid-template-columns: repeat(5, 1fr); gap: var(--s-2); }
+  .gold-tile { padding: var(--s-3); }
+  .gold-tile-name { font-size: 8px; letter-spacing: 0.15em; }
+  .gold-tile-hex { font-size: 9px; }
+  .components-grid { grid-template-columns: 1fr; }
+  .demo-card.span-6, .demo-card.span-4, .demo-card.span-12 { grid-column: span 1; }
+  .type-row { grid-template-columns: 1fr; gap: var(--s-3); }
+  .step-card { grid-template-columns: 1fr; padding: var(--s-7) var(--s-5); }
+  .step-card::after { right: -30%; top: -30%; width: 100%; }
+  .step-visual { min-height: 280px; }
+  .ornament-grid { grid-template-columns: 1fr; }
+  .hero-nav { gap: var(--s-5); padding: 0 var(--s-4); }
+  .hero-nav-brand { font-size: 18px; }
+  .hero-nav a:not(.hero-nav-brand) { display: none; }
+}
+
+/* =========================================================================
+   REVEAL
+   ========================================================================= */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 900ms var(--ease), transform 900ms var(--ease); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<!-- =========================================================================
+     HERO — ivory silk with diagonal gold brushstrokes (Image 1)
+     ========================================================================= -->
+<section class="hero">
+
+  <!-- Diagonal gold brushstrokes (SVG) -->
+  <svg class="hero-brushstroke bs-1" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="brush1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f5e3b5"/>
+        <stop offset="30%" stop-color="#e8c878"/>
+        <stop offset="60%" stop-color="#c89a3a"/>
+        <stop offset="85%" stop-color="#a87420"/>
+        <stop offset="100%" stop-color="#6b4410"/>
+      </linearGradient>
+      <filter id="brushTexture1">
+        <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="3"/>
+        <feDisplacementMap in="SourceGraphic" scale="6"/>
+      </filter>
+    </defs>
+    <path d="M 50 80 Q 100 120 90 200 Q 80 280 130 340 Q 180 400 160 480 Q 140 560 200 590"
+          stroke="url(#brush1)" stroke-width="38" stroke-linecap="round" fill="none"
+          filter="url(#brushTexture1)" opacity="0.85"/>
+    <path d="M 70 100 Q 130 160 110 240 Q 90 320 150 380 Q 200 440 180 520"
+          stroke="url(#brush1)" stroke-width="18" stroke-linecap="round" fill="none"
+          opacity="0.6"/>
+    <path d="M 90 140 Q 140 180 130 260 Q 120 340 170 400"
+          stroke="#f5e3b5" stroke-width="6" stroke-linecap="round" fill="none"
+          opacity="0.7"/>
+  </svg>
+
+  <svg class="hero-brushstroke bs-2" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="brush2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f5e3b5"/>
+        <stop offset="40%" stop-color="#c89a3a"/>
+        <stop offset="80%" stop-color="#6b4410"/>
+      </linearGradient>
+      <filter id="brushTexture2">
+        <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" seed="7"/>
+        <feDisplacementMap in="SourceGraphic" scale="5"/>
+      </filter>
+    </defs>
+    <path d="M 60 50 Q 120 120 100 200 Q 80 290 140 360 Q 200 430 170 510"
+          stroke="url(#brush2)" stroke-width="32" stroke-linecap="round" fill="none"
+          filter="url(#brushTexture2)" opacity="0.8"/>
+    <path d="M 100 90 Q 150 150 130 230 Q 110 310 160 380"
+          stroke="url(#brush2)" stroke-width="14" stroke-linecap="round" fill="none"
+          opacity="0.55"/>
+  </svg>
+
+  <svg class="hero-brushstroke bs-3" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="brush3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#e8c878"/>
+        <stop offset="50%" stop-color="#a87420"/>
+        <stop offset="100%" stop-color="#6b4410"/>
+      </linearGradient>
+    </defs>
+    <path d="M 60 200 Q 150 180 220 220 Q 290 260 340 240"
+          stroke="url(#brush3)" stroke-width="22" stroke-linecap="round" fill="none" opacity="0.5"/>
+  </svg>
+
+  <!-- Nav -->
+  <nav class="hero-nav">
+    <a href="#palette">Palette</a>
+    <a href="#typography">Type</a>
+    <a class="hero-nav-brand" href="#">AURUM</a>
+    <a href="#components">Components</a>
+    <a href="#marks">Marks</a>
+  </nav>
+
+  <!-- Main hero content -->
+  <div class="hero-inner">
+    <div class="hero-eyebrow">— A Luxury Design System —</div>
+    <h1 class="hero-title">
+      Elevate the brand.<br>
+      Define the <em>legacy</em>.
+    </h1>
+    <p class="hero-sub">Ivory silk leads. Obsidian punctuates. Gold flows like liquid metal. A design vocabulary for brands that refuse to whisper or shout — only resonate.</p>
+    <div class="hero-ctas">
+      <a href="#palette" class="btn btn-obsidian"><span>Explore the System</span> <span class="btn-arrow">→</span></a>
+      <a href="#components" class="btn btn-ghost">View Components <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     PALETTE
+     ========================================================================= -->
+<section class="section reveal" id="palette">
+  <div class="container">
+    <header class="section-header">
+      <div class="eyebrow"><span>The Palette</span></div>
+      <h2 class="section-title">Ivory, obsidian, <em>poured gold</em></h2>
+      <p class="section-sub">Seventy percent cream. Eight percent black. Twenty-two percent gold — saturated, layered, never flat. The ratio is the rule.</p>
+    </header>
+
+    <div class="palette-wrap">
+      <!-- IVORY -->
+      <div class="palette-card">
+        <h3 class="palette-card-title">Ivory <em>— foundation</em></h3>
+        <div class="palette-card-desc">The 70% — every page begins here</div>
+        <div class="swatch-row">
+          <div class="swatch"><div class="swatch-chip" style="background:#fdfaf3;"></div><div class="swatch-info"><span class="swatch-name">Ivory 50</span><span class="swatch-hex">#FDFAF3</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:#f7f0e1;"></div><div class="swatch-info"><span class="swatch-name">Ivory 100</span><span class="swatch-hex">#F7F0E1</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:#ede2cc;"></div><div class="swatch-info"><span class="swatch-name">Ivory 200</span><span class="swatch-hex">#EDE2CC</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:#dac8a8;"></div><div class="swatch-info"><span class="swatch-name">Ivory 300</span><span class="swatch-hex">#DAC8A8</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:#a89572;"></div><div class="swatch-info"><span class="swatch-name">Silk 400</span><span class="swatch-hex">#A89572</span></div></div>
+        </div>
+      </div>
+
+      <!-- OBSIDIAN -->
+      <div class="palette-card obsidian">
+        <h3 class="palette-card-title">Obsidian <em>— punctuation</em></h3>
+        <div class="palette-card-desc">The 8% — theatrical, surgical, rare</div>
+        <div class="swatch-row">
+          <div class="swatch"><div class="swatch-chip" style="background:#050402; box-shadow: inset 0 0 0 1px rgba(232,200,120,0.2), 0 4px 12px rgba(0,0,0,0.4);"></div><div class="swatch-info"><span class="swatch-name">Obsidian 950</span><span class="swatch-hex">#050402</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:#0e0a05; box-shadow: inset 0 0 0 1px rgba(232,200,120,0.2), 0 4px 12px rgba(0,0,0,0.4);"></div><div class="swatch-info"><span class="swatch-name">Obsidian 900</span><span class="swatch-hex">#0E0A05</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:#1a140b; box-shadow: inset 0 0 0 1px rgba(232,200,120,0.2), 0 4px 12px rgba(0,0,0,0.4);"></div><div class="swatch-info"><span class="swatch-name">Obsidian 800</span><span class="swatch-hex">#1A140B</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:#2a2014; box-shadow: inset 0 0 0 1px rgba(232,200,120,0.2), 0 4px 12px rgba(0,0,0,0.4);"></div><div class="swatch-info"><span class="swatch-name">Char 700</span><span class="swatch-hex">#2A2014</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE GOLD SPINE -->
+    <div class="gold-spine">
+      <div class="gold-spine-title">— the Gold Spine —</div>
+      <div class="gold-spine-sub">Five stops · one liquid metal · used as gradients, not flat fills</div>
+      <div class="gold-strip">
+        <div class="gold-tile" style="background:#f5e3b5;"><span class="gold-tile-name">Gold 100</span><span class="gold-tile-hex">#F5E3B5</span></div>
+        <div class="gold-tile" style="background:#e8c878;"><span class="gold-tile-name">Gold 300</span><span class="gold-tile-hex">#E8C878</span></div>
+        <div class="gold-tile" style="background:#c89a3a;"><span class="gold-tile-name">Gold 500</span><span class="gold-tile-hex">#C89A3A</span></div>
+        <div class="gold-tile deep" style="background:#a87420;"><span class="gold-tile-name">Gold 600</span><span class="gold-tile-hex">#A87420</span></div>
+        <div class="gold-tile deep" style="background:#6b4410;"><span class="gold-tile-name">Gold 800</span><span class="gold-tile-hex">#6B4410</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     TYPOGRAPHY
+     ========================================================================= -->
+<section class="section reveal" id="typography">
+  <div class="container">
+    <header class="section-header">
+      <div class="eyebrow"><span>The Voices</span></div>
+      <h2 class="section-title">Three voices, <em>never more</em></h2>
+      <p class="section-sub">A modern didone declares with weight. A wide-tracked sans structures. An italic signs the room — once.</p>
+    </header>
+
+    <div class="type-stack">
+      <div class="type-row">
+        <div class="type-meta">Display<strong>Fraunces 500</strong></div>
+        <div class="type-sample-display">Refined <em>Aurum</em></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Display Italic<strong>Fraunces 300</strong></div>
+        <div class="type-sample-italic">Define the legacy</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Signature<strong>Italiana</strong></div>
+        <div class="type-sample-signature">AURUM · STUDIOS</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Body<strong>Manrope 300</strong></div>
+        <div class="type-sample-body">Composed in fragments, never in flourishes. Body copy in this system stays patient — short sentences, sparing adjectives, no exclamation marks. The brand does not sell. It invites you to lean closer.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Label<strong>Manrope 600 SC</strong></div>
+        <div class="type-sample-label">— Bespoke Atelier · Established 2026 —</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     COMPONENTS
+     ========================================================================= -->
+<section class="section reveal" id="components">
+  <div class="container">
+    <header class="section-header">
+      <div class="eyebrow"><span>The Components</span></div>
+      <h2 class="section-title">Glass cards, <em>liquid buttons</em></h2>
+      <p class="section-sub">Surfaces translucent over silk. Buttons that shimmer slowly. Marks that mean something.</p>
+    </header>
+
+    <div class="components-grid">
+      <!-- Buttons -->
+      <div class="demo-card span-6">
+        <div class="demo-card-label">— Buttons —</div>
+        <div class="btn-stack">
+          <a href="#" class="btn btn-obsidian"><span>Reserve a Consultation</span> <span class="btn-arrow">→</span></a>
+          <a href="#" class="btn btn-gold">Discover the Maison <span class="btn-arrow">→</span></a>
+          <a href="#" class="btn btn-ghost">Read the manifesto <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- Marks demo -->
+      <div class="demo-card span-6">
+        <div class="demo-card-label">— Eyebrow Marks —</div>
+        <div style="display: flex; flex-direction: column; gap: var(--s-7); padding: var(--s-3) 0;">
+          <div class="eyebrow" style="justify-content: center; display: flex;"><span>Featured · Spring</span></div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: var(--s-3); color: var(--gold-500);">
+            <span style="width: 80px; height: 1.5px; background: var(--grad-gold); border-radius: 1px;"></span>
+            <span style="width: 10px; height: 10px; background: var(--grad-gold); transform: rotate(45deg); box-shadow: 0 0 16px rgba(200,154,58,0.4);"></span>
+            <span style="width: 80px; height: 1.5px; background: var(--grad-gold); border-radius: 1px;"></span>
+          </div>
+          <div class="eyebrow" style="justify-content: center; display: flex;"><span>By Appointment</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step cards -->
+    <div class="steps-grid">
+      <!-- 01 -->
+      <article class="step-card">
+        <div class="step-content">
+          <div class="step-numeral">01</div>
+          <div class="step-eyebrow">Foundation</div>
+          <div class="step-tagline">Tokens & Palette</div>
+          <p class="step-desc">A complete palette, type scale, and spacing rhythm — the structural alphabet beneath every brand expression.</p>
+          <div class="step-features">
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Anchors</strong><span>Three surfaces, one liquid gold spine.</span></div>
+            </div>
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Calibrates</strong><span>A fluid type scale across breakpoints.</span></div>
+            </div>
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Resonates</strong><span>Every value as a CSS variable.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-visual">
+          <div class="glass-orb-wrap">
+            <div class="glass-orb"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="step-card">
+        <div class="step-content">
+          <div class="step-numeral">02</div>
+          <div class="step-eyebrow">Components</div>
+          <div class="step-tagline">Behaviors & Surfaces</div>
+          <p class="step-desc">Translucent cards, liquid buttons, eyebrow marks — each object with its own posture and patient timing.</p>
+          <div class="step-features">
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Responds</strong><span>Slow hover transitions in expo-out.</span></div>
+            </div>
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Layers</strong><span>Glass surfaces over silk backgrounds.</span></div>
+            </div>
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Composes</strong><span>Reusable across hero, content, commerce.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-visual">
+          <div class="glass-orb-wrap">
+            <div class="glass-orb"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="step-card">
+        <div class="step-content">
+          <div class="step-numeral">03</div>
+          <div class="step-eyebrow">Atmosphere</div>
+          <div class="step-tagline">Motion & Ornament</div>
+          <p class="step-desc">The painterly marks that elevate a layout — gold brushstrokes, corner brackets, shimmering metallic gradients.</p>
+          <div class="step-features">
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Suggests</strong><span>Diagonal gold brushstrokes on silk.</span></div>
+            </div>
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Frames</strong><span>Corner brackets, never full borders.</span></div>
+            </div>
+            <div class="step-feature">
+              <div class="step-feature-icon">◆</div>
+              <div class="step-feature-text"><strong>Reveals</strong><span>Slow staggered entrances on scroll.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-visual">
+          <div class="glass-orb-wrap">
+            <div class="glass-orb"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     OBSIDIAN PUNCTUATION — full-width black moment
+     ========================================================================= -->
+<section class="section section-obsidian reveal" id="marks">
+  <div class="container">
+    <header class="section-header">
+      <div class="eyebrow"><span>The Marks</span></div>
+      <h2 class="section-title">Small ornaments, <em>large meaning</em></h2>
+      <p class="section-sub">Painterly gold against pure obsidian — the system's most theatrical surface, reserved for one moment per page.</p>
+    </header>
+
+    <div class="ornament-grid">
+      <div class="ornament-card">
+        <div class="ornament-corners"><span><em>AURUM</em></span></div>
+        <div class="ornament-label">Corner Frame</div>
+      </div>
+      <div class="ornament-card">
+        <div class="ornament-rule"><span></span><div class="d"></div><span></span></div>
+        <div class="ornament-label">Metallic Divider</div>
+      </div>
+      <div class="ornament-card">
+        <div class="ornament-numeral">07</div>
+        <div class="ornament-label">Hero Numeral</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     FOOTER
+     ========================================================================= -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot-title">AURUM</div>
+    <div class="foot-rule"></div>
+    <div class="foot-tag">A Design System · Bespoke Luxury · 2026</div>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 80);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

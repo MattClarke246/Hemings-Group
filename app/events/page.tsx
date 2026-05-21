@@ -4,6 +4,7 @@ import Logo from "../_components/Logo";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
+import HeroImage from "../_components/HeroImage";
 import VenuePhoto from "../_components/VenuePhoto";
 import { LOUNGE_INTRO } from "@/lib/copy";
 
@@ -126,14 +127,7 @@ export default function EventsPage() {
     <>
       {/* ── HERO — lounge atmosphere from live site ── */}
       <section className="relative flex min-h-[80svh] min-h-[80dvh] items-center overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-44 md:pb-36">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            backgroundImage: "url('/venue_2.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center 40%",
-          }}
-        />
+        <HeroImage src="/venue_2.jpg" alt="" position="center 40%" priority />
         <div
           className="absolute inset-0 -z-10"
           style={{

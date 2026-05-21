@@ -1,10 +1,13 @@
+import dynamic from "next/dynamic";
 import Container from "./_components/Container";
 import Button from "./_components/Button";
 import NumeralCard from "./_components/NumeralCard";
 import MetallicDivider from "./_components/MetallicDivider";
 import Reveal from "./_components/Reveal";
-import EventsScroller from "./_components/EventsScroller";
+
+const EventsScroller = dynamic(() => import("./_components/EventsScroller"));
 import GoldDust from "./_components/GoldDust";
+import HeroImage from "./_components/HeroImage";
 import Logo from "./_components/Logo";
 import VenuePhoto from "./_components/VenuePhoto";
 import {
@@ -20,15 +23,7 @@ export default function HomePage() {
     <>
       {/* ── HERO — full bleed with original venue entrance photograph ── */}
       <section className="relative flex min-h-[100svh] min-h-[100dvh] items-center overflow-hidden pt-28 pb-24 sm:pt-32 sm:pb-28 md:pt-44 md:pb-40">
-        {/* Background Image Container */}
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            backgroundImage: "url('/original_hero.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center 40%",
-          }}
-        />
+        <HeroImage src="/original_hero.jpg" alt="" priority />
         {/* Navy Overlay to blend with the agates theme and keep the text readable */}
         <div
           className="absolute inset-0 -z-10"
@@ -154,7 +149,6 @@ export default function HomePage() {
                 src="/venue-about.jpg"
                 alt="Hemings bar with crystal chandeliers, gold-framed panels, and tufted seating"
                 aspect="aspect-[16/10] md:aspect-auto md:min-h-[420px]"
-                priority
               />
             </Reveal>
             <div className="flex flex-col gap-8 md:col-span-5">

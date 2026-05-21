@@ -161,7 +161,7 @@ export default function MembershipPage() {
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
             <Reveal direction="left">
               <VenuePhoto
-                src="/original_hero.png"
+                src="/original_hero.jpg"
                 alt="Hemings entrance with gold Members Preferred signage and lit portico ceiling"
                 aspect="aspect-[4/3]"
               />

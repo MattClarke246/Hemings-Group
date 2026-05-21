@@ -4,6 +4,14 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 type RevealDirection = "up" | "left" | "right" | "scale" | "clip";
 
+function shouldRevealInstantly() {
+  if (typeof window === "undefined") return false;
+  return (
+    window.matchMedia("(max-width: 767px)").matches ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
 export default function Reveal({
   children,
   delay = 0,
@@ -20,6 +28,11 @@ export default function Reveal({
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+
+    if (shouldRevealInstantly()) {
+      node.setAttribute("data-reveal", "visible");
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "../_components/Container";
+import HeroImage from "../_components/HeroImage";
 import GlassCard from "../_components/GlassCard";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
@@ -40,14 +41,7 @@ export default function AboutPage() {
     <>
       {/* ── HERO — bar interior from live site ── */}
       <section className="relative flex min-h-[80svh] min-h-[80dvh] items-center overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-44 md:pb-36">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            backgroundImage: "url('/venue-about.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center 35%",
-          }}
-        />
+        <HeroImage src="/venue-about.jpg" alt="" position="center 35%" priority />
         <div
           className="absolute inset-0 -z-10"
           style={{

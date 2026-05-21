@@ -199,6 +199,40 @@ body {
   pointer-events: none;
 }
 
+/* Static marble substitute — no SVG filters on mobile */
+.marble-bg-lite {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 70% at 25% 15%, #1c1d20 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 85% 75%, #121314 0%, transparent 50%),
+    linear-gradient(165deg, #0a0a0c 0%, #020202 55%, #0c0d0d 100%);
+}
+
+.gold-dust-layer {
+  position: absolute;
+  inset: -10%;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 245, 212, 0.55) 0 1px,
+    transparent 1.5px
+  );
+  background-size: 56px 56px;
+  animation: dust-drift 28s linear infinite;
+  will-change: transform;
+}
+
+@keyframes dust-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -8%, 0);
+  }
+}
+
 /* Page content must sit above fixed bg */
 main {
   position: relative;
@@ -585,12 +619,40 @@ main {
    MOBILE & SMALL VIEWPORTS
    ========================================================================= */
 @media (max-width: 767px) {
+  .marble-bg-fixed {
+    animation: none !important;
+  }
+
+  .glass-panel,
+  .glass-card,
+  .glass-card-dark,
+  .header-scrolled {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .glass-panel {
+    background: rgba(0, 0, 0, 0.52);
+  }
+
+  .glass-card-dark {
+    background: linear-gradient(
+      160deg,
+      rgba(28, 29, 31, 0.72) 0%,
+      rgba(0, 0, 0, 0.88) 100%
+    );
+  }
+
   .btn {
     padding: 16px 28px;
     letter-spacing: 0.22em;
     max-width: 100%;
     white-space: normal;
     text-align: center;
+  }
+
+  .btn-gold {
+    animation: none;
   }
 
   .btn-ghost {
@@ -612,6 +674,17 @@ main {
   .glass-card,
   .glass-card-dark {
     border-radius: 16px;
+  }
+
+  .group:hover img {
+    transform: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
   }
 }
 

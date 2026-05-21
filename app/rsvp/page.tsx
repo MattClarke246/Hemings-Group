@@ -239,15 +239,15 @@ export default function RsvpPage() {
                         id="night"
                         name="night"
                         className={fieldClass}
-                        style={{ ...fieldStyle, background: "rgba(13, 21, 37, 0.5)" }}
+                        style={{ ...fieldStyle, background: "rgba(0, 0, 0, 0.5)" }}
                         defaultValue=""
                         required
                       >
-                        <option value="" disabled style={{ background: "#1F2A44" }}>
+                        <option value="" disabled style={{ background: "#0a0a0c" }}>
                           Choose an evening
                         </option>
                         {DAYS.map((d) => (
-                          <option key={d} value={d} style={{ background: "#1F2A44" }}>
+                          <option key={d} value={d} style={{ background: "#0a0a0c" }}>
                             {d}
                           </option>
                         ))}
@@ -265,14 +265,14 @@ export default function RsvpPage() {
                         id="section"
                         name="section"
                         className={fieldClass}
-                        style={{ ...fieldStyle, background: "rgba(13, 21, 37, 0.5)" }}
+                        style={{ ...fieldStyle, background: "rgba(0, 0, 0, 0.5)" }}
                         defaultValue=""
                       >
-                        <option value="" disabled style={{ background: "#1F2A44" }}>
+                        <option value="" disabled style={{ background: "#0a0a0c" }}>
                           Select a section (optional)
                         </option>
                         {SECTIONS.map((s) => (
-                          <option key={s} value={s} style={{ background: "#1F2A44" }}>
+                          <option key={s} value={s} style={{ background: "#0a0a0c" }}>
                             {s}
                           </option>
                         ))}

@@ -83,7 +83,7 @@ export default function Header() {
         <div
           className="border-t md:hidden"
           style={{
-            background: "rgba(13, 21, 37, 0.92)",
+            background: "rgba(0, 0, 0, 0.92)",
             backdropFilter: "blur(24px)",
             borderColor: "rgba(198, 167, 94, 0.18)",
           }}

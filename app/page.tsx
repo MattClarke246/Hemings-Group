@@ -26,7 +26,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 -z-10"
           style={{
-            background: "linear-gradient(to bottom, rgba(13, 21, 37, 0.40) 0%, rgba(13, 21, 37, 0.75) 70%, rgba(13, 21, 37, 0.95) 100%)",
+            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.75) 70%, rgba(0, 0, 0, 0.95) 100%)",
           }}
         />
         <GoldDust />

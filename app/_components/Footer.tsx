@@ -14,7 +14,7 @@ export default function Footer() {
     <footer
       className="relative z-10"
       style={{
-        background: "rgba(13, 21, 37, 0.72)",
+        background: "rgba(0, 0, 0, 0.72)",
         backdropFilter: "blur(28px)",
         borderTop: "1px solid rgba(198, 167, 94, 0.18)",
       }}

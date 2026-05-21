@@ -182,14 +182,14 @@ export default function ContactForm() {
             id="night"
             name="night"
             className={fieldClass}
-            style={{ ...fieldStyle, background: "rgba(13, 21, 37, 0.5)" }}
+            style={{ ...fieldStyle, background: "rgba(0, 0, 0, 0.5)" }}
             defaultValue=""
           >
-            <option value="" disabled style={{ background: "#1F2A44" }}>
+            <option value="" disabled style={{ background: "#0a0a0c" }}>
               Choose an evening
             </option>
             {DAYS.map((d) => (
-              <option key={d} value={d} style={{ background: "#1F2A44" }}>
+              <option key={d} value={d} style={{ background: "#0a0a0c" }}>
                 {d}
               </option>
             ))}

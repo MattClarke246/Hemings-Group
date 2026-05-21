@@ -126,7 +126,7 @@ export default function AboutPage() {
                 </div>
                 <div
                   className="absolute inset-0"
-                  style={{ background: "rgba(13, 21, 37, 0.35)", backdropFilter: "blur(2px)" }}
+                  style={{ background: "rgba(0, 0, 0, 0.35)", backdropFilter: "blur(2px)" }}
                 />
                 <div className="relative z-10 flex h-full flex-col justify-end p-12 md:p-16">
                   <p

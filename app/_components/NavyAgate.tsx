@@ -13,26 +13,26 @@ export default function NavyAgate({
       className={`pointer-events-none absolute inset-0 h-full w-full ${className}`}
     >
       <defs>
-        {/* Base navy — broader gradient with more midtones */}
+        {/* Base black/charcoal — broader gradient with more midtones */}
         <radialGradient id="agate-base" cx="38%" cy="22%" r="95%">
-          <stop offset="0%" stopColor="#34406a" />
-          <stop offset="22%" stopColor="#2a3656" />
-          <stop offset="50%" stopColor="#1F2A44" />
-          <stop offset="80%" stopColor="#131c30" />
-          <stop offset="100%" stopColor="#0d1525" />
+          <stop offset="0%" stopColor="#1b1c1e" />
+          <stop offset="22%" stopColor="#121314" />
+          <stop offset="50%" stopColor="#0c0d0d" />
+          <stop offset="80%" stopColor="#060607" />
+          <stop offset="100%" stopColor="#020202" />
         </radialGradient>
 
-        {/* Cloudy lighter navy bands */}
+        {/* Cloudy lighter grey/charcoal bands */}
         <linearGradient id="agate-cloud-a" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#4a587e" stopOpacity="0" />
-          <stop offset="35%" stopColor="#4a587e" stopOpacity="0.55" />
-          <stop offset="55%" stopColor="#5a6890" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="#1F2A44" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2c2d30" stopOpacity="0" />
+          <stop offset="35%" stopColor="#2c2d30" stopOpacity="0.55" />
+          <stop offset="55%" stopColor="#343538" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#0c0d0d" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="agate-cloud-b" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#2a3656" stopOpacity="0" />
-          <stop offset="50%" stopColor="#3d4a6e" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="#0d1525" stopOpacity="0" />
+          <stop offset="0%" stopColor="#121314" stopOpacity="0" />
+          <stop offset="50%" stopColor="#1d1d20" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#020202" stopOpacity="0" />
         </linearGradient>
 
         {/* Gold veins — richer multi-stop */}
@@ -75,18 +75,18 @@ export default function NavyAgate({
           />
           <feColorMatrix
             values="
-              0 0 0 0 0.12
-              0 0 0 0 0.16
-              0 0 0 0 0.26
+              0 0 0 0 0.05
+              0 0 0 0 0.05
+              0 0 0 0 0.05
               0 0 0 0.42 0"
           />
         </filter>
 
         {/* Bright specular highlight */}
         <radialGradient id="agate-highlight" cx="20%" cy="15%" r="50%">
-          <stop offset="0%" stopColor="#6a7aa0" stopOpacity="0.5" />
-          <stop offset="40%" stopColor="#3d4a6e" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#1F2A44" stopOpacity="0" />
+          <stop offset="0%" stopColor="#3d3e42" stopOpacity="0.5" />
+          <stop offset="40%" stopColor="#1d1d20" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#0c0d0d" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -219,8 +219,8 @@ export default function NavyAgate({
 
       {/* Soft vignette */}
       <radialGradient id="agate-vignette" cx="50%" cy="50%" r="80%">
-        <stop offset="55%" stopColor="#0d1525" stopOpacity="0" />
-        <stop offset="100%" stopColor="#0d1525" stopOpacity="0.55" />
+        <stop offset="55%" stopColor="#020202" stopOpacity="0" />
+        <stop offset="100%" stopColor="#020202" stopOpacity="0.55" />
       </radialGradient>
       <rect width="1600" height="900" fill="url(#agate-vignette)" />
     </svg>

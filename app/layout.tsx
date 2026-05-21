@@ -3,7 +3,6 @@ import { Fraunces, Manrope, Italiana } from "next/font/google";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import MarbleBackground from "./_components/MarbleBackground";
-import ScrollProgress from "./_components/ScrollProgress";
 import "./globals.css";
 import { LOUNGE_INTRO, MANIFESTO, TAGLINE } from "@/lib/copy";
 
@@ -68,7 +67,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${manrope.variable} ${italiana.variable}`}
     >
       <body>
-        <ScrollProgress />
+        {/* Fixed full-page marble — persists across all pages */}
         <MarbleBackground />
         <Header />
         <main>{children}</main>

@@ -7,11 +7,6 @@ import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 import Logo from "../_components/Logo";
 import VenuePhoto from "../_components/VenuePhoto";
-import Section from "../_components/Section";
-import SectionHeading from "../_components/SectionHeading";
-import ObsidianSplash from "../_components/ObsidianSplash";
-import FullBleedImage from "../_components/FullBleedImage";
-import GoldBrushstroke from "../_components/GoldBrushstroke";
 import {
   ABOUT_COMMUNITY,
   ABOUT_SANCTUARY,
@@ -47,7 +42,6 @@ export default function AboutPage() {
       {/* ── HERO — bar interior from live site ── */}
       <section className="relative flex min-h-[80svh] min-h-[80dvh] items-center overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-44 md:pb-36">
         <HeroImage src="/venue-about.jpg" alt="" position="center 35%" priority />
-        <GoldBrushstroke className="-z-[5]" opacity={0.3} />
         <div
           className="absolute inset-0 -z-10"
           style={{
@@ -59,14 +53,25 @@ export default function AboutPage() {
           <Reveal direction="clip">
             <MetallicDivider width={80} />
           </Reveal>
-          <Reveal delay={120} direction="up">
-            <SectionHeading
-              className="mt-8"
-              eyebrow="01 · The House"
-              title="Elevating Luxury:"
-              accent="The Hemings Experience."
-              size="h1"
-            />
+          <Reveal delay={100}>
+            <p
+              className="smallcaps mt-8 mb-10 tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              01 &middot; The House
+            </p>
+          </Reveal>
+          <Reveal delay={200} direction="up">
+            <h1
+              className="display-airy w-full max-w-[1000px] px-1"
+              style={{
+                fontSize: "var(--t-h1)",
+                color: "var(--text-primary-dark)",
+              }}
+            >
+              Elevating Luxury:{" "}
+              <span className="display-it gold-text-shimmer">The Hemings Experience.</span>
+            </h1>
           </Reveal>
           <Reveal delay={360} direction="up">
             <p
@@ -79,13 +84,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <FullBleedImage
-        src="/venue-interior-1.jpg"
-        alt="Hemings lounge interior with gold mirrors and warm lighting"
-        height="min-h-[40vh] sm:min-h-[48vh]"
-      />
-
-      <Section tone="glass">
+      {/* ── PHILOSOPHY — glass panel ── */}
+      <section className="glass-panel py-28 md:py-40">
         <Container>
           <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2">
             <Reveal direction="left">
@@ -172,16 +172,28 @@ export default function AboutPage() {
             </Reveal>
           </div>
         </Container>
-      </Section>
+      </section>
 
-      <Section>
+      {/* ── PILLARS — open over marble ── */}
+      <section className="py-28 md:py-44">
         <Container>
           <Reveal className="mb-16 max-w-3xl" direction="left">
-            <SectionHeading
-              eyebrow="Our Pillars"
-              title="Three values,"
-              accent="kept simply."
-            />
+            <p
+              className="smallcaps mb-6 tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              Our Pillars
+            </p>
+            <h2
+              className="display-airy"
+              style={{
+                fontSize: "var(--t-h1)",
+                color: "var(--text-primary-dark)",
+              }}
+            >
+              Three values,{" "}
+              <span className="display-it gold-text-shimmer">kept simply.</span>
+            </h2>
           </Reveal>
           <div>
             {PILLARS.map((p, i) => (
@@ -218,18 +230,30 @@ export default function AboutPage() {
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      <ObsidianSplash>
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12">
+      {/* ── REAL VENUE VISUAL GALLERY SECTION ── */}
+      <section className="glass-panel py-28 md:py-40">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-5">
               <Reveal direction="left">
-                <SectionHeading
-                  eyebrow="Inner Sanctum"
-                  title="A Gathering of"
-                  accent="Distinction."
-                  size="h2"
-                />
+                <p
+                  className="smallcaps mb-6 tracking-wide-caps"
+                  style={{ color: "var(--text-gold-dark)" }}
+                >
+                  Inner Sanctum
+                </p>
+                <h2
+                  className="display-airy mb-8"
+                  style={{
+                    fontSize: "var(--t-h2)",
+                    color: "var(--text-primary-dark)",
+                  }}
+                >
+                  A Gathering of{" "}
+                  <span className="display-it gold-text-shimmer">Distinction.</span>
+                </h2>
                 <p
                   className="text-lg leading-[1.9] mb-10"
                   style={{ color: "var(--text-secondary-dark)" }}
@@ -253,9 +277,11 @@ export default function AboutPage() {
               </Reveal>
             </div>
           </div>
-      </ObsidianSplash>
+        </Container>
+      </section>
 
-      <Section className="!py-24 md:!py-32">
+      {/* ── CLOSING ── */}
+      <section className="py-24 md:py-32">
         <div className="flex flex-col items-center text-center gap-8">
           <Reveal direction="scale">
             <Logo size={160} variant="gold" />
@@ -274,7 +300,7 @@ export default function AboutPage() {
             </Button>
           </Reveal>
         </div>
-      </Section>
+      </section>
     </>
   );
 }

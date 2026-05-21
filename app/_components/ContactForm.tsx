@@ -41,11 +41,9 @@ export default function ContactForm() {
         >
           Your inquiry has been received.
         </h3>
-        <p className="signature mt-4 text-sm" style={{ color: "var(--text-gold-dark)" }}>
-          We will respond within 48 hours.
-        </p>
-        <p className="mx-auto mt-6 max-w-md" style={{ color: "var(--text-secondary-dark)" }}>
-          Until then, consider the door already open.
+        <p className="mx-auto max-w-md" style={{ color: "var(--text-secondary-dark)" }}>
+          A member of the house will respond within 48 hours. Until then, consider the
+          door already open.
         </p>
       </GlassCard>
     );
@@ -73,14 +71,6 @@ export default function ContactForm() {
       </p>
 
       <form onSubmit={onSubmit} className="grid grid-cols-1 gap-7 md:grid-cols-2">
-        <fieldset className="form-fieldset md:col-span-2">
-          <legend
-            className={`${labelClass} form-fieldset-legend`}
-            style={{ color: "var(--text-gold-dark)" }}
-          >
-            Your details
-          </legend>
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
         <div className="md:col-span-1">
           <label
             htmlFor="name"
@@ -154,16 +144,6 @@ export default function ContactForm() {
             }
           />
         </div>
-          </div>
-        </fieldset>
-        <fieldset className="form-fieldset md:col-span-2">
-          <legend
-            className={`${labelClass} form-fieldset-legend`}
-            style={{ color: "var(--text-gold-dark)" }}
-          >
-            Your evening
-          </legend>
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
         <div className="md:col-span-1">
           <label
             htmlFor="party"
@@ -215,8 +195,6 @@ export default function ContactForm() {
             ))}
           </select>
         </div>
-          </div>
-        </fieldset>
         <div className="md:col-span-2">
           <label
             htmlFor="message"

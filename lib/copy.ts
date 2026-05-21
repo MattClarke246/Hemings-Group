@@ -2,9 +2,6 @@
 
 export const TAGLINE = "Your Experience is Everything";
 
-export const HERO_LEDE =
-  "A premier members-preferred lounge in Birmingham — VIP hospitality with sophistication and ease.";
-
 export const MANIFESTO =
   "Where elegance and exclusivity equal an unforgettable experience.";
 

@@ -1,10 +1,14 @@
 import Container from "../_components/Container";
 import GlassCard from "../_components/GlassCard";
 import Button from "../_components/Button";
-import Logo from "../_components/Logo";
+import BrandLockup from "../_components/BrandLockup";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import VenuePhoto from "../_components/VenuePhoto";
+import Section from "../_components/Section";
+import SectionHeading from "../_components/SectionHeading";
+import ObsidianSplash from "../_components/ObsidianSplash";
+import FullBleedImage from "../_components/FullBleedImage";
 import {
   CRAFTING_EXCLUSIVITY,
   MEMBERSHIP_INTRO,
@@ -49,27 +53,14 @@ export default function MembershipPage() {
           <Reveal direction="clip">
             <MetallicDivider width={80} />
           </Reveal>
-          <Reveal delay={100}>
-            <p
-              className="smallcaps mt-8 mb-10 tracking-wide-caps"
-              style={{ color: "var(--text-gold-dark)" }}
-            >
-              02 &middot; The Circle
-            </p>
-          </Reveal>
-          <Reveal delay={200} direction="up">
-            <h1
-              className="display-airy max-w-[1000px]"
-              style={{
-                fontSize: "var(--t-h1)",
-                color: "var(--text-primary-dark)",
-              }}
-            >
-              {CRAFTING_EXCLUSIVITY.split(":")[0]}:{" "}
-              <span className="display-it gold-text-shimmer">
-                {CRAFTING_EXCLUSIVITY.split(":")[1]?.trim()}
-              </span>
-            </h1>
+          <Reveal delay={120} direction="up">
+            <SectionHeading
+              className="mt-8"
+              eyebrow="02 · The Circle"
+              title={`${CRAFTING_EXCLUSIVITY.split(":")[0]}:`}
+              accent={CRAFTING_EXCLUSIVITY.split(":")[1]?.trim()}
+              size="h1"
+            />
           </Reveal>
           <Reveal delay={360} direction="up">
             <p
@@ -82,28 +73,9 @@ export default function MembershipPage() {
         </Container>
       </section>
 
-      {/* ── PRIVILEGES — glass panel ── */}
-      <section className="glass-panel py-28 md:py-44">
-        <Container>
-          <div className="mb-20 flex flex-col md:flex-row md:items-end gap-10 justify-between">
-            <Reveal direction="left">
-              <p
-                className="smallcaps mb-6 tracking-wide-caps"
-                style={{ color: "var(--text-gold-dark)" }}
-              >
-                Privileges
-              </p>
-              <h2
-                className="display-airy max-w-[600px]"
-                style={{
-                  fontSize: "var(--t-h2)",
-                  color: "var(--text-primary-dark)",
-                }}
-              >
-                Why Join{" "}
-                <span className="display-it gold-text-shimmer">Hemings?</span>
-              </h2>
-            </Reveal>
+      <ObsidianSplash>
+        <div className="mb-20 flex flex-col justify-between gap-10 md:flex-row md:items-end">
+            <SectionHeading eyebrow="Privileges" title="Why Join" accent="Hemings?" size="h2" />
             <Reveal direction="right" delay={200}>
               <MetallicDivider width={120} />
             </Reveal>
@@ -122,7 +94,7 @@ export default function MembershipPage() {
                 delay={i * 130}
                 direction={i % 2 === 0 ? "left" : "right"}
               >
-                <GlassCard padding="p-12 md:p-14" className="h-full">
+                <GlassCard corners={i === 0} padding="p-12 md:p-14" className="h-full">
                   <div className="flex items-baseline gap-5 mb-7">
                     <span
                       className="display gold-text"
@@ -152,11 +124,15 @@ export default function MembershipPage() {
               </Reveal>
             ))}
           </div>
-        </Container>
-      </section>
+      </ObsidianSplash>
 
-      {/* ── THE ENTRANCE — members-preferred signage from live site ── */}
-      <section className="py-28 md:py-40">
+      <FullBleedImage
+        src="/original_hero.jpg"
+        alt="Hemings entrance with gold Members Preferred signage"
+        height="min-h-[42vh] sm:min-h-[50vh]"
+      />
+
+      <Section>
         <Container>
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
             <Reveal direction="left">
@@ -167,22 +143,12 @@ export default function MembershipPage() {
               />
             </Reveal>
             <Reveal delay={200} direction="right">
-              <p
-                className="smallcaps mb-6 tracking-wide-caps"
-                style={{ color: "var(--text-gold-dark)" }}
-              >
-                Members Preferred
-              </p>
-              <h2
-                className="display-airy"
-                style={{
-                  fontSize: "var(--t-h2)",
-                  color: "var(--text-primary-dark)",
-                }}
-              >
-                The door is{" "}
-                <span className="display-it gold-text-shimmer">intentional.</span>
-              </h2>
+              <SectionHeading
+                eyebrow="Members Preferred"
+                title="The door is"
+                accent="intentional."
+                size="h2"
+              />
               <p
                 className="mt-8 text-lg leading-[1.95]"
                 style={{ color: "var(--text-secondary-dark)" }}
@@ -193,28 +159,18 @@ export default function MembershipPage() {
             </Reveal>
           </div>
         </Container>
-      </section>
+      </Section>
 
-      {/* ── CTA — open over marble ── */}
-      <section className="py-36 md:py-52">
+      <Section tone="ivory" className="!py-36 md:!py-52">
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center" direction="scale">
-            <p
-              className="smallcaps mb-10 tracking-wide-caps"
-              style={{ color: "var(--text-gold-dark)" }}
-            >
-              The Inquiry
-            </p>
-            <h2
-              className="display-airy"
-              style={{
-                fontSize: "var(--t-h1)",
-                color: "var(--text-primary-dark)",
-              }}
-            >
-              Tell us about{" "}
-              <span className="display-it gold-text-shimmer">your evening.</span>
-            </h2>
+            <SectionHeading
+              eyebrow="The Inquiry"
+              title="Tell us about"
+              accent="your evening."
+              align="center"
+              divider
+            />
             <Reveal delay={200} direction="up">
               <p
                 className="mt-10 mx-auto max-w-xl text-lg leading-[1.95]"
@@ -233,12 +189,12 @@ export default function MembershipPage() {
             </Reveal>
             <Reveal delay={500} direction="scale">
               <div className="mt-16 flex justify-center">
-                <Logo size={160} variant="gold" />
+                <BrandLockup className="mx-auto items-center" />
               </div>
             </Reveal>
           </Reveal>
         </Container>
-      </section>
+      </Section>
     </>
   );
 }

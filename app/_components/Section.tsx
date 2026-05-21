@@ -1,22 +1,29 @@
 import type { ReactNode } from "react";
 
+type SectionTone = "default" | "glass" | "ivory" | "obsidian";
+
+const toneClass: Record<SectionTone, string> = {
+  default: "",
+  glass: "glass-panel",
+  ivory: "ivory-panel",
+  obsidian: "obsidian-splash",
+};
+
 export default function Section({
   children,
   className = "",
   id,
-  dark = false,
+  tone = "default",
 }: {
   children: ReactNode;
   className?: string;
   id?: string;
-  dark?: boolean;
+  tone?: SectionTone;
 }) {
   return (
     <section
       id={id}
-      className={`relative py-24 md:py-32 lg:py-40 ${
-        dark ? "bg-navy-950 text-[var(--text-primary-dark)]" : ""
-      } ${className}`}
+      className={`relative py-20 sm:py-28 md:py-36 lg:py-40 ${toneClass[tone]} ${className}`}
     >
       {children}
     </section>

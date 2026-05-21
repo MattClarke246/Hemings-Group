@@ -6,6 +6,10 @@ import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 import HeroImage from "../_components/HeroImage";
 import VenuePhoto from "../_components/VenuePhoto";
+import Section from "../_components/Section";
+import SectionHeading from "../_components/SectionHeading";
+import ObsidianSplash from "../_components/ObsidianSplash";
+import GoldBrushstroke from "../_components/GoldBrushstroke";
 import { LOUNGE_INTRO } from "@/lib/copy";
 
 export const metadata = {
@@ -128,6 +132,7 @@ export default function EventsPage() {
       {/* ── HERO — lounge atmosphere from live site ── */}
       <section className="relative flex min-h-[80svh] min-h-[80dvh] items-center overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-44 md:pb-36">
         <HeroImage src="/venue_2.jpg" alt="" position="center 40%" priority />
+        <GoldBrushstroke className="-z-[5]" opacity={0.3} />
         <div
           className="absolute inset-0 -z-10"
           style={{
@@ -139,25 +144,14 @@ export default function EventsPage() {
           <Reveal direction="clip">
             <MetallicDivider width={80} />
           </Reveal>
-          <Reveal delay={100}>
-            <p
-              className="smallcaps mt-8 mb-10 tracking-wide-caps"
-              style={{ color: "var(--text-gold-dark)" }}
-            >
-              The Week at Hemings
-            </p>
-          </Reveal>
-          <Reveal delay={200} direction="up">
-            <h1
-              className="display-airy max-w-[1000px]"
-              style={{
-                fontSize: "var(--t-h1)",
-                color: "var(--text-primary-dark)",
-              }}
-            >
-              Your Experience{" "}
-              <span className="display-it gold-text-shimmer">is Everything.</span>
-            </h1>
+          <Reveal delay={120} direction="up">
+            <SectionHeading
+              className="mt-8"
+              eyebrow="The Week at Hemings"
+              title="Your Experience"
+              accent="is Everything."
+              size="h1"
+            />
           </Reveal>
           <Reveal delay={360} direction="up">
             <p
@@ -170,17 +164,9 @@ export default function EventsPage() {
         </Container>
       </section>
 
-      {/* ── WEEKNIGHTS — glass panel ── */}
-      <section className="glass-panel py-28 md:py-40">
+      <Section tone="glass">
         <Container>
-          <Reveal className="mb-14" direction="left">
-            <p
-              className="smallcaps tracking-wide-caps"
-              style={{ color: "var(--text-gold-dark)" }}
-            >
-              The Weeknights
-            </p>
-          </Reveal>
+          <SectionHeading eyebrow="The Weeknights" title="Monday through" accent="Thursday." size="h2" className="mb-14" />
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {WEEKNIGHTS.map((n, i) => (
               <NightCard
@@ -192,32 +178,22 @@ export default function EventsPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </Section>
 
-      {/* ── SPOTLIGHT PANEL FOR R&B FRIDAYS ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden">
+      <section className="relative overflow-hidden py-24 md:py-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,167,94,0.08)_0%,transparent_70%)] pointer-events-none" />
         <Container>
           <GlassCard padding="p-6 sm:p-12 md:p-20" className="relative overflow-hidden" corners>
             <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
               <div>
                 <Reveal direction="left">
-                  <p
-                    className="smallcaps mb-6 tracking-wide-caps"
-                    style={{ color: "var(--text-gold-dark)" }}
-                  >
-                    Featured Spotlight
-                  </p>
-                  <h2
-                    className="display-airy mb-8"
-                    style={{
-                      fontSize: "clamp(40px, 5vw, 64px)",
-                      color: "var(--text-primary-dark)",
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    R&B <span className="display-it gold-text-shimmer">Fridays</span>
-                  </h2>
+                  <SectionHeading
+                    eyebrow="Featured Spotlight"
+                    title="R&B"
+                    accent="Fridays"
+                    size="h1"
+                    className="mb-8"
+                  />
                   <p
                     className="mb-10 text-lg leading-[1.8]"
                     style={{ color: "var(--text-secondary-dark)" }}
@@ -266,21 +242,18 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* ── WEEKEND — glass panel ── */}
-      <section className="glass-panel py-28 md:py-40">
-        <Container>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {WEEKEND.map((n, i) => (
-              <NightCard
-                key={n.day}
-                n={n}
-                delay={i * 140}
-                dir={i === 1 ? "up" : i === 0 ? "left" : "right"}
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ObsidianSplash>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {WEEKEND.map((n, i) => (
+            <NightCard
+              key={n.day}
+              n={n}
+              delay={i * 140}
+              dir={i === 1 ? "up" : i === 0 ? "left" : "right"}
+            />
+          ))}
+        </div>
+      </ObsidianSplash>
     </>
   );
 }

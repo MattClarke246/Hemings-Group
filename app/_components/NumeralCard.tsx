@@ -13,7 +13,7 @@ export default function NumeralCard({
   children: ReactNode;
 }) {
   return (
-    <GlassCard className="flex h-full flex-col">
+    <GlassCard className="flex h-full flex-col transition-transform duration-500 md:hover:-translate-y-1">
       <span
         className="display gold-text mb-6 block"
         style={{ fontSize: "var(--t-numeral)", lineHeight: 1 }}

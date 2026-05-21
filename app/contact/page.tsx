@@ -4,7 +4,9 @@ import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import ContactForm from "../_components/ContactForm";
 import HoverLink from "../_components/HoverLink";
-import VenuePhoto from "../_components/VenuePhoto";
+import Section from "../_components/Section";
+import SectionHeading from "../_components/SectionHeading";
+import FullBleedImage from "../_components/FullBleedImage";
 import { CONTACT_TAGLINE } from "@/lib/copy";
 
 export const metadata = {
@@ -34,25 +36,14 @@ export default function ContactPage() {
           <Reveal direction="clip">
             <MetallicDivider width={80} />
           </Reveal>
-          <Reveal delay={100}>
-            <p
-              className="smallcaps mt-8 mb-10 tracking-wide-caps"
-              style={{ color: "var(--text-gold-dark)" }}
-            >
-              Find Us
-            </p>
-          </Reveal>
-          <Reveal delay={200} direction="up">
-            <h1
-              className="display-airy max-w-[1000px]"
-              style={{
-                fontSize: "var(--t-h1)",
-                color: "var(--text-primary-dark)",
-              }}
-            >
-              Where to{" "}
-              <span className="display-it gold-text-shimmer">find us.</span>
-            </h1>
+          <Reveal delay={120} direction="up">
+            <SectionHeading
+              className="mt-8"
+              eyebrow="Find Us"
+              title="Where to"
+              accent="find us."
+              size="h1"
+            />
           </Reveal>
           <Reveal delay={360} direction="up">
             <p
@@ -68,21 +59,13 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      {/* ── FIND THE DOOR — entrance from live site ── */}
-      <section className="py-16 md:py-24">
-        <Container>
-          <Reveal direction="up">
-            <VenuePhoto
-              src="/venue-interior-1.jpg"
-              alt="Hemings lounge interior with gold mirrors, warm lighting, and members gathering"
-              aspect="aspect-[4/3] min-h-[200px] sm:aspect-[21/9] sm:min-h-[220px] md:min-h-[320px]"
-            />
-          </Reveal>
-        </Container>
-      </section>
+      <FullBleedImage
+        src="/venue-interior-1.jpg"
+        alt="Hemings lounge interior with gold mirrors, warm lighting, and members gathering"
+        height="min-h-[40vh] sm:min-h-[48vh]"
+      />
 
-      {/* ── CONTACT GRID — glass panel ── */}
-      <section className="glass-panel py-20 md:py-32">
+      <Section tone="glass" className="!py-20 md:!py-32">
         <Container>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {/* LEFT — DETAILS */}
@@ -206,7 +189,7 @@ export default function ContactPage() {
             </Reveal>
           </div>
         </Container>
-      </section>
+      </Section>
     </>
   );
 }

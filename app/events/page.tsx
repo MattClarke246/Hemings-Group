@@ -5,11 +5,12 @@ import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 import VenuePhoto from "../_components/VenuePhoto";
+import { HAPPY_HOUR, LOUNGE_INTRO } from "@/lib/copy";
 
 export const metadata = {
   title: "Events — Hemings Group",
   description:
-    "Seven nights, seven moods. The weekly cadence at Hemings — themed weeknights, R&B Fridays, the Saturday Aftermath, and the slower Sunday close.",
+    "RSVP for Monday through Saturday at Hemings — Happy Hour Thursday, R&B Fridays, and members-preferred evenings in Birmingham.",
 };
 
 type Night = {
@@ -22,23 +23,23 @@ type Night = {
 const WEEKNIGHTS: Night[] = [
   {
     day: "Monday",
-    name: "The Tasting",
-    desc: "A curated short list of spirits poured neat, with the kind of attention that turns a Monday into something to remember.",
+    name: "Monday at Hemings",
+    desc: "Start the week in a refined lounge built for members and their guests. RSVP to reserve your evening.",
   },
   {
     day: "Tuesday",
-    name: "Velvet Hours",
-    desc: "Live jazz under poured-gold sconces. A quieter room for a quieter ear.",
+    name: "Tuesday at Hemings",
+    desc: "Unwind in a cozy, welcoming atmosphere with signature cocktails and the energy of our community.",
   },
   {
     day: "Wednesday",
-    name: "The Vintage",
-    desc: "Aged pours and vinyl. A room that remembers what it sounded like to be heard the first time around.",
+    name: "Wednesday at Hemings",
+    desc: "Midweek at the lounge — conversation, curated pours, and the VIP experience Hemings is known for.",
   },
   {
     day: "Thursday",
     name: "Happy Hour Thursday",
-    desc: "The weekend starts early. Crafted drinks and premium company, with RSVPs prioritized.",
+    desc: HAPPY_HOUR,
   },
 ];
 
@@ -46,19 +47,14 @@ const WEEKEND: Night[] = [
   {
     day: "Friday",
     name: "R&B Fridays",
-    desc: "The room as it was meant to sound. A standing reservation for the rhythm of the city.",
+    desc: "Our signature night — smooth R&B, high-end cocktails, and a room full of unmatched energy. Book a VIP section to secure your spot.",
     flagship: true,
   },
   {
     day: "Saturday",
-    name: "Aftermath",
-    desc: "The house at full intention. Our premier Saturday event—sections booked, memories crafted.",
+    name: "Saturday at Hemings",
+    desc: "The weekend at full intention — premium bar service, upscale décor, and sections reserved for those who expect more.",
     flagship: true,
-  },
-  {
-    day: "Sunday",
-    name: "Last Light",
-    desc: "Slow service, longer goodbyes. The evening that closes the week the way the week deserves.",
   },
 ];
 
@@ -161,8 +157,8 @@ export default function EventsPage() {
                 color: "var(--text-primary-dark)",
               }}
             >
-              Seven nights,{" "}
-              <span className="display-it gold-text-shimmer">seven moods.</span>
+              Your Experience{" "}
+              <span className="display-it gold-text-shimmer">is Everything.</span>
             </h1>
           </Reveal>
           <Reveal delay={360} direction="up">
@@ -170,8 +166,7 @@ export default function EventsPage() {
               className="mt-10 max-w-xl text-lg leading-[1.95]"
               style={{ color: "var(--text-secondary-dark)" }}
             >
-              No two evenings at Hemings sound alike. The week unfolds as a
-              composition — each night curated, none repeated.
+              {LOUNGE_INTRO}
             </p>
           </Reveal>
         </Container>
@@ -276,7 +271,7 @@ export default function EventsPage() {
       {/* ── WEEKEND — glass panel ── */}
       <section className="glass-panel py-28 md:py-40">
         <Container>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {WEEKEND.map((n, i) => (
               <NightCard
                 key={n.day}

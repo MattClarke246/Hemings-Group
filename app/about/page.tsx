@@ -6,25 +6,32 @@ import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 import Logo from "../_components/Logo";
 import VenuePhoto from "../_components/VenuePhoto";
+import {
+  ABOUT_COMMUNITY,
+  ABOUT_SANCTUARY,
+  LUXURY_IN_DETAILS,
+  LOUNGE_INTRO,
+  TAGLINE,
+} from "@/lib/copy";
 
 export const metadata = {
   title: "About — Hemings Group",
   description:
-    "The house, the philosophy, the people. A short note on what Hemings keeps and why.",
+    "Elevating luxury at Hemings — a premier members-preferred lounge in Birmingham. Sophistication in every drink.",
 };
 
 const PILLARS = [
   {
     label: "Service",
-    body: "We remember faces, preferences, and the small specifics that turn a visit into a return. Our staff is the difference between a venue and a house.",
+    body: "Our dedicated staff ensures every aspect of your visit is tailored to perfection — from impeccable service to a curated selection of amenities.",
   },
   {
     label: "Atmosphere",
-    body: "Every surface is composed: the light, the music, the cadence of conversation. We design rooms that quiet down so the evening can speak.",
+    body: "Nestled in the heart of luxury, Hemings offers a VIP experience that seamlessly blends sophistication with a down-to-earth atmosphere.",
   },
   {
-    label: "Discretion",
-    body: "What happens at Hemings is yours. Membership is small, the guestbook is private, the room never asks more of you than you brought in.",
+    label: "Community",
+    body: "Members gain entry to a prestigious circle united by a shared appreciation for the finer things — with access to private events, exclusive offers, and personalized services.",
   },
 ];
 
@@ -68,8 +75,8 @@ export default function AboutPage() {
                 color: "var(--text-primary-dark)",
               }}
             >
-              A room that was made with{" "}
-              <span className="display-it gold-text-shimmer">intention.</span>
+              Elevating Luxury:{" "}
+              <span className="display-it gold-text-shimmer">The Hemings Experience.</span>
             </h1>
           </Reveal>
           <Reveal delay={360} direction="up">
@@ -77,9 +84,7 @@ export default function AboutPage() {
               className="mt-10 max-w-xl text-lg leading-[1.95]"
               style={{ color: "var(--text-secondary-dark)" }}
             >
-              Hemings Group, LLC opened with a single belief — that hospitality, when
-              practiced as a craft, is indistinguishable from art. The address is
-              Birmingham. The standard is its own.
+              {LOUNGE_INTRO}
             </p>
           </Reveal>
         </Container>
@@ -104,19 +109,15 @@ export default function AboutPage() {
                     color: "var(--text-primary-dark)",
                   }}
                 >
-                  Elegance is the detail.
-                  <br />
-                  <span className="display-it gold-text-shimmer">The detail is everything.</span>
+                  Sophistication in{" "}
+                  <span className="display-it gold-text-shimmer">every drink.</span>
                 </h2>
                 <Reveal delay={200} direction="up">
                   <p
                     className="mt-10 text-lg leading-[1.95]"
                     style={{ color: "var(--text-secondary-dark)" }}
                   >
-                    We believe the difference between a good night and an unforgettable
-                    one is rarely the headline. It&rsquo;s the way the chair sits, the
-                    weight of the glass, the way you were greeted by name without ever
-                    having to say it.
+                    {LUXURY_IN_DETAILS}
                   </p>
                 </Reveal>
                 <Reveal delay={360} direction="up">
@@ -124,8 +125,7 @@ export default function AboutPage() {
                     className="mt-6 leading-[1.95]"
                     style={{ color: "var(--text-secondary-dark)" }}
                   >
-                    Hemings is built on those quiet acts of attention. The lounge is
-                    small for a reason. The membership is smaller for the same one.
+                    {ABOUT_SANCTUARY}
                   </p>
                 </Reveal>
               </GlassCard>
@@ -169,9 +169,9 @@ export default function AboutPage() {
                     className="mt-8 leading-[1.95]"
                     style={{ color: "var(--text-secondary-dark)" }}
                   >
-                    A house that pours its colors the way it pours its drinks — with
-                    restraint, with weight, with the understanding that less is the
-                    luxury.
+                    You&rsquo;re part of an exclusive community united by a shared
+                    appreciation for the finer things — with private events, exclusive
+                    offers, and personalized services at every turn.
                   </p>
                 </div>
               </div>
@@ -297,12 +297,12 @@ export default function AboutPage() {
               className="signature text-sm md:text-base"
               style={{ color: "var(--text-gold-dark)" }}
             >
-              Hemings &middot; Birmingham
+              Join us at Hemings — {TAGLINE}
             </p>
           </Reveal>
           <Reveal delay={360} direction="up">
             <Button href="/membership" variant="gold">
-              Discover Membership
+              Become a Member Today
             </Button>
           </Reveal>
         </div>

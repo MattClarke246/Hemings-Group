@@ -5,33 +5,38 @@ import Logo from "../_components/Logo";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import VenuePhoto from "../_components/VenuePhoto";
+import {
+  CRAFTING_EXCLUSIVITY,
+  MEMBERSHIP_INTRO,
+  WHY_JOIN,
+} from "@/lib/copy";
 
 export const metadata = {
   title: "Membership — Hemings Group",
   description:
-    "By invitation, by intention. The privileges of belonging to the Hemings circle.",
+    "Crafting exclusivity at Hemings — unparalleled access to luxury, refinement, and a prestigious members-preferred community.",
 };
 
 const PRIVILEGES = [
   {
     eyebrow: "I",
-    title: "Priority Reservations",
-    body: "First call on every night, every section, every signature event. The door is open before the door is open.",
+    title: "Exclusive Events",
+    body: "Access to private events and members-only evenings curated for those who appreciate the finer things in life.",
   },
   {
     eyebrow: "II",
-    title: "Guest Privileges",
-    body: "Invite your circle into ours. Members extend the same care to their guests that the house extends to them.",
+    title: "Personalized Services",
+    body: "Personalized services designed to enhance your experience — tailored to you, not the crowd.",
   },
   {
     eyebrow: "III",
-    title: "Section Booking",
-    body: "Reserve a corner of the room for the evening. Private without being closed off, intimate without being arranged.",
+    title: "Guest Privileges",
+    body: "Bring guests into the lounge. Members extend the same hospitality to their circle that Hemings extends to them.",
   },
   {
     eyebrow: "IV",
-    title: "Members-Only Nights",
-    body: "Evenings curated for the circle alone. Smaller rooms, longer pours, the rare guest who never makes the calendar.",
+    title: "Exclusive Offers",
+    body: "Exclusive offers and priority access to sections, reservations, and the best of what the house holds.",
   },
 ];
 
@@ -60,8 +65,10 @@ export default function MembershipPage() {
                 color: "var(--text-primary-dark)",
               }}
             >
-              By invitation.{" "}
-              <span className="display-it gold-text-shimmer">By intention.</span>
+              {CRAFTING_EXCLUSIVITY.split(":")[0]}:{" "}
+              <span className="display-it gold-text-shimmer">
+                {CRAFTING_EXCLUSIVITY.split(":")[1]?.trim()}
+              </span>
             </h1>
           </Reveal>
           <Reveal delay={360} direction="up">
@@ -69,9 +76,7 @@ export default function MembershipPage() {
               className="mt-10 max-w-xl text-lg leading-[1.95]"
               style={{ color: "var(--text-secondary-dark)" }}
             >
-              Hemings membership is small on purpose. We don&rsquo;t sell access — we
-              extend it, to the people who know what an evening is worth and to those
-              who keep ours quiet.
+              {MEMBERSHIP_INTRO}
             </p>
           </Reveal>
         </Container>
@@ -95,14 +100,20 @@ export default function MembershipPage() {
                   color: "var(--text-primary-dark)",
                 }}
               >
-                What the door{" "}
-                <span className="display-it gold-text-shimmer">quietly holds.</span>
+                Why Join{" "}
+                <span className="display-it gold-text-shimmer">Hemings?</span>
               </h2>
             </Reveal>
             <Reveal direction="right" delay={200}>
               <MetallicDivider width={120} />
             </Reveal>
           </div>
+
+          <Reveal delay={120} direction="up" className="mb-12 max-w-3xl">
+            <p className="text-lg leading-[1.95]" style={{ color: "var(--text-secondary-dark)" }}>
+              {WHY_JOIN}
+            </p>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {PRIVILEGES.map((p, i) => (
@@ -176,9 +187,8 @@ export default function MembershipPage() {
                 className="mt-8 text-lg leading-[1.95]"
                 style={{ color: "var(--text-secondary-dark)" }}
               >
-                Est. 2023 — the same threshold that greets members on
-                hemingsgroup.com. Gold light, classical stone, a portico that
-                sets the tone before the first pour.
+                Est. 2023 — Members Preferred. Gold light, classical stone, and a
+                portico that sets the tone before the first pour.
               </p>
             </Reveal>
           </div>
@@ -210,8 +220,8 @@ export default function MembershipPage() {
                 className="mt-10 mx-auto max-w-xl text-lg leading-[1.95]"
                 style={{ color: "var(--text-secondary-dark)" }}
               >
-                Membership is extended through a brief inquiry. A short note is
-                enough — the rest happens at the door.
+                Become a member today. Share a brief inquiry and our team will
+                guide you through the next step.
               </p>
             </Reveal>
             <Reveal delay={360} direction="up">

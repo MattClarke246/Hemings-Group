@@ -7,6 +7,13 @@ import EventsScroller from "./_components/EventsScroller";
 import GoldDust from "./_components/GoldDust";
 import Logo from "./_components/Logo";
 import VenuePhoto from "./_components/VenuePhoto";
+import {
+  CRAFTING_EXCLUSIVITY,
+  LOUNGE_INTRO,
+  LUXURY_IN_DETAILS,
+  MANIFESTO,
+  TAGLINE,
+} from "@/lib/copy";
 
 export default function HomePage() {
   return (
@@ -56,8 +63,7 @@ export default function HomePage() {
               className="mt-12 max-w-xl text-lg leading-[1.95] mx-auto"
               style={{ color: "var(--text-secondary-dark)" }}
             >
-              A members-preferred lounge poured from the same cloth as the city it
-              keeps. Quiet rooms, gold light, the kind of evening that becomes a story.
+              {LOUNGE_INTRO}
             </p>
           </Reveal>
           <Reveal delay={480} direction="up">
@@ -98,8 +104,7 @@ export default function HomePage() {
                 className="mt-10 max-w-2xl text-lg leading-[1.95]"
                 style={{ color: "var(--text-secondary-dark)" }}
               >
-                Where elegance and exclusivity equal an unforgettable experience. The
-                door is intentional. The detail is everything. The night is yours.
+                {MANIFESTO} Welcome to Hemings — where {TAGLINE.toLowerCase()}.
               </p>
             </Reveal>
             <MetallicDivider width={140} className="mt-12" />
@@ -115,7 +120,7 @@ export default function HomePage() {
               className="smallcaps mb-6 tracking-wide-caps"
               style={{ color: "var(--text-gold-dark)" }}
             >
-              The Room
+              About Hemings
             </p>
             <h2
               className="display-airy"
@@ -124,15 +129,17 @@ export default function HomePage() {
                 color: "var(--text-primary-dark)",
               }}
             >
-              Crafted for{" "}
-              <span className="display-it gold-text-shimmer">the evening.</span>
+              {CRAFTING_EXCLUSIVITY.split(":")[0]}:{" "}
+              <span className="display-it gold-text-shimmer">
+                {CRAFTING_EXCLUSIVITY.split(":")[1]?.trim()}
+              </span>
             </h2>
             <p
               className="mt-8 max-w-xl text-lg leading-[1.95]"
               style={{ color: "var(--text-secondary-dark)" }}
             >
-              Gold trim, velvet booths, crystal light — the same rooms members
-              keep on the live site, poured into this house.
+              {MANIFESTO} A members-preferred lounge where refinement, warmth, and
+              curated amenities define every visit.
             </p>
           </Reveal>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
@@ -205,8 +212,8 @@ export default function HomePage() {
                   </>
                 }
               >
-                Staff who remember how you like your second drink. A house that reads
-                the room before you do.
+                Our dedicated staff tailors every aspect of your visit to
+                perfection — impeccable service from the first pour to the last.
               </NumeralCard>
             </Reveal>
             <Reveal delay={160} direction="scale">
@@ -221,8 +228,8 @@ export default function HomePage() {
                   </>
                 }
               >
-                Velvet quiet, gold detail, a single signature scent. Every surface
-                designed to be remembered, not noticed.
+                From the moment you arrive, you&rsquo;re enveloped in refinement and
+                warmth — a VIP atmosphere that blends sophistication with ease.
               </NumeralCard>
             </Reveal>
             <Reveal delay={320} direction="scale">
@@ -237,8 +244,8 @@ export default function HomePage() {
                   </>
                 }
               >
-                A small circle, kept small on purpose. Priority reservations, guest
-                privileges, the unspoken hand on the door.
+                Members-preferred access to an exclusive community, private events,
+                exclusive offers, and personalized services.
               </NumeralCard>
             </Reveal>
           </div>
@@ -275,8 +282,7 @@ export default function HomePage() {
                   className="mt-12 max-w-xl text-lg leading-[1.95]"
                   style={{ color: "var(--text-secondary-dark)" }}
                 >
-                  We don&rsquo;t build evenings. We curate them — pour by pour, glance
-                  by glance, until the moment becomes its own small architecture.
+                  {LUXURY_IN_DETAILS}
                 </p>
               </Reveal>
               <Reveal delay={420} direction="up">
@@ -316,8 +322,8 @@ export default function HomePage() {
                   color: "var(--text-primary-dark)",
                 }}
               >
-                Seven nights,{" "}
-                <span className="display-it gold-text-shimmer">seven moods.</span>
+                Monday through Saturday,{" "}
+                <span className="display-it gold-text-shimmer">plus R&amp;B Fridays.</span>
               </h2>
             </Reveal>
             <Reveal delay={160} direction="right">

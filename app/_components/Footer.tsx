@@ -135,7 +135,7 @@ export default function Footer() {
             <p className="smallcaps opacity-70">
               &copy; {new Date().getFullYear()} Hemings Group, LLC
             </p>
-            <p className="smallcaps opacity-50">Birmingham &middot; Est.</p>
+            <p className="smallcaps opacity-50">Birmingham &middot; Est. 2023</p>
           </div>
         </Container>
       </div>

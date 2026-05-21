@@ -5,11 +5,12 @@ import Reveal from "../_components/Reveal";
 import ContactForm from "../_components/ContactForm";
 import HoverLink from "../_components/HoverLink";
 import VenuePhoto from "../_components/VenuePhoto";
+import { CONTACT_TAGLINE } from "@/lib/copy";
 
 export const metadata = {
   title: "Contact — Hemings Group",
   description:
-    "Find Hemings in Birmingham. Address, hours, and the brief inquiry for membership.",
+    "Contact Hemings Group in Birmingham — 1623 2nd Ave N, Suite 106. Members-preferred lounge inquiries welcome.",
 };
 
 const HOURS = [
@@ -58,8 +59,10 @@ export default function ContactPage() {
               className="mt-10 max-w-xl text-lg leading-[1.95]"
               style={{ color: "var(--text-secondary-dark)" }}
             >
-              The address is Birmingham. The door is on 2nd Avenue. Beyond that, the
-              evening is yours to shape.
+              {CONTACT_TAGLINE}
+              <span className="block mt-6 text-base opacity-90">
+                1623 2nd Ave N, Suite 106 — Birmingham, AL 35203
+              </span>
             </p>
           </Reveal>
         </Container>

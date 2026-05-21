@@ -4,6 +4,7 @@ import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import MarbleBackground from "./_components/MarbleBackground";
 import "./globals.css";
+import { LOUNGE_INTRO, MANIFESTO, TAGLINE } from "@/lib/copy";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -28,13 +29,12 @@ const italiana = Italiana({
 });
 
 export const metadata: Metadata = {
-  title: "Hemings Group — Your Experience is Everything",
-  description:
-    "A members-preferred lounge in Birmingham, Alabama. Where elegance and exclusivity equal an unforgettable experience.",
+  title: `Hemings Group — ${TAGLINE}`,
+  description: `${LOUNGE_INTRO.slice(0, 155)}…`,
   metadataBase: new URL("https://hemingsgroup.com"),
   openGraph: {
-    title: "Hemings Group — Your Experience is Everything",
-    description: "A members-preferred lounge in Birmingham, Alabama. Where elegance and exclusivity equal an unforgettable experience.",
+    title: `Hemings Group — ${TAGLINE}`,
+    description: MANIFESTO,
     url: "https://hemingsgroup.com",
     siteName: "Hemings Group",
     images: [

@@ -95,7 +95,9 @@ export default function MenuPage() {
               className="mt-10 max-w-xl text-lg leading-[1.95]"
               style={{ color: "var(--text-secondary-dark)" }}
             >
-              Every bottle in our cellar and ingredient in our bar is chosen by hand. We pour slowly, mix with intention, and serve with distinction.
+              Indulge in exquisite cocktails expertly crafted by our mixologists, or
+              savor delectable bites prepared by our talented chefs — sophistication
+              in every drink.
             </p>
           </Reveal>
         </Container>

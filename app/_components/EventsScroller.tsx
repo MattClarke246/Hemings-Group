@@ -1,13 +1,16 @@
 import GlassCard from "./GlassCard";
 
 const NIGHTS = [
-  { day: "Mon", name: "The Tasting", desc: "Curated spirits, low light, lower voices." },
-  { day: "Tue", name: "Velvet Hours", desc: "Live jazz under poured-gold sconces." },
-  { day: "Wed", name: "The Vintage", desc: "Aged pours, vinyl, the older crowd's pulse." },
-  { day: "Thu", name: "Happy Hour", desc: "A weeknight that quietly outshines the weekend." },
-  { day: "Fri", name: "R&B Fridays", desc: "The room as it was meant to sound." },
-  { day: "Sat", name: "Aftermath", desc: "The house at full intention.", flagship: true },
-  { day: "Sun", name: "Last Light", desc: "Slow service, longer goodbyes." },
+  { day: "Mon", name: "Monday", desc: "RSVP for your Monday evening at Hemings." },
+  { day: "Tue", name: "Tuesday", desc: "RSVP for Tuesday — unwind in the lounge." },
+  { day: "Wed", name: "Wednesday", desc: "Midweek members-preferred hospitality." },
+  {
+    day: "Thu",
+    name: "Happy Hour Thursday",
+    desc: "Relaxation, connection, and good conversation.",
+  },
+  { day: "Fri", name: "R&B Fridays", desc: "The room as it was meant to sound.", flagship: true },
+  { day: "Sat", name: "Saturday", desc: "Reserve your Saturday at Hemings.", flagship: true },
 ];
 
 export default function EventsScroller() {

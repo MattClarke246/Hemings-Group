@@ -5,6 +5,8 @@ import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 import Logo from "../_components/Logo";
+import NavyAgate from "../_components/NavyAgate";
+import GoldLeaf from "../_components/GoldLeaf";
 
 export const metadata = {
   title: "About — Hemings Group",
@@ -115,33 +117,41 @@ export default function AboutPage() {
               </GlassCard>
             </Reveal>
 
-            {/* GOLD OUTLINED LOGO CARD */}
+            {/* REVERTED TO NAVY AGATE CANVAS CARD */}
             <Reveal delay={200} direction="right">
-              <div
-                className="relative h-full overflow-hidden rounded-[20px] border flex flex-col items-center justify-center p-12 md:p-16 text-center group"
-                style={{
-                  borderColor: "rgba(198, 167, 94, 0.30)",
-                  minHeight: "420px",
-                  background: "rgba(13, 21, 37, 0.4)",
-                }}
-              >
-                <Logo
-                  size={160}
-                  variant="gold"
-                  className="mb-8 transition-transform duration-700 group-hover:scale-105"
+              <div className="relative h-full overflow-hidden rounded-[20px] border" style={{ borderColor: "rgba(198, 167, 94, 0.30)", minHeight: "420px" }}>
+                <div className="absolute inset-0 -z-0">
+                  <NavyAgate intensity={1.15} />
+                  <GoldLeaf density={1.2} />
+                </div>
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "rgba(13, 21, 37, 0.35)", backdropFilter: "blur(2px)" }}
                 />
-                <p
-                  className="smallcaps mb-4 tracking-wide-caps"
-                  style={{ color: "var(--text-gold-dark)" }}
-                >
-                  The Mark
-                </p>
-                <p
-                  className="mt-2 leading-[1.95] max-w-sm text-sm"
-                  style={{ color: "var(--text-secondary-dark)" }}
-                >
-                  The signature of elegance and distinction. Outlined in gold, representing our absolute commitment to luxury and detail.
-                </p>
+                <div className="relative z-10 flex h-full flex-col justify-end p-12 md:p-16">
+                  <p
+                    className="smallcaps mb-6 tracking-wide-caps"
+                    style={{ color: "var(--text-gold-dark)" }}
+                  >
+                    Our Cloth
+                  </p>
+                  <p
+                    className="display-airy gold-text-shimmer"
+                    style={{ fontSize: "clamp(32px, 3.8vw, 52px)" }}
+                  >
+                    Navy, beige,
+                    <br />
+                    gold.
+                  </p>
+                  <p
+                    className="mt-8 leading-[1.95]"
+                    style={{ color: "var(--text-secondary-dark)" }}
+                  >
+                    A house that pours its colors the way it pours its drinks — with
+                    restraint, with weight, with the understanding that less is the
+                    luxury.
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>

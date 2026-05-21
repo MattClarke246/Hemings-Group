@@ -11,12 +11,28 @@ import Logo from "./_components/Logo";
 export default function HomePage() {
   return (
     <>
-      {/* ── HERO — full bleed, floats directly on marble ── */}
-      <section className="relative min-h-[100svh] flex items-center pt-36 pb-32 md:pt-44 md:pb-40">
+      {/* ── HERO — full bleed with original venue entrance photograph ── */}
+      <section className="relative min-h-[100svh] flex items-center pt-36 pb-32 md:pt-44 md:pb-40 overflow-hidden">
+        {/* Background Image Container */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: "url('/original_hero.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 40%",
+          }}
+        />
+        {/* Navy Overlay to blend with the agates theme and keep the text readable */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background: "linear-gradient(to bottom, rgba(13, 21, 37, 0.40) 0%, rgba(13, 21, 37, 0.75) 70%, rgba(13, 21, 37, 0.95) 100%)",
+          }}
+        />
         <GoldDust />
         <Container className="relative z-10 flex flex-col items-center text-center">
           <Reveal direction="scale" className="mb-6">
-            <Logo size={140} variant="white" />
+            <Logo size={180} variant="white" />
           </Reveal>
           <Reveal direction="clip">
             <MetallicDivider width={80} className="mx-auto" />
@@ -215,7 +231,7 @@ export default function HomePage() {
               </Reveal>
             </div>
             <Reveal delay={300} direction="right" className="hidden md:flex justify-center">
-              <GoldSplash size={420} className="opacity-95" />
+              <Logo size={320} variant="gold" className="transition-transform duration-700 hover:scale-105" />
             </Reveal>
           </div>
         </Container>

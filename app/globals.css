@@ -28,11 +28,11 @@
   --beige-300: #d6c4a5;
   --silk-400:  #b39e7a;
 
-  /* Text on marble / dark surfaces */
-  --text-primary-dark:   #ffffff;
-  --text-secondary-dark: rgba(255, 255, 255, 0.88);
-  --text-muted-dark:     rgba(255, 255, 255, 0.55);
-  --text-gold-dark:      rgba(255, 255, 255, 0.72);
+  /* Text on marble / dark surfaces — warm ivory body, luminous gold labels */
+  --text-primary-dark:   #f5ebd6;
+  --text-secondary-dark: #e2d6be;
+  --text-muted-dark:     #a89878;
+  --text-gold-dark:      #f0d896;
 
   /* Text on glass-light surfaces */
   --text-primary:   #f0e6ce;
@@ -340,18 +340,19 @@ main {
   color: transparent;
 }
 
-/* Luminous shimmer on entry */
+/* Luminous shimmer on entry — bright metallics for readability on marble & photos */
 .gold-text-shimmer {
   background: linear-gradient(
     110deg,
-    #8c6f30 0%,
-    #C6A75E 18%,
-    #fff5d4 32%,
-    #f5e3a8 42%,
-    #e8c878 52%,
-    #C6A75E 64%,
-    #8c6f30 82%,
-    #5a4419 100%
+    #d4ae5a 0%,
+    #e8c878 14%,
+    #fff5d4 28%,
+    #fffbf0 38%,
+    #f5e3a8 48%,
+    #e8c878 58%,
+    #d4ae5a 72%,
+    #c9a84a 86%,
+    #b09148 100%
   );
   background-size: 280% 100%;
   background-position: 100% 50%;
@@ -360,17 +361,10 @@ main {
   -webkit-text-fill-color: transparent;
   color: transparent;
   transition: background-position 2000ms var(--ease);
+  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.5));
 }
 [data-reveal="visible"] .gold-text-shimmer {
   background-position: 0% 50%;
-}
-
-/* Main content: white accent lines — gold gradient clashes on marble & photos */
-main .gold-text-shimmer {
-  background: none;
-  -webkit-text-fill-color: var(--text-primary-dark);
-  color: var(--text-primary-dark);
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
 }
 
 /* Metallic pulse — adds a slow highlight sweep to gold text */

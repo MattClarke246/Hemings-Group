@@ -4,6 +4,7 @@ import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import ContactForm from "../_components/ContactForm";
 import HoverLink from "../_components/HoverLink";
+import VenuePhoto from "../_components/VenuePhoto";
 
 export const metadata = {
   title: "Contact — Hemings Group",
@@ -60,6 +61,19 @@ export default function ContactPage() {
               The address is Birmingham. The door is on 2nd Avenue. Beyond that, the
               evening is yours to shape.
             </p>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* ── FIND THE DOOR — entrance from live site ── */}
+      <section className="py-16 md:py-24">
+        <Container>
+          <Reveal direction="up">
+            <VenuePhoto
+              src="/venue-interior-1.jpg"
+              alt="Hemings lounge interior with gold mirrors, warm lighting, and members gathering"
+              aspect="aspect-[21/9] min-h-[220px] md:min-h-[320px]"
+            />
           </Reveal>
         </Container>
       </section>

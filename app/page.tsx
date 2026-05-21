@@ -6,6 +6,7 @@ import Reveal from "./_components/Reveal";
 import EventsScroller from "./_components/EventsScroller";
 import GoldDust from "./_components/GoldDust";
 import Logo from "./_components/Logo";
+import VenuePhoto from "./_components/VenuePhoto";
 
 export default function HomePage() {
   return (
@@ -103,6 +104,63 @@ export default function HomePage() {
             </Reveal>
             <MetallicDivider width={140} className="mt-12" />
           </Reveal>
+        </Container>
+      </section>
+
+      {/* ── THE ROOM — venue photography from hemingsgroup.com ── */}
+      <section className="py-28 md:py-44">
+        <Container>
+          <Reveal className="mb-16 max-w-3xl" direction="left">
+            <p
+              className="smallcaps mb-6 tracking-wide-caps"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
+              The Room
+            </p>
+            <h2
+              className="display-airy"
+              style={{
+                fontSize: "var(--t-h1)",
+                color: "var(--text-primary-dark)",
+              }}
+            >
+              Crafted for{" "}
+              <span className="display-it gold-text-shimmer">the evening.</span>
+            </h2>
+            <p
+              className="mt-8 max-w-xl text-lg leading-[1.95]"
+              style={{ color: "var(--text-secondary-dark)" }}
+            >
+              Gold trim, velvet booths, crystal light — the same rooms members
+              keep on the live site, poured into this house.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
+            <Reveal delay={0} direction="scale" className="md:col-span-7">
+              <VenuePhoto
+                src="/venue-about.jpg"
+                alt="Hemings bar with crystal chandeliers, gold-framed panels, and tufted seating"
+                aspect="aspect-[16/10] md:aspect-auto md:min-h-[420px]"
+                priority
+              />
+            </Reveal>
+            <div className="flex flex-col gap-8 md:col-span-5">
+              <Reveal delay={120} direction="up">
+                <VenuePhoto
+                  src="/venue_1.jpg"
+                  alt="Members gathered in rose velvet booths with gold trim at Hemings"
+                  aspect="aspect-[4/3]"
+                />
+              </Reveal>
+              <Reveal delay={240} direction="up">
+                <VenuePhoto
+                  src="/venue-sections.jpg"
+                  alt="Craft cocktail on marble with gold edge at Hemings lounge"
+                  aspect="aspect-[4/3]"
+                />
+              </Reveal>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -229,8 +287,12 @@ export default function HomePage() {
                 </div>
               </Reveal>
             </div>
-            <Reveal delay={300} direction="right" className="hidden md:flex justify-center">
-              <Logo size={320} variant="gold" className="transition-transform duration-700 hover:scale-105" />
+            <Reveal delay={300} direction="right" className="hidden md:block">
+              <VenuePhoto
+                src="/venue_2.jpg"
+                alt="Elegant lounge gathering with gold mirrors and white seating at Hemings"
+                aspect="aspect-[3/4] min-h-[480px]"
+              />
             </Reveal>
           </div>
         </Container>

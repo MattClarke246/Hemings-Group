@@ -1,12 +1,12 @@
 import Container from "../_components/Container";
 import GlassCard from "../_components/GlassCard";
-
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 import Logo from "../_components/Logo";
 import NavyAgate from "../_components/NavyAgate";
 import GoldLeaf from "../_components/GoldLeaf";
+import VenuePhoto from "../_components/VenuePhoto";
 
 export const metadata = {
   title: "About — Hemings Group",
@@ -32,8 +32,23 @@ const PILLARS = [
 export default function AboutPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36">
+      {/* ── HERO — bar interior from live site ── */}
+      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36 overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: "url('/venue-about.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 35%",
+          }}
+        />
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.88) 100%)",
+          }}
+        />
         <Container className="relative z-10">
           <Reveal direction="clip">
             <MetallicDivider width={80} />
@@ -251,19 +266,20 @@ export default function AboutPage() {
                 </div>
               </Reveal>
             </div>
-            <div className="md:col-span-7">
-              <Reveal direction="right" className="relative group">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,167,94,0.25)_0%,transparent_75%)] pointer-events-none -z-10" />
-                <div
-                  className="overflow-hidden rounded-[24px] border transition-all duration-700 group-hover:shadow-[0_0_50px_rgba(198,167,94,0.2)]"
-                  style={{ borderColor: "rgba(198, 167, 94, 0.35)" }}
-                >
-                  <img
-                    src="/venue_1.jpg"
-                    alt="Guests in plush velvet gold-trimmed seating at Hemings Lounge"
-                    className="w-full h-auto object-cover transition-transform duration-[1800ms] group-hover:scale-105"
-                  />
-                </div>
+            <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <Reveal direction="right">
+                <VenuePhoto
+                  src="/venue_1.jpg"
+                  alt="Guests in plush velvet gold-trimmed seating at Hemings Lounge"
+                  aspect="aspect-[3/4] sm:col-span-2 sm:max-h-[520px]"
+                />
+              </Reveal>
+              <Reveal direction="up" delay={160}>
+                <VenuePhoto
+                  src="/venue-interior-1.jpg"
+                  alt="Members socializing in the gold-accented Hemings lounge"
+                  aspect="aspect-square"
+                />
               </Reveal>
             </div>
           </div>

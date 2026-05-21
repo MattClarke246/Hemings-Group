@@ -39,10 +39,10 @@ export const metadata: Metadata = {
     siteName: "Hemings Group",
     images: [
       {
-        url: "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_630,w_1200,f_auto,q_auto/6593842/328428_679671.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Hemings Group Logo Background",
+        url: "/venue-about.jpg",
+        width: 2048,
+        height: 1536,
+        alt: "Hemings bar — crystal chandeliers and gold-trimmed elegance",
       },
     ],
     locale: "en_US",

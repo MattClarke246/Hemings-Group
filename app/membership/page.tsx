@@ -4,6 +4,7 @@ import Button from "../_components/Button";
 import Logo from "../_components/Logo";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
+import VenuePhoto from "../_components/VenuePhoto";
 
 export const metadata = {
   title: "Membership — Hemings Group",
@@ -139,6 +140,47 @@ export default function MembershipPage() {
                 </GlassCard>
               </Reveal>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── THE ENTRANCE — members-preferred signage from live site ── */}
+      <section className="py-28 md:py-40">
+        <Container>
+          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+            <Reveal direction="left">
+              <VenuePhoto
+                src="/original_hero.png"
+                alt="Hemings entrance with gold Members Preferred signage and lit portico ceiling"
+                aspect="aspect-[4/3]"
+              />
+            </Reveal>
+            <Reveal delay={200} direction="right">
+              <p
+                className="smallcaps mb-6 tracking-wide-caps"
+                style={{ color: "var(--text-gold-dark)" }}
+              >
+                Members Preferred
+              </p>
+              <h2
+                className="display-airy"
+                style={{
+                  fontSize: "var(--t-h2)",
+                  color: "var(--text-primary-dark)",
+                }}
+              >
+                The door is{" "}
+                <span className="display-it gold-text-shimmer">intentional.</span>
+              </h2>
+              <p
+                className="mt-8 text-lg leading-[1.95]"
+                style={{ color: "var(--text-secondary-dark)" }}
+              >
+                Est. 2023 — the same threshold that greets members on
+                hemingsgroup.com. Gold light, classical stone, a portico that
+                sets the tone before the first pour.
+              </p>
+            </Reveal>
           </div>
         </Container>
       </section>

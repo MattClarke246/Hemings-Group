@@ -4,6 +4,7 @@ import Logo from "../_components/Logo";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
+import VenuePhoto from "../_components/VenuePhoto";
 
 export const metadata = {
   title: "Events — Hemings Group",
@@ -123,8 +124,23 @@ function NightCard({ n, delay = 0, dir }: { n: Night; delay?: number; dir?: "lef
 export default function EventsPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36">
+      {/* ── HERO — lounge atmosphere from live site ── */}
+      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36 overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: "url('/venue_2.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 40%",
+          }}
+        />
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 100%)",
+          }}
+        />
         <Container className="relative z-10">
           <Reveal direction="clip">
             <MetallicDivider width={80} />
@@ -225,8 +241,12 @@ export default function EventsPage() {
                   </div>
                 </Reveal>
               </div>
-              <Reveal direction="right" className="flex justify-center relative">
-                <Logo size={240} variant="gold" className="animate-pulse" />
+              <Reveal direction="right" className="relative">
+                <VenuePhoto
+                  src="/venue_2.jpg"
+                  alt="R&B Fridays crowd in the Hemings lounge with gold mirrors and warm lighting"
+                  aspect="aspect-[4/5] min-h-[360px]"
+                />
               </Reveal>
             </div>
           </GlassCard>

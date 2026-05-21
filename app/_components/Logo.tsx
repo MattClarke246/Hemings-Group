@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 interface LogoProps {
   size?: number;
   className?: string;
@@ -9,31 +7,31 @@ interface LogoProps {
 }
 
 export default function Logo({ size = 80, className = "", variant = "gold" }: LogoProps) {
-  // Filter to convert black to gold (#c6a75e) or white from inverted black
-  const logoFilter =
+  /*
+   * hemings-logo.png is a transparent PNG with black strokes.
+   *   - "white" variant: invert(1) turns black strokes to white.
+   *   - "gold"  variant: invert + sepia + hue-rotate to tint to metallic gold (#c6a75e).
+   *
+   * No mix-blend-mode needed — the PNG is already transparent.
+   */
+  const filter =
     variant === "gold"
-      ? "invert(70%) sepia(35%) saturate(500%) hue-rotate(7deg) brightness(95%) contrast(90%)"
-      : "invert(100%)";
+      ? "invert(1) sepia(1) saturate(3) hue-rotate(7deg) brightness(0.82)"
+      : "invert(1) brightness(1)";
 
   return (
-    <div
-      className={`relative inline-block overflow-hidden ${className}`}
+    <img
+      src="/hemings-logo.png"
+      alt="Hemings Group Logo"
+      width={size}
+      height={size}
+      className={`pointer-events-none select-none ${className}`}
       style={{
         width: size,
         height: size,
-        mixBlendMode: "screen", // Removes the black background after inversion
+        objectFit: "contain",
+        filter,
       }}
-    >
-      <img
-        src="/original_bg.jpg"
-        alt="Hemings Group Logo"
-        width={size}
-        height={size}
-        className="w-full h-full object-contain"
-        style={{
-          filter: `invert(100%) ${logoFilter}`, // First invert to get white lines on black, then apply tint filter
-        }}
-      />
-    </div>
+    />
   );
 }

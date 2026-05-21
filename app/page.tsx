@@ -1,7 +1,6 @@
 import Container from "./_components/Container";
 import Button from "./_components/Button";
 import NumeralCard from "./_components/NumeralCard";
-import GoldSplash from "./_components/GoldSplash";
 import MetallicDivider from "./_components/MetallicDivider";
 import Reveal from "./_components/Reveal";
 import EventsScroller from "./_components/EventsScroller";

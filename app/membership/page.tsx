@@ -1,7 +1,7 @@
 import Container from "../_components/Container";
 import GlassCard from "../_components/GlassCard";
 import Button from "../_components/Button";
-import GoldSplash from "../_components/GoldSplash";
+import Logo from "../_components/Logo";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 
@@ -181,7 +181,7 @@ export default function MembershipPage() {
             </Reveal>
             <Reveal delay={500} direction="scale">
               <div className="mt-16 flex justify-center">
-                <GoldSplash size={200} className="opacity-88" />
+                <Logo size={160} variant="gold" />
               </div>
             </Reveal>
           </Reveal>

@@ -1,6 +1,6 @@
 import Container from "../_components/Container";
 import GlassCard from "../_components/GlassCard";
-import GoldSplash from "../_components/GoldSplash";
+
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
@@ -274,7 +274,7 @@ export default function AboutPage() {
       <section className="py-24 md:py-32">
         <div className="flex flex-col items-center text-center gap-8">
           <Reveal direction="scale">
-            <GoldSplash size={200} className="opacity-92" />
+            <Logo size={160} variant="gold" />
           </Reveal>
           <Reveal delay={200} direction="up">
             <p

@@ -1,6 +1,6 @@
 import Container from "../_components/Container";
 import GlassCard from "../_components/GlassCard";
-import GoldSplash from "../_components/GoldSplash";
+import Logo from "../_components/Logo";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
@@ -226,7 +226,7 @@ export default function EventsPage() {
                 </Reveal>
               </div>
               <Reveal direction="right" className="flex justify-center relative">
-                <GoldSplash size={300} className="opacity-90 animate-pulse" />
+                <Logo size={240} variant="gold" className="animate-pulse" />
               </Reveal>
             </div>
           </GlassCard>
@@ -237,7 +237,7 @@ export default function EventsPage() {
       <section className="py-12 md:py-24">
         <div className="flex flex-col items-center text-center gap-6">
           <Reveal direction="scale">
-            <GoldSplash size={150} className="opacity-80" />
+            <Logo size={120} variant="gold" />
           </Reveal>
           <Reveal delay={180} direction="up">
             <p

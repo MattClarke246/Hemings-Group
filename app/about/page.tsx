@@ -273,19 +273,12 @@ export default function AboutPage() {
                 </div>
               </Reveal>
             </div>
-            <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="md:col-span-7">
               <Reveal direction="right">
                 <VenuePhoto
                   src="/venue_1.jpg"
                   alt="Guests in plush velvet gold-trimmed seating at Hemings Lounge"
-                  aspect="aspect-[3/4] sm:col-span-2 sm:max-h-[520px]"
-                />
-              </Reveal>
-              <Reveal direction="up" delay={160}>
-                <VenuePhoto
-                  src="/venue-interior-1.jpg"
-                  alt="Members socializing in the gold-accented Hemings lounge"
-                  aspect="aspect-square"
+                  aspect="aspect-[4/3] md:aspect-[16/10]"
                 />
               </Reveal>
             </div>

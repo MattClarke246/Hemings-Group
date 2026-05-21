@@ -1,11 +1,10 @@
+import Image from "next/image";
 import Container from "../_components/Container";
 import GlassCard from "../_components/GlassCard";
 import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 import Logo from "../_components/Logo";
-import NavyAgate from "../_components/NavyAgate";
-import GoldLeaf from "../_components/GoldLeaf";
 import VenuePhoto from "../_components/VenuePhoto";
 
 export const metadata = {
@@ -132,18 +131,26 @@ export default function AboutPage() {
               </GlassCard>
             </Reveal>
 
-            {/* REVERTED TO NAVY AGATE CANVAS CARD */}
             <Reveal delay={200} direction="right">
-              <div className="relative h-full overflow-hidden rounded-[20px] border" style={{ borderColor: "rgba(198, 167, 94, 0.30)", minHeight: "420px" }}>
-                <div className="absolute inset-0 -z-0">
-                  <NavyAgate intensity={1.15} />
-                  <GoldLeaf density={1.2} />
-                </div>
+              <div
+                className="relative h-full overflow-hidden rounded-[20px] border"
+                style={{ borderColor: "rgba(198, 167, 94, 0.30)", minHeight: "420px" }}
+              >
+                <Image
+                  src="/venue_1.jpg"
+                  alt="Rose velvet booths with gold trim — the cloth and color of Hemings"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center"
+                />
                 <div
                   className="absolute inset-0"
-                  style={{ background: "rgba(0, 0, 0, 0.35)", backdropFilter: "blur(2px)" }}
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.25) 100%)",
+                  }}
                 />
-                <div className="relative z-10 flex h-full flex-col justify-end p-12 md:p-16">
+                <div className="relative z-10 flex h-full min-h-[420px] flex-col justify-end p-12 md:p-16">
                   <p
                     className="smallcaps mb-6 tracking-wide-caps"
                     style={{ color: "var(--text-gold-dark)" }}

@@ -39,7 +39,7 @@ export default function HomePage() {
         <GoldDust />
         <Container className="relative z-10 flex flex-col items-center text-center">
           <Reveal direction="scale" className="mb-6">
-            <Logo size={180} variant="white" />
+            <Logo size={300} variant="white" />
           </Reveal>
           <Reveal direction="clip">
             <MetallicDivider width={80} className="mx-auto" />

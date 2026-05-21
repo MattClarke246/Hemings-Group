@@ -6,7 +6,6 @@ import MetallicDivider from "./_components/MetallicDivider";
 import Reveal from "./_components/Reveal";
 
 const EventsScroller = dynamic(() => import("./_components/EventsScroller"));
-import GoldDust from "./_components/GoldDust";
 import HeroImage from "./_components/HeroImage";
 import Logo from "./_components/Logo";
 import VenuePhoto from "./_components/VenuePhoto";
@@ -31,7 +30,6 @@ export default function HomePage() {
             background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.75) 70%, rgba(0, 0, 0, 0.95) 100%)",
           }}
         />
-        <GoldDust />
         <Container className="relative z-10 flex flex-col items-center text-center">
           <Reveal direction="scale" className="mb-6">
             <Logo

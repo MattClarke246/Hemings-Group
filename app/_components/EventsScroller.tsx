@@ -15,17 +15,21 @@ const NIGHTS = [
 
 export default function EventsScroller() {
   return (
-    <div className="-mx-6 md:-mx-10">
+    <div className="-mx-4 sm:-mx-6 md:-mx-10">
       <div
-        className="flex gap-5 overflow-x-auto px-6 pb-6 md:px-10"
-        style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(198,167,94,0.3) transparent" }}
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 scroll-smooth sm:gap-5 sm:px-6 md:px-10"
+        style={{
+          scrollbarWidth: "thin",
+          scrollbarColor: "rgba(198,167,94,0.3) transparent",
+          WebkitOverflowScrolling: "touch",
+        }}
       >
         {NIGHTS.map((n) => (
           <GlassCard
             key={n.day}
             corners={n.flagship}
-            padding="p-7"
-            className="min-w-[250px] max-w-[270px] flex-shrink-0 transition-transform duration-300 hover:-translate-y-1"
+            padding="p-5 sm:p-7"
+            className="w-[min(82vw,250px)] flex-shrink-0 snap-start transition-transform duration-300 hover:-translate-y-1 sm:w-[250px]"
           >
             <p
               className="smallcaps"
@@ -36,7 +40,7 @@ export default function EventsScroller() {
             <p
               className="display mt-3"
               style={{
-                fontSize: "26px",
+                fontSize: "clamp(22px, 5vw, 26px)",
                 lineHeight: 1.1,
                 color: "var(--text-primary-dark)",
               }}
@@ -44,7 +48,7 @@ export default function EventsScroller() {
               {n.name}
             </p>
             <p
-              className="mt-3 text-[14px] leading-[1.7]"
+              className="mt-3 text-[13px] leading-[1.65] sm:text-[14px] sm:leading-[1.7]"
               style={{ color: "var(--text-secondary-dark)" }}
             >
               {n.desc}

@@ -28,6 +28,12 @@ const italiana = Italiana({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   title: `Hemings Group — ${TAGLINE}`,
   description: `${LOUNGE_INTRO.slice(0, 155)}…`,

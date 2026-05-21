@@ -5,7 +5,7 @@ import MetallicDivider from "../_components/MetallicDivider";
 import Reveal from "../_components/Reveal";
 import Button from "../_components/Button";
 import VenuePhoto from "../_components/VenuePhoto";
-import { HAPPY_HOUR, LOUNGE_INTRO } from "@/lib/copy";
+import { LOUNGE_INTRO } from "@/lib/copy";
 
 export const metadata = {
   title: "Events — Hemings Group",
@@ -39,7 +39,8 @@ const WEEKNIGHTS: Night[] = [
   {
     day: "Thursday",
     name: "Happy Hour Thursday",
-    desc: HAPPY_HOUR,
+    desc:
+      "Relaxation and connection for members and guests — unwind, network, and enjoy good conversation in a cozy atmosphere.",
   },
 ];
 
@@ -63,7 +64,7 @@ function NightCard({ n, delay = 0, dir }: { n: Night; delay?: number; dir?: "lef
     <Reveal delay={delay} direction={dir ?? "scale"} className="h-full">
       <GlassCard
         corners={Boolean(n.flagship)}
-        padding="p-10 md:p-12"
+        padding="p-6 sm:p-10 md:p-12"
         className="h-full flex flex-col justify-between"
       >
         <div>
@@ -85,7 +86,10 @@ function NightCard({ n, delay = 0, dir }: { n: Night; delay?: number; dir?: "lef
           >
             {n.name}
           </h3>
-          <p className="leading-[1.95]" style={{ color: "var(--text-secondary-dark)" }}>
+          <p
+            className="text-[15px] leading-[1.85] sm:text-base sm:leading-[1.95]"
+            style={{ color: "var(--text-secondary-dark)" }}
+          >
             {n.desc}
           </p>
         </div>
@@ -121,7 +125,7 @@ export default function EventsPage() {
   return (
     <>
       {/* ── HERO — lounge atmosphere from live site ── */}
-      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36 overflow-hidden">
+      <section className="relative flex min-h-[80svh] min-h-[80dvh] items-center overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-44 md:pb-36">
         <div
           className="absolute inset-0 -z-10"
           style={{
@@ -200,8 +204,8 @@ export default function EventsPage() {
       <section className="py-24 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,167,94,0.08)_0%,transparent_70%)] pointer-events-none" />
         <Container>
-          <GlassCard padding="p-12 md:p-20" className="relative overflow-hidden" corners>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <GlassCard padding="p-6 sm:p-12 md:p-20" className="relative overflow-hidden" corners>
+            <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
               <div>
                 <Reveal direction="left">
                   <p
@@ -226,11 +230,11 @@ export default function EventsPage() {
                   >
                     Our signature flagship night. Experience the smoothest R&B rhythms, high-end cocktails, and a room full of unmatched energy. Book a VIP section to secure your spot.
                   </p>
-                  <div className="flex gap-6">
-                    <Button href="/rsvp" variant="gold">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-6">
+                    <Button href="/rsvp" variant="gold" className="w-full sm:w-auto">
                       RSVP Now
                     </Button>
-                    <Button href="/contact" variant="ghost">
+                    <Button href="/contact" variant="ghost" className="w-full sm:w-auto">
                       Inquire VIP Table
                     </Button>
                   </div>

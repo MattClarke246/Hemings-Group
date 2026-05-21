@@ -39,7 +39,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── HERO — bar interior from live site ── */}
-      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36 overflow-hidden">
+      <section className="relative flex min-h-[80svh] min-h-[80dvh] items-center overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-44 md:pb-36">
         <div
           className="absolute inset-0 -z-10"
           style={{
@@ -69,7 +69,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={200} direction="up">
             <h1
-              className="display-airy max-w-[1000px]"
+              className="display-airy w-full max-w-[1000px] px-1"
               style={{
                 fontSize: "var(--t-h1)",
                 color: "var(--text-primary-dark)",
@@ -150,7 +150,7 @@ export default function AboutPage() {
                       "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.25) 100%)",
                   }}
                 />
-                <div className="relative z-10 flex h-full min-h-[420px] flex-col justify-end p-12 md:p-16">
+                <div className="relative z-10 flex h-full min-h-[320px] flex-col justify-end p-6 sm:min-h-[420px] sm:p-12 md:p-16">
                   <p
                     className="smallcaps mb-6 tracking-wide-caps"
                     style={{ color: "var(--text-gold-dark)" }}

@@ -47,7 +47,7 @@ export default function RsvpPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative min-h-[60svh] flex items-center pt-36 pb-16 md:pt-44 md:pb-24">
+      <section className="relative flex min-h-[60svh] min-h-[60dvh] items-center pt-28 pb-12 sm:pt-36 sm:pb-16 md:pt-44 md:pb-24">
         <Container className="relative z-10">
           <Reveal direction="clip">
             <MetallicDivider width={80} />

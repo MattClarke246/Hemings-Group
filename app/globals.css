@@ -45,9 +45,9 @@
   --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 160px;
 
   /* Type */
-  --t-display: clamp(64px, 10vw, 168px);
-  --t-h1:      clamp(44px, 5.5vw, 84px);
-  --t-h2:      clamp(32px, 3.4vw, 52px);
+  --t-display: clamp(36px, 11vw, 168px);
+  --t-h1:      clamp(32px, 8vw, 84px);
+  --t-h2:      clamp(26px, 5vw, 52px);
   --t-h3:      clamp(22px, 1.8vw, 30px);
   --t-body:    clamp(15px, 1.05vw, 17px);
   --t-label:   11px;
@@ -303,6 +303,8 @@ main {
   font-weight: 300;
   letter-spacing: -0.022em;
   line-height: 1.04;
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 .display-tight {
   font-family: "Fraunces", serif;
@@ -577,6 +579,52 @@ main {
 }
 [data-reveal="visible"][data-reveal-dir="clip"] {
   clip-path: inset(0 0% 0 0);
+}
+
+/* =========================================================================
+   MOBILE & SMALL VIEWPORTS
+   ========================================================================= */
+@media (max-width: 767px) {
+  .btn {
+    padding: 16px 28px;
+    letter-spacing: 0.22em;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .btn-ghost {
+    padding: 14px 0;
+  }
+
+  .btn-ghost::after {
+    bottom: 8px;
+  }
+
+  .smallcaps {
+    letter-spacing: 0.28em;
+  }
+
+  .signature {
+    letter-spacing: 0.32em;
+  }
+
+  .glass-card,
+  .glass-card-dark {
+    border-radius: 16px;
+  }
+}
+
+/* Safe areas for notched phones */
+@supports (padding: max(0px)) {
+  header > div:first-child {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 /* Reduced motion */

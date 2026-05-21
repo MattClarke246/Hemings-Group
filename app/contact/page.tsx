@@ -29,7 +29,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative min-h-[72svh] flex items-center pt-36 pb-24 md:pt-44 md:pb-32">
+      <section className="relative flex min-h-[72svh] min-h-[72dvh] items-center pt-28 pb-20 sm:pt-36 sm:pb-24 md:pt-44 md:pb-32">
         <Container className="relative z-10">
           <Reveal direction="clip">
             <MetallicDivider width={80} />
@@ -75,7 +75,7 @@ export default function ContactPage() {
             <VenuePhoto
               src="/venue-interior-1.jpg"
               alt="Hemings lounge interior with gold mirrors, warm lighting, and members gathering"
-              aspect="aspect-[21/9] min-h-[220px] md:min-h-[320px]"
+              aspect="aspect-[4/3] min-h-[200px] sm:aspect-[21/9] sm:min-h-[220px] md:min-h-[320px]"
             />
           </Reveal>
         </Container>
@@ -156,7 +156,7 @@ export default function ContactPage() {
                       {HOURS.map((h) => (
                         <li
                           key={h.day}
-                          className="flex justify-between gap-6 pb-1.5"
+                          className="flex flex-col gap-1 pb-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pb-1.5"
                           style={{
                             borderBottom: "1px solid rgba(198, 167, 94, 0.18)",
                             color: "var(--text-secondary-dark)",

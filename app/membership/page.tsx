@@ -44,7 +44,7 @@ export default function MembershipPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative min-h-[80svh] flex items-center pt-36 pb-28 md:pt-44 md:pb-36">
+      <section className="relative flex min-h-[80svh] min-h-[80dvh] items-center pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-44 md:pb-36">
         <Container className="relative z-10">
           <Reveal direction="clip">
             <MetallicDivider width={80} />

@@ -65,7 +65,7 @@ export default function MenuPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative min-h-[70svh] flex items-center pt-36 pb-24 md:pt-44 md:pb-32">
+      <section className="relative flex min-h-[70svh] min-h-[70dvh] items-center pt-28 pb-20 sm:pt-36 sm:pb-24 md:pt-44 md:pb-32">
         <Container className="relative z-10">
           <Reveal direction="clip">
             <MetallicDivider width={80} />

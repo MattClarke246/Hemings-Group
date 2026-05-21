@@ -5,7 +5,7 @@ export default function GlassCard({
   className = "",
   corners = false,
   dark = true,
-  padding = "p-8 md:p-10",
+  padding = "p-6 sm:p-8 md:p-10",
 }: {
   children: ReactNode;
   className?: string;

@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO — full bleed with original venue entrance photograph ── */}
-      <section className="relative min-h-[100svh] flex items-center pt-36 pb-32 md:pt-44 md:pb-40 overflow-hidden">
+      <section className="relative flex min-h-[100svh] min-h-[100dvh] items-center overflow-hidden pt-28 pb-24 sm:pt-32 sm:pb-28 md:pt-44 md:pb-40">
         {/* Background Image Container */}
         <div
           className="absolute inset-0 -z-10"
@@ -39,19 +39,25 @@ export default function HomePage() {
         <GoldDust />
         <Container className="relative z-10 flex flex-col items-center text-center">
           <Reveal direction="scale" className="mb-6">
-            <Logo size={300} variant="white" />
+            <Logo
+              variant="white"
+              className="mx-auto h-auto w-[min(72vw,280px)] sm:w-[min(68vw,300px)] md:w-[300px]"
+            />
           </Reveal>
           <Reveal direction="clip">
             <MetallicDivider width={80} className="mx-auto" />
           </Reveal>
           <Reveal delay={80}>
-            <p className="smallcaps mt-8 mb-10 tracking-wide-caps" style={{ color: "var(--text-gold-dark)" }}>
+            <p
+              className="smallcaps mt-6 mb-8 max-w-[90vw] tracking-wide-caps sm:mt-8 sm:mb-10"
+              style={{ color: "var(--text-gold-dark)" }}
+            >
               Hemings Group &nbsp;&middot;&nbsp; Birmingham, Alabama
             </p>
           </Reveal>
           <Reveal delay={160} direction="up">
             <h1
-              className="display-airy max-w-[1100px]"
+              className="display-airy w-full max-w-[1100px] px-2"
               style={{ fontSize: "var(--t-display)", color: "var(--text-primary-dark)" }}
             >
               Your Experience{" "}
@@ -60,18 +66,18 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={320} direction="up">
             <p
-              className="mt-12 max-w-xl text-lg leading-[1.95] mx-auto"
+              className="mx-auto mt-8 max-w-xl px-2 text-base leading-[1.9] sm:mt-12 sm:text-lg sm:leading-[1.95]"
               style={{ color: "var(--text-secondary-dark)" }}
             >
               {LOUNGE_INTRO}
             </p>
           </Reveal>
           <Reveal delay={480} direction="up">
-            <div className="mt-14 flex flex-wrap items-center justify-center gap-8">
-              <Button href="/membership" variant="gold">
+            <div className="mt-10 flex w-full max-w-sm flex-col items-stretch gap-4 sm:mt-14 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-8">
+              <Button href="/membership" variant="gold" className="w-full sm:w-auto">
                 Request Access
               </Button>
-              <Button href="#manifesto" variant="ghost">
+              <Button href="#manifesto" variant="ghost" className="w-full sm:w-auto">
                 The Experience
               </Button>
             </div>
@@ -80,7 +86,7 @@ export default function HomePage() {
       </section>
 
       {/* ── MANIFESTO STRIP — glass panel over marble ── */}
-      <section id="manifesto" className="glass-panel py-28 md:py-40">
+      <section id="manifesto" className="glass-panel py-20 sm:py-28 md:py-40">
         <Container>
           <Reveal className="flex flex-col items-center text-center" direction="scale">
             <MetallicDivider width={140} className="mb-12" />
@@ -113,9 +119,9 @@ export default function HomePage() {
       </section>
 
       {/* ── THE ROOM — venue photography from hemingsgroup.com ── */}
-      <section className="py-28 md:py-44">
+      <section className="py-20 sm:py-28 md:py-44">
         <Container>
-          <Reveal className="mb-16 max-w-3xl" direction="left">
+          <Reveal className="mb-12 max-w-3xl sm:mb-16" direction="left">
             <p
               className="smallcaps mb-6 tracking-wide-caps"
               style={{ color: "var(--text-gold-dark)" }}
@@ -172,7 +178,7 @@ export default function HomePage() {
       </section>
 
       {/* ── THREE PILLARS — open over marble ── */}
-      <section className="py-28 md:py-44 relative">
+      <section className="relative py-20 sm:py-28 md:py-44">
         <Container>
           <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
             <Reveal direction="left">
@@ -253,7 +259,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PHILOSOPHY — glass panel ── */}
-      <section className="glass-panel py-32 md:py-48">
+      <section className="glass-panel py-20 sm:py-32 md:py-48">
         <Container>
           <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-[1.3fr_1fr]">
             <div>
@@ -305,9 +311,9 @@ export default function HomePage() {
       </section>
 
       {/* ── EVENTS TEASER — open over marble ── */}
-      <section className="py-28 md:py-44">
+      <section className="py-20 sm:py-28 md:py-44">
         <Container>
-          <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+          <div className="mb-10 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
             <Reveal direction="left">
               <p
                 className="smallcaps mb-6 tracking-wide-caps"
@@ -340,9 +346,9 @@ export default function HomePage() {
       </section>
 
       {/* ── VISIT CTA — glass panel ── */}
-      <section className="glass-panel py-28 md:py-40">
+      <section className="glass-panel py-20 sm:py-28 md:py-40">
         <Container>
-          <Reveal className="grid grid-cols-1 items-center gap-12 md:grid-cols-2" direction="up">
+          <Reveal className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-12" direction="up">
             <div>
               <Reveal direction="left">
                 <p
@@ -383,8 +389,8 @@ export default function HomePage() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={200} direction="right" className="md:justify-self-end">
-              <Button href="/rsvp" variant="gold">
+            <Reveal delay={200} direction="right" className="w-full md:justify-self-end">
+              <Button href="/rsvp" variant="gold" className="w-full md:w-auto">
                 Reserve Your Evening
               </Button>
             </Reveal>

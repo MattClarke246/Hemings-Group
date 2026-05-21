@@ -22,7 +22,7 @@ export default function VenuePhoto({
 }: VenuePhotoProps) {
   return (
     <div
-      className={`group relative overflow-hidden rounded-[24px] border transition-all duration-700 hover:shadow-[0_0_50px_rgba(198,167,94,0.2)] ${aspect} ${className}`}
+      className={`group relative overflow-hidden rounded-[16px] border transition-all duration-700 hover:shadow-[0_0_50px_rgba(198,167,94,0.2)] sm:rounded-[24px] ${aspect} ${className}`}
       style={{ borderColor: "rgba(198, 167, 94, 0.35)" }}
     >
       <Image

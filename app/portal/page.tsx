@@ -34,7 +34,7 @@ export default function PortalPage() {
 
   return (
     <>
-      <section className="relative min-h-[90svh] flex items-center pt-36 pb-20">
+      <section className="relative flex min-h-[90svh] min-h-[90dvh] items-center pt-28 pb-16 sm:pt-36 sm:pb-20">
         <Container>
           <div className="max-w-md mx-auto">
             {success ? (

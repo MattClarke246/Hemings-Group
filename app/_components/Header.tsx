@@ -26,17 +26,24 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[var(--ease-aurum)] ${
         scrolled ? "header-scrolled" : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-5 md:px-10">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5 md:px-10">
         <Link
           href="/"
-          className="flex items-center gap-3 signature text-[15px] md:text-[17px] transition-opacity duration-300 hover:opacity-85"
-          style={{ color: "var(--text-gold-dark)", letterSpacing: "0.42em" }}
+          className="flex min-w-0 items-center gap-2 sm:gap-3 signature text-[13px] sm:text-[15px] md:text-[17px] transition-opacity duration-300 hover:opacity-85"
+          style={{ color: "var(--text-gold-dark)", letterSpacing: "0.28em" }}
           aria-label="Hemings Group home"
         >
           <Logo size={34} variant="gold" />
@@ -88,7 +95,10 @@ export default function Header() {
             borderColor: "rgba(198, 167, 94, 0.18)",
           }}
         >
-          <nav className="flex flex-col gap-2 px-6 py-6" aria-label="Mobile">
+          <nav
+            className="flex max-h-[min(70vh,520px)] flex-col gap-2 overflow-y-auto overscroll-contain px-4 py-6 sm:px-6"
+            aria-label="Mobile"
+          >
             {NAV.map((item) => (
               <Link
                 key={item.href}
